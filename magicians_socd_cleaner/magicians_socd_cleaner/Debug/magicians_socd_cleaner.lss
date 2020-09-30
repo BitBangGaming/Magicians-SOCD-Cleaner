@@ -3,29 +3,31 @@ magicians_socd_cleaner.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000550  2**0
+  0 .data         00000000  00800100  00800100  00000888  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004fc  00000000  00000000  00000054  2**1
+  1 .text         00000814  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000550  2**0
+  2 .bss          00000002  00800100  00800100  00000888  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000888  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000580  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000008b8  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000148  00000000  00000000  000005c0  2**0
+  5 .debug_aranges 00000148  00000000  00000000  000008f8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001456  00000000  00000000  00000708  2**0
+  6 .debug_info   00001841  00000000  00000000  00000a40  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000008f0  00000000  00000000  00001b5e  2**0
+  7 .debug_abbrev 00000926  00000000  00000000  00002281  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000a9d  00000000  00000000  0000244e  2**0
+  8 .debug_line   00000d1a  00000000  00000000  00002ba7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000238  00000000  00000000  00002eec  2**2
+  9 .debug_frame  00000238  00000000  00000000  000038c4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000704  00000000  00000000  00003124  2**0
+ 10 .debug_str    000007a8  00000000  00000000  00003afc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000069b  00000000  00000000  00003828  2**0
+ 11 .debug_loc    00000c97  00000000  00000000  000042a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000108  00000000  00000000  00003ec3  2**0
+ 12 .debug_ranges 00000108  00000000  00000000  00004f3b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -79,11 +81,11 @@ Disassembly of section .text:
   88:	1d 92       	st	X+, r1
 
 0000008a <.do_clear_bss_start>:
-  8a:	a0 30       	cpi	r26, 0x00	; 0
+  8a:	a2 30       	cpi	r26, 0x02	; 2
   8c:	b2 07       	cpc	r27, r18
   8e:	e1 f7       	brne	.-8      	; 0x88 <.do_clear_bss_loop>
-  90:	0e 94 69 02 	call	0x4d2	; 0x4d2 <main>
-  94:	0c 94 7c 02 	jmp	0x4f8	; 0x4f8 <_exit>
+  90:	0e 94 f5 03 	call	0x7ea	; 0x7ea <main>
+  94:	0c 94 08 04 	jmp	0x810	; 0x810 <_exit>
 
 00000098 <__bad_interrupt>:
   98:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -101,21 +103,21 @@ void CleanerXNeutral(uint8_t tempLeftState, uint8_t tempRightState)
   a2:	09 c0       	rjmp	.+18     	; 0xb6 <CleanerXNeutral+0x1a>
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
-  a4:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  a8:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+  a4:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  a8:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
-  ac:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  b0:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+  ac:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  b0:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
   b4:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
-  b6:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  ba:	0e 94 8e 01 	call	0x31c	; 0x31c <DirectionPressLeft>
+  b6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  ba:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
-  be:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  c2:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+  be:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  c2:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
   c6:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -123,21 +125,21 @@ void CleanerXNeutral(uint8_t tempLeftState, uint8_t tempRightState)
   ca:	09 c0       	rjmp	.+18     	; 0xde <CleanerXNeutral+0x42>
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
-  cc:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  d0:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+  cc:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  d0:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
-  d4:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  d8:	0e 94 a6 01 	call	0x34c	; 0x34c <DirectionPressRight>
+  d4:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  d8:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
   dc:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
-  de:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  e2:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+  de:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  e2:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
-  e6:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  ea:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+  e6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  ea:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
   ee:	08 95       	ret
 
 000000f0 <CleanerXLeft>:
@@ -153,21 +155,21 @@ void CleanerXLeft(uint8_t tempLeftState, uint8_t tempRightState)
   f6:	09 c0       	rjmp	.+18     	; 0x10a <CleanerXLeft+0x1a>
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
-  f8:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
-  fc:	0e 94 8e 01 	call	0x31c	; 0x31c <DirectionPressLeft>
+  f8:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+  fc:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
- 100:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 104:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 100:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 104:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
  108:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
- 10a:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 10e:	0e 94 8e 01 	call	0x31c	; 0x31c <DirectionPressLeft>
+ 10a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 10e:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
- 112:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 116:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 112:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 116:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
  11a:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -175,21 +177,21 @@ void CleanerXLeft(uint8_t tempLeftState, uint8_t tempRightState)
  11e:	09 c0       	rjmp	.+18     	; 0x132 <CleanerXLeft+0x42>
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
- 120:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 124:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 120:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 124:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
- 128:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 12c:	0e 94 a6 01 	call	0x34c	; 0x34c <DirectionPressRight>
+ 128:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 12c:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
  130:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
- 132:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 136:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 132:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 136:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
- 13a:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 13e:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 13a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 13e:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
  142:	08 95       	ret
 
 00000144 <CleanerXRight>:
@@ -205,21 +207,21 @@ void CleanerXRight(uint8_t tempLeftState, uint8_t tempRightState)
  14a:	09 c0       	rjmp	.+18     	; 0x15e <CleanerXRight+0x1a>
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
- 14c:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 150:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 14c:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 150:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
- 154:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 158:	0e 94 a6 01 	call	0x34c	; 0x34c <DirectionPressRight>
+ 154:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 158:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
  15c:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
- 15e:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 162:	0e 94 8e 01 	call	0x31c	; 0x31c <DirectionPressLeft>
+ 15e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 162:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
- 166:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 16a:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 166:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 16a:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
  16e:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -227,849 +229,1132 @@ void CleanerXRight(uint8_t tempLeftState, uint8_t tempRightState)
  172:	09 c0       	rjmp	.+18     	; 0x186 <CleanerXRight+0x42>
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
- 174:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 178:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 174:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 178:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
- 17c:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 180:	0e 94 a6 01 	call	0x34c	; 0x34c <DirectionPressRight>
+ 17c:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 180:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
  184:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
- 186:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 18a:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 186:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 18a:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
- 18e:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 192:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 18e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 192:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
  196:	08 95       	ret
 
 00000198 <CleanerXLastInput>:
-	}
 }
 
 void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 {
- 198:	08 95       	ret
+	// Left and Right = Last Input
+	switch (CleanerXAxisState)
+ 198:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <CleanerXAxisState>
+ 19c:	92 30       	cpi	r25, 0x02	; 2
+ 19e:	09 f4       	brne	.+2      	; 0x1a2 <CleanerXLastInput+0xa>
+ 1a0:	4f c0       	rjmp	.+158    	; 0x240 <CleanerXLastInput+0xa8>
+ 1a2:	28 f4       	brcc	.+10     	; 0x1ae <CleanerXLastInput+0x16>
+ 1a4:	99 23       	and	r25, r25
+ 1a6:	51 f0       	breq	.+20     	; 0x1bc <CleanerXLastInput+0x24>
+ 1a8:	91 30       	cpi	r25, 0x01	; 1
+ 1aa:	39 f1       	breq	.+78     	; 0x1fa <CleanerXLastInput+0x62>
+ 1ac:	08 95       	ret
+ 1ae:	93 30       	cpi	r25, 0x03	; 3
+ 1b0:	09 f4       	brne	.+2      	; 0x1b4 <CleanerXLastInput+0x1c>
+ 1b2:	6e c0       	rjmp	.+220    	; 0x290 <CleanerXLastInput+0xf8>
+ 1b4:	94 30       	cpi	r25, 0x04	; 4
+ 1b6:	09 f4       	brne	.+2      	; 0x1ba <CleanerXLastInput+0x22>
+ 1b8:	8e c0       	rjmp	.+284    	; 0x2d6 <CleanerXLastInput+0x13e>
+ 1ba:	08 95       	ret
+	{
+		case NEUTRAL_X:
+			if ( (tempLeftState == 0) )
+ 1bc:	81 11       	cpse	r24, r1
+ 1be:	08 c0       	rjmp	.+16     	; 0x1d0 <CleanerXLastInput+0x38>
+			{
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 1c0:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 1c4:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = LEFT;
+ 1c8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ca:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 1ce:	08 95       	ret
+			}
+			else if ( (tempRightState == 0) )
+ 1d0:	61 11       	cpse	r22, r1
+ 1d2:	08 c0       	rjmp	.+16     	; 0x1e4 <CleanerXLastInput+0x4c>
+			{
+				DirectionPressRight(ModeSwitchesOrientation());
+ 1d4:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 1d8:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = RIGHT;
+ 1dc:	83 e0       	ldi	r24, 0x03	; 3
+ 1de:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 1e2:	08 95       	ret
+			}
+			else
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 1e4:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 1e8:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 1ec:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 1f0:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				CleanerXAxisState = NEUTRAL_X;
+ 1f4:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
+ 1f8:	08 95       	ret
+			}
+		break;
+		
+		case LEFT:
+			if ( (tempLeftState > 0) )
+ 1fa:	88 23       	and	r24, r24
+ 1fc:	39 f0       	breq	.+14     	; 0x20c <CleanerXLastInput+0x74>
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 1fe:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 202:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				CleanerXAxisState = NEUTRAL_X;
+ 206:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
+ 20a:	08 95       	ret
+			}
+			else if ( (tempRightState == 0) )
+ 20c:	61 11       	cpse	r22, r1
+ 20e:	0c c0       	rjmp	.+24     	; 0x228 <CleanerXLastInput+0x90>
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 210:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 214:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionPressRight(ModeSwitchesOrientation());
+ 218:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 21c:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = LEFT_LOST;
+ 220:	82 e0       	ldi	r24, 0x02	; 2
+ 222:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 226:	08 95       	ret
+			}
+			else
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 228:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 22c:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 230:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 234:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = LEFT;
+ 238:	81 e0       	ldi	r24, 0x01	; 1
+ 23a:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 23e:	08 95       	ret
+			}
+			break;
+		
+		case LEFT_LOST:
+			if ( (tempLeftState > 0) )
+ 240:	88 23       	and	r24, r24
+ 242:	61 f0       	breq	.+24     	; 0x25c <CleanerXLastInput+0xc4>
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 244:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 248:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionPressRight(ModeSwitchesOrientation());
+ 24c:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 250:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = RIGHT;
+ 254:	83 e0       	ldi	r24, 0x03	; 3
+ 256:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 25a:	08 95       	ret
+			}
+			else if ( (tempRightState > 0) )
+ 25c:	66 23       	and	r22, r22
+ 25e:	61 f0       	breq	.+24     	; 0x278 <CleanerXLastInput+0xe0>
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 260:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 264:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 268:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 26c:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = LEFT;
+ 270:	81 e0       	ldi	r24, 0x01	; 1
+ 272:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 276:	08 95       	ret
+			}
+			else
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 278:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 27c:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionPressRight(ModeSwitchesOrientation());
+ 280:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 284:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = LEFT_LOST;
+ 288:	82 e0       	ldi	r24, 0x02	; 2
+ 28a:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 28e:	08 95       	ret
+			}
+			break;
+		
+		case RIGHT:
+			if ( (tempRightState > 0) )
+ 290:	66 23       	and	r22, r22
+ 292:	39 f0       	breq	.+14     	; 0x2a2 <CleanerXLastInput+0x10a>
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 294:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 298:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				CleanerXAxisState = NEUTRAL_X;
+ 29c:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
+ 2a0:	08 95       	ret
+			}
+			else if ( (tempLeftState == 0) )
+ 2a2:	81 11       	cpse	r24, r1
+ 2a4:	0c c0       	rjmp	.+24     	; 0x2be <CleanerXLastInput+0x126>
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 2a6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2aa:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 2ae:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2b2:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = RIGHT_LOST;
+ 2b6:	84 e0       	ldi	r24, 0x04	; 4
+ 2b8:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 2bc:	08 95       	ret
+			}
+			else
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 2be:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2c2:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionPressRight(ModeSwitchesOrientation());
+ 2c6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2ca:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = RIGHT;
+ 2ce:	83 e0       	ldi	r24, 0x03	; 3
+ 2d0:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 2d4:	08 95       	ret
+			}
+			break;
+		
+		case RIGHT_LOST:
+			if ( (tempRightState > 0) )
+ 2d6:	66 23       	and	r22, r22
+ 2d8:	61 f0       	breq	.+24     	; 0x2f2 <CleanerXLastInput+0x15a>
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 2da:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2de:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 2e2:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2e6:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = LEFT;
+ 2ea:	81 e0       	ldi	r24, 0x01	; 1
+ 2ec:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 2f0:	08 95       	ret
+			}
+			else if ( (tempLeftState > 0) )
+ 2f2:	88 23       	and	r24, r24
+ 2f4:	61 f0       	breq	.+24     	; 0x30e <CleanerXLastInput+0x176>
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+ 2f6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 2fa:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
+				DirectionPressRight(ModeSwitchesOrientation());
+ 2fe:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 302:	0e 94 32 03 	call	0x664	; 0x664 <DirectionPressRight>
+				CleanerXAxisState = RIGHT;
+ 306:	83 e0       	ldi	r24, 0x03	; 3
+ 308:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 30c:	08 95       	ret
+			}
+			else
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+ 30e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 312:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
+				DirectionPressLeft(ModeSwitchesOrientation());
+ 316:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 31a:	0e 94 1a 03 	call	0x634	; 0x634 <DirectionPressLeft>
+				CleanerXAxisState = RIGHT_LOST;
+ 31e:	84 e0       	ldi	r24, 0x04	; 4
+ 320:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
+ 324:	08 95       	ret
 
-0000019a <CleanerYNeutral>:
+00000326 <CleanerYNeutral>:
 }
 
 void CleanerYNeutral(uint8_t tempDownState, uint8_t tempUpState)
 {
 	// Down and Up = Neutral
 	if ( (tempDownState == 0) && (tempUpState == 0) )
- 19a:	81 11       	cpse	r24, r1
- 19c:	14 c0       	rjmp	.+40     	; 0x1c6 <CleanerYNeutral+0x2c>
- 19e:	61 11       	cpse	r22, r1
- 1a0:	09 c0       	rjmp	.+18     	; 0x1b4 <CleanerYNeutral+0x1a>
+ 326:	81 11       	cpse	r24, r1
+ 328:	14 c0       	rjmp	.+40     	; 0x352 <CleanerYNeutral+0x2c>
+ 32a:	61 11       	cpse	r22, r1
+ 32c:	09 c0       	rjmp	.+18     	; 0x340 <CleanerYNeutral+0x1a>
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 1a2:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1a6:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 32e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 332:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 1aa:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1ae:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 1b2:	08 95       	ret
+ 336:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 33a:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 33e:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
- 1b4:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1b8:	0e 94 be 01 	call	0x37c	; 0x37c <DirectionPressDown>
+ 340:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 344:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 1bc:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1c0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 1c4:	08 95       	ret
+ 348:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 34c:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 350:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
- 1c6:	61 11       	cpse	r22, r1
- 1c8:	09 c0       	rjmp	.+18     	; 0x1dc <CleanerYNeutral+0x42>
+ 352:	61 11       	cpse	r22, r1
+ 354:	09 c0       	rjmp	.+18     	; 0x368 <CleanerYNeutral+0x42>
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 1ca:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1ce:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 356:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 35a:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
- 1d2:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1d6:	0e 94 d6 01 	call	0x3ac	; 0x3ac <DirectionPressUp>
- 1da:	08 95       	ret
+ 35e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 362:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+ 366:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 1dc:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1e0:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 368:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 36c:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 1e4:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1e8:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 1ec:	08 95       	ret
+ 370:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 374:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 378:	08 95       	ret
 
-000001ee <CleanerYDown>:
+0000037a <CleanerYDown>:
 }
 
 void CleanerYDown(uint8_t tempDownState, uint8_t tempUpState)
 {
 	// Down and Up = Down
 	if ( (tempDownState == 0) && (tempUpState == 0) )
- 1ee:	81 11       	cpse	r24, r1
- 1f0:	14 c0       	rjmp	.+40     	; 0x21a <CleanerYDown+0x2c>
- 1f2:	61 11       	cpse	r22, r1
- 1f4:	09 c0       	rjmp	.+18     	; 0x208 <CleanerYDown+0x1a>
+ 37a:	81 11       	cpse	r24, r1
+ 37c:	14 c0       	rjmp	.+40     	; 0x3a6 <CleanerYDown+0x2c>
+ 37e:	61 11       	cpse	r22, r1
+ 380:	09 c0       	rjmp	.+18     	; 0x394 <CleanerYDown+0x1a>
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
- 1f6:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 1fa:	0e 94 be 01 	call	0x37c	; 0x37c <DirectionPressDown>
+ 382:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 386:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 1fe:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 202:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 206:	08 95       	ret
+ 38a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 38e:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 392:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
- 208:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 20c:	0e 94 be 01 	call	0x37c	; 0x37c <DirectionPressDown>
+ 394:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 398:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 210:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 214:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 218:	08 95       	ret
+ 39c:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3a0:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 3a4:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
- 21a:	61 11       	cpse	r22, r1
- 21c:	09 c0       	rjmp	.+18     	; 0x230 <CleanerYDown+0x42>
+ 3a6:	61 11       	cpse	r22, r1
+ 3a8:	09 c0       	rjmp	.+18     	; 0x3bc <CleanerYDown+0x42>
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 21e:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 222:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 3aa:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3ae:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
- 226:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 22a:	0e 94 d6 01 	call	0x3ac	; 0x3ac <DirectionPressUp>
- 22e:	08 95       	ret
+ 3b2:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3b6:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+ 3ba:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 230:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 234:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 3bc:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3c0:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 238:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 23c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 240:	08 95       	ret
+ 3c4:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3c8:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 3cc:	08 95       	ret
 
-00000242 <CleanerYUp>:
+000003ce <CleanerYUp>:
 }
 
 void CleanerYUp(uint8_t tempDownState, uint8_t tempUpState)
 {
 	// Down and Up = Up
 	if ( (tempDownState == 0) && (tempUpState == 0) )
- 242:	81 11       	cpse	r24, r1
- 244:	14 c0       	rjmp	.+40     	; 0x26e <CleanerYUp+0x2c>
- 246:	61 11       	cpse	r22, r1
- 248:	09 c0       	rjmp	.+18     	; 0x25c <CleanerYUp+0x1a>
+ 3ce:	81 11       	cpse	r24, r1
+ 3d0:	14 c0       	rjmp	.+40     	; 0x3fa <CleanerYUp+0x2c>
+ 3d2:	61 11       	cpse	r22, r1
+ 3d4:	09 c0       	rjmp	.+18     	; 0x3e8 <CleanerYUp+0x1a>
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 24a:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 24e:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 3d6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3da:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
- 252:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 256:	0e 94 d6 01 	call	0x3ac	; 0x3ac <DirectionPressUp>
- 25a:	08 95       	ret
+ 3de:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3e2:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+ 3e6:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
- 25c:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 260:	0e 94 be 01 	call	0x37c	; 0x37c <DirectionPressDown>
+ 3e8:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3ec:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 264:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 268:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 26c:	08 95       	ret
+ 3f0:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 3f4:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 3f8:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
- 26e:	61 11       	cpse	r22, r1
- 270:	09 c0       	rjmp	.+18     	; 0x284 <CleanerYUp+0x42>
+ 3fa:	61 11       	cpse	r22, r1
+ 3fc:	09 c0       	rjmp	.+18     	; 0x410 <__LOCK_REGION_LENGTH__+0x10>
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 272:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 276:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 3fe:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 402:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
- 27a:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 27e:	0e 94 d6 01 	call	0x3ac	; 0x3ac <DirectionPressUp>
- 282:	08 95       	ret
+ 406:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 40a:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+ 40e:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
- 284:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 288:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 410:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 414:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
- 28c:	0e 94 78 01 	call	0x2f0	; 0x2f0 <ModeSwitchesOrientation>
- 290:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 294:	08 95       	ret
+ 418:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 41c:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 420:	08 95       	ret
 
-00000296 <CleanerYLastInput>:
-	}
+00000422 <CleanerYLastInput>:
 }
 
 void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 {
- 296:	08 95       	ret
+	// Left and Right = Last Input
+	switch (CleanerYAxisState)
+ 422:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <_edata>
+ 426:	92 30       	cpi	r25, 0x02	; 2
+ 428:	09 f4       	brne	.+2      	; 0x42c <CleanerYLastInput+0xa>
+ 42a:	4f c0       	rjmp	.+158    	; 0x4ca <CleanerYLastInput+0xa8>
+ 42c:	28 f4       	brcc	.+10     	; 0x438 <CleanerYLastInput+0x16>
+ 42e:	99 23       	and	r25, r25
+ 430:	51 f0       	breq	.+20     	; 0x446 <CleanerYLastInput+0x24>
+ 432:	91 30       	cpi	r25, 0x01	; 1
+ 434:	39 f1       	breq	.+78     	; 0x484 <CleanerYLastInput+0x62>
+ 436:	08 95       	ret
+ 438:	93 30       	cpi	r25, 0x03	; 3
+ 43a:	09 f4       	brne	.+2      	; 0x43e <CleanerYLastInput+0x1c>
+ 43c:	6e c0       	rjmp	.+220    	; 0x51a <__stack+0x1b>
+ 43e:	94 30       	cpi	r25, 0x04	; 4
+ 440:	09 f4       	brne	.+2      	; 0x444 <CleanerYLastInput+0x22>
+ 442:	8e c0       	rjmp	.+284    	; 0x560 <__stack+0x61>
+ 444:	08 95       	ret
+	{
+		case NEUTRAL_Y:
+		if ( (tempDownState == 0) )
+ 446:	81 11       	cpse	r24, r1
+ 448:	08 c0       	rjmp	.+16     	; 0x45a <CleanerYLastInput+0x38>
+		{
+			DirectionPressDown(ModeSwitchesOrientation());
+ 44a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 44e:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = DOWN;
+ 452:	81 e0       	ldi	r24, 0x01	; 1
+ 454:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 458:	08 95       	ret
+		}
+		else if ( (tempUpState == 0) )
+ 45a:	61 11       	cpse	r22, r1
+ 45c:	08 c0       	rjmp	.+16     	; 0x46e <CleanerYLastInput+0x4c>
+		{
+			DirectionPressUp(ModeSwitchesOrientation());
+ 45e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 462:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = UP;
+ 466:	83 e0       	ldi	r24, 0x03	; 3
+ 468:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 46c:	08 95       	ret
+		}
+		else
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 46e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 472:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 476:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 47a:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			CleanerYAxisState = NEUTRAL_Y;
+ 47e:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+ 482:	08 95       	ret
+		}
+		break;
+		
+		case DOWN:
+		if ( (tempDownState > 0) )
+ 484:	88 23       	and	r24, r24
+ 486:	39 f0       	breq	.+14     	; 0x496 <CleanerYLastInput+0x74>
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 488:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 48c:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			CleanerYAxisState = NEUTRAL_Y;
+ 490:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+ 494:	08 95       	ret
+		}
+		else if ( (tempUpState == 0) )
+ 496:	61 11       	cpse	r22, r1
+ 498:	0c c0       	rjmp	.+24     	; 0x4b2 <CleanerYLastInput+0x90>
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 49a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 49e:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionPressUp(ModeSwitchesOrientation());
+ 4a2:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4a6:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = DOWN_LOST;
+ 4aa:	82 e0       	ldi	r24, 0x02	; 2
+ 4ac:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 4b0:	08 95       	ret
+		}
+		else
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 4b2:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4b6:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			DirectionPressDown(ModeSwitchesOrientation());
+ 4ba:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4be:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = DOWN;
+ 4c2:	81 e0       	ldi	r24, 0x01	; 1
+ 4c4:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 4c8:	08 95       	ret
+		}
+		break;
+		
+		case DOWN_LOST:
+		if ( (tempDownState > 0) )
+ 4ca:	88 23       	and	r24, r24
+ 4cc:	61 f0       	breq	.+24     	; 0x4e6 <CleanerYLastInput+0xc4>
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 4ce:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4d2:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionPressUp(ModeSwitchesOrientation());
+ 4d6:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4da:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = UP;
+ 4de:	83 e0       	ldi	r24, 0x03	; 3
+ 4e0:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 4e4:	08 95       	ret
+		}
+		else if ( (tempUpState > 0) )
+ 4e6:	66 23       	and	r22, r22
+ 4e8:	61 f0       	breq	.+24     	; 0x502 <__stack+0x3>
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 4ea:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4ee:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			DirectionPressDown(ModeSwitchesOrientation());
+ 4f2:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 4f6:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = DOWN;
+ 4fa:	81 e0       	ldi	r24, 0x01	; 1
+ 4fc:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 500:	08 95       	ret
+		}
+		else
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 502:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 506:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionPressUp(ModeSwitchesOrientation());
+ 50a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 50e:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = DOWN_LOST;
+ 512:	82 e0       	ldi	r24, 0x02	; 2
+ 514:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 518:	08 95       	ret
+		}
+		break;
+		
+		case UP:
+		if ( (tempUpState > 0) )
+ 51a:	66 23       	and	r22, r22
+ 51c:	39 f0       	breq	.+14     	; 0x52c <__stack+0x2d>
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 51e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 522:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			CleanerYAxisState = NEUTRAL_Y;
+ 526:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+ 52a:	08 95       	ret
+		}
+		else if ( (tempDownState == 0) )
+ 52c:	81 11       	cpse	r24, r1
+ 52e:	0c c0       	rjmp	.+24     	; 0x548 <__stack+0x49>
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 530:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 534:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			DirectionPressDown(ModeSwitchesOrientation());
+ 538:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 53c:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = UP_LOST;
+ 540:	84 e0       	ldi	r24, 0x04	; 4
+ 542:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 546:	08 95       	ret
+		}
+		else
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 548:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 54c:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionPressUp(ModeSwitchesOrientation());
+ 550:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 554:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = UP;
+ 558:	83 e0       	ldi	r24, 0x03	; 3
+ 55a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 55e:	08 95       	ret
+		}
+		break;
+		
+		case UP_LOST:
+		if ( (tempUpState > 0) )
+ 560:	66 23       	and	r22, r22
+ 562:	61 f0       	breq	.+24     	; 0x57c <__stack+0x7d>
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 564:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 568:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			DirectionPressDown(ModeSwitchesOrientation());
+ 56c:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 570:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = DOWN;
+ 574:	81 e0       	ldi	r24, 0x01	; 1
+ 576:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 57a:	08 95       	ret
+		}
+		else if ( (tempDownState > 0) )
+ 57c:	88 23       	and	r24, r24
+ 57e:	61 f0       	breq	.+24     	; 0x598 <__stack+0x99>
+		{
+			DirectionReleaseDown(ModeSwitchesOrientation());
+ 580:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 584:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
+			DirectionPressUp(ModeSwitchesOrientation());
+ 588:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 58c:	0e 94 62 03 	call	0x6c4	; 0x6c4 <DirectionPressUp>
+			CleanerYAxisState = UP;
+ 590:	83 e0       	ldi	r24, 0x03	; 3
+ 592:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 596:	08 95       	ret
+		}
+		else
+		{
+			DirectionReleaseUp(ModeSwitchesOrientation());
+ 598:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 59c:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+			DirectionPressDown(ModeSwitchesOrientation());
+ 5a0:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesOrientation>
+ 5a4:	0e 94 4a 03 	call	0x694	; 0x694 <DirectionPressDown>
+			CleanerYAxisState = UP_LOST;
+ 5a8:	84 e0       	ldi	r24, 0x04	; 4
+ 5aa:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 5ae:	08 95       	ret
 
-00000298 <ModeSwitchesX>:
+000005b0 <ModeSwitchesX>:
 	{
 		// Mode code for preset button selection
 		modeCode = 1;
 	}
 	return modeCode;
 }
- 298:	37 9b       	sbis	0x06, 7	; 6
- 29a:	02 c0       	rjmp	.+4      	; 0x2a0 <ModeSwitchesX+0x8>
- 29c:	35 99       	sbic	0x06, 5	; 6
- 29e:	0a c0       	rjmp	.+20     	; 0x2b4 <ModeSwitchesX+0x1c>
- 2a0:	37 9b       	sbis	0x06, 7	; 6
- 2a2:	02 c0       	rjmp	.+4      	; 0x2a8 <ModeSwitchesX+0x10>
- 2a4:	35 9b       	sbis	0x06, 5	; 6
- 2a6:	08 c0       	rjmp	.+16     	; 0x2b8 <ModeSwitchesX+0x20>
- 2a8:	37 99       	sbic	0x06, 7	; 6
- 2aa:	08 c0       	rjmp	.+16     	; 0x2bc <ModeSwitchesX+0x24>
- 2ac:	35 99       	sbic	0x06, 5	; 6
- 2ae:	08 c0       	rjmp	.+16     	; 0x2c0 <ModeSwitchesX+0x28>
- 2b0:	83 e0       	ldi	r24, 0x03	; 3
- 2b2:	08 95       	ret
- 2b4:	80 e0       	ldi	r24, 0x00	; 0
- 2b6:	08 95       	ret
- 2b8:	81 e0       	ldi	r24, 0x01	; 1
- 2ba:	08 95       	ret
- 2bc:	83 e0       	ldi	r24, 0x03	; 3
- 2be:	08 95       	ret
- 2c0:	82 e0       	ldi	r24, 0x02	; 2
- 2c2:	08 95       	ret
+ 5b0:	37 9b       	sbis	0x06, 7	; 6
+ 5b2:	02 c0       	rjmp	.+4      	; 0x5b8 <ModeSwitchesX+0x8>
+ 5b4:	35 99       	sbic	0x06, 5	; 6
+ 5b6:	0a c0       	rjmp	.+20     	; 0x5cc <ModeSwitchesX+0x1c>
+ 5b8:	37 9b       	sbis	0x06, 7	; 6
+ 5ba:	02 c0       	rjmp	.+4      	; 0x5c0 <ModeSwitchesX+0x10>
+ 5bc:	35 9b       	sbis	0x06, 5	; 6
+ 5be:	08 c0       	rjmp	.+16     	; 0x5d0 <ModeSwitchesX+0x20>
+ 5c0:	37 99       	sbic	0x06, 7	; 6
+ 5c2:	08 c0       	rjmp	.+16     	; 0x5d4 <ModeSwitchesX+0x24>
+ 5c4:	35 99       	sbic	0x06, 5	; 6
+ 5c6:	08 c0       	rjmp	.+16     	; 0x5d8 <ModeSwitchesX+0x28>
+ 5c8:	83 e0       	ldi	r24, 0x03	; 3
+ 5ca:	08 95       	ret
+ 5cc:	80 e0       	ldi	r24, 0x00	; 0
+ 5ce:	08 95       	ret
+ 5d0:	81 e0       	ldi	r24, 0x01	; 1
+ 5d2:	08 95       	ret
+ 5d4:	83 e0       	ldi	r24, 0x03	; 3
+ 5d6:	08 95       	ret
+ 5d8:	82 e0       	ldi	r24, 0x02	; 2
+ 5da:	08 95       	ret
 
-000002c4 <ModeSwitchesY>:
- 2c4:	36 9b       	sbis	0x06, 6	; 6
- 2c6:	02 c0       	rjmp	.+4      	; 0x2cc <ModeSwitchesY+0x8>
- 2c8:	34 99       	sbic	0x06, 4	; 6
- 2ca:	0a c0       	rjmp	.+20     	; 0x2e0 <ModeSwitchesY+0x1c>
- 2cc:	36 9b       	sbis	0x06, 6	; 6
- 2ce:	02 c0       	rjmp	.+4      	; 0x2d4 <ModeSwitchesY+0x10>
- 2d0:	34 9b       	sbis	0x06, 4	; 6
- 2d2:	08 c0       	rjmp	.+16     	; 0x2e4 <ModeSwitchesY+0x20>
- 2d4:	36 99       	sbic	0x06, 6	; 6
- 2d6:	08 c0       	rjmp	.+16     	; 0x2e8 <ModeSwitchesY+0x24>
- 2d8:	34 99       	sbic	0x06, 4	; 6
- 2da:	08 c0       	rjmp	.+16     	; 0x2ec <ModeSwitchesY+0x28>
- 2dc:	83 e0       	ldi	r24, 0x03	; 3
- 2de:	08 95       	ret
- 2e0:	80 e0       	ldi	r24, 0x00	; 0
- 2e2:	08 95       	ret
- 2e4:	81 e0       	ldi	r24, 0x01	; 1
- 2e6:	08 95       	ret
- 2e8:	83 e0       	ldi	r24, 0x03	; 3
- 2ea:	08 95       	ret
- 2ec:	82 e0       	ldi	r24, 0x02	; 2
- 2ee:	08 95       	ret
+000005dc <ModeSwitchesY>:
+ 5dc:	36 9b       	sbis	0x06, 6	; 6
+ 5de:	02 c0       	rjmp	.+4      	; 0x5e4 <ModeSwitchesY+0x8>
+ 5e0:	34 99       	sbic	0x06, 4	; 6
+ 5e2:	0a c0       	rjmp	.+20     	; 0x5f8 <ModeSwitchesY+0x1c>
+ 5e4:	36 9b       	sbis	0x06, 6	; 6
+ 5e6:	02 c0       	rjmp	.+4      	; 0x5ec <ModeSwitchesY+0x10>
+ 5e8:	34 9b       	sbis	0x06, 4	; 6
+ 5ea:	08 c0       	rjmp	.+16     	; 0x5fc <ModeSwitchesY+0x20>
+ 5ec:	36 99       	sbic	0x06, 6	; 6
+ 5ee:	08 c0       	rjmp	.+16     	; 0x600 <ModeSwitchesY+0x24>
+ 5f0:	34 99       	sbic	0x06, 4	; 6
+ 5f2:	08 c0       	rjmp	.+16     	; 0x604 <ModeSwitchesY+0x28>
+ 5f4:	83 e0       	ldi	r24, 0x03	; 3
+ 5f6:	08 95       	ret
+ 5f8:	80 e0       	ldi	r24, 0x00	; 0
+ 5fa:	08 95       	ret
+ 5fc:	81 e0       	ldi	r24, 0x01	; 1
+ 5fe:	08 95       	ret
+ 600:	83 e0       	ldi	r24, 0x03	; 3
+ 602:	08 95       	ret
+ 604:	82 e0       	ldi	r24, 0x02	; 2
+ 606:	08 95       	ret
 
-000002f0 <ModeSwitchesOrientation>:
-// PROBLEM CHILD
+00000608 <ModeSwitchesOrientation>:
+
 uint8_t ModeSwitchesOrientation()
 {
 	// Decide mode for default OEM controller
 	uint8_t modeCode = 0;
 	if ( (ModeSwitchesReadDip2Sw1() > 0) && (ModeSwitchesReadDip2Sw2() > 0) )
- 2f0:	49 9b       	sbis	0x09, 1	; 9
- 2f2:	02 c0       	rjmp	.+4      	; 0x2f8 <ModeSwitchesOrientation+0x8>
- 2f4:	4a 99       	sbic	0x09, 2	; 9
- 2f6:	0a c0       	rjmp	.+20     	; 0x30c <ModeSwitchesOrientation+0x1c>
+ 608:	49 9b       	sbis	0x09, 1	; 9
+ 60a:	02 c0       	rjmp	.+4      	; 0x610 <ModeSwitchesOrientation+0x8>
+ 60c:	4a 99       	sbic	0x09, 2	; 9
+ 60e:	0a c0       	rjmp	.+20     	; 0x624 <ModeSwitchesOrientation+0x1c>
 	{
 		// Mode code for G  R  L  U  D on JST connector
 		modeCode = 0;
 	}
 	else if ( (ModeSwitchesReadDip2Sw1() > 0) && (ModeSwitchesReadDip2Sw2() == 0) )
- 2f8:	49 9b       	sbis	0x09, 1	; 9
- 2fa:	02 c0       	rjmp	.+4      	; 0x300 <ModeSwitchesOrientation+0x10>
- 2fc:	4a 9b       	sbis	0x09, 2	; 9
- 2fe:	08 c0       	rjmp	.+16     	; 0x310 <ModeSwitchesOrientation+0x20>
+ 610:	49 9b       	sbis	0x09, 1	; 9
+ 612:	02 c0       	rjmp	.+4      	; 0x618 <ModeSwitchesOrientation+0x10>
+ 614:	4a 9b       	sbis	0x09, 2	; 9
+ 616:	08 c0       	rjmp	.+16     	; 0x628 <ModeSwitchesOrientation+0x20>
 	{
 		// Mode code for G  L  R  D  U on JST connector
 		modeCode = 1;
 	}
 	else if ( (ModeSwitchesReadDip2Sw1() == 0) && (ModeSwitchesReadDip2Sw2() > 0) )
- 300:	49 99       	sbic	0x09, 1	; 9
- 302:	08 c0       	rjmp	.+16     	; 0x314 <ModeSwitchesOrientation+0x24>
- 304:	4a 99       	sbic	0x09, 2	; 9
- 306:	08 c0       	rjmp	.+16     	; 0x318 <ModeSwitchesOrientation+0x28>
+ 618:	49 99       	sbic	0x09, 1	; 9
+ 61a:	08 c0       	rjmp	.+16     	; 0x62c <ModeSwitchesOrientation+0x24>
+ 61c:	4a 99       	sbic	0x09, 2	; 9
+ 61e:	08 c0       	rjmp	.+16     	; 0x630 <ModeSwitchesOrientation+0x28>
 		modeCode = 2;
 	}
 	else
 	{
 		// Mode code for future orientation
 		modeCode = 3;
- 308:	83 e0       	ldi	r24, 0x03	; 3
- 30a:	08 95       	ret
+ 620:	83 e0       	ldi	r24, 0x03	; 3
+ 622:	08 95       	ret
 	// Decide mode for default OEM controller
 	uint8_t modeCode = 0;
 	if ( (ModeSwitchesReadDip2Sw1() > 0) && (ModeSwitchesReadDip2Sw2() > 0) )
 	{
 		// Mode code for G  R  L  U  D on JST connector
 		modeCode = 0;
- 30c:	80 e0       	ldi	r24, 0x00	; 0
- 30e:	08 95       	ret
+ 624:	80 e0       	ldi	r24, 0x00	; 0
+ 626:	08 95       	ret
 	}
 	else if ( (ModeSwitchesReadDip2Sw1() > 0) && (ModeSwitchesReadDip2Sw2() == 0) )
 	{
 		// Mode code for G  L  R  D  U on JST connector
 		modeCode = 1;
- 310:	81 e0       	ldi	r24, 0x01	; 1
- 312:	08 95       	ret
+ 628:	81 e0       	ldi	r24, 0x01	; 1
+ 62a:	08 95       	ret
 		modeCode = 2;
 	}
 	else
 	{
 		// Mode code for future orientation
 		modeCode = 3;
- 314:	83 e0       	ldi	r24, 0x03	; 3
- 316:	08 95       	ret
+ 62c:	83 e0       	ldi	r24, 0x03	; 3
+ 62e:	08 95       	ret
 		modeCode = 1;
 	}
 	else if ( (ModeSwitchesReadDip2Sw1() == 0) && (ModeSwitchesReadDip2Sw2() > 0) )
 	{
 		// Mode code for G  R  U  L  D on JST connector
 		modeCode = 2;
- 318:	82 e0       	ldi	r24, 0x02	; 2
+ 630:	82 e0       	ldi	r24, 0x02	; 2
 		// Mode code for future orientation
 		modeCode = 3;
 	}
 	
 	return modeCode;
 }
- 31a:	08 95       	ret
+ 632:	08 95       	ret
 
-0000031c <DirectionPressLeft>:
+00000634 <DirectionPressLeft>:
+ 634:	81 11       	cpse	r24, r1
+ 636:	02 c0       	rjmp	.+4      	; 0x63c <DirectionPressLeft+0x8>
+ 638:	5c 98       	cbi	0x0b, 4	; 11
+ 63a:	08 95       	ret
+ 63c:	81 30       	cpi	r24, 0x01	; 1
+ 63e:	11 f4       	brne	.+4      	; 0x644 <DirectionPressLeft+0x10>
+ 640:	5b 98       	cbi	0x0b, 3	; 11
+ 642:	08 95       	ret
+ 644:	82 30       	cpi	r24, 0x02	; 2
+ 646:	09 f4       	brne	.+2      	; 0x64a <DirectionPressLeft+0x16>
+ 648:	5e 98       	cbi	0x0b, 6	; 11
+ 64a:	08 95       	ret
 
-// Setting Outputs
-void DirectionPressLeft(uint8_t tempOrientation)
-{
-	// Press left on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 31c:	81 11       	cpse	r24, r1
- 31e:	02 c0       	rjmp	.+4      	; 0x324 <DirectionPressLeft+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
- 320:	5c 98       	cbi	0x0b, 4	; 11
- 322:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 324:	81 30       	cpi	r24, 0x01	; 1
- 326:	11 f4       	brne	.+4      	; 0x32c <DirectionPressLeft+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 328:	5b 98       	cbi	0x0b, 3	; 11
- 32a:	08 95       	ret
-		
-	}
-	else if(tempOrientation == 2)
- 32c:	82 30       	cpi	r24, 0x02	; 2
- 32e:	09 f4       	brne	.+2      	; 0x332 <DirectionPressLeft+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 330:	5e 98       	cbi	0x0b, 6	; 11
- 332:	08 95       	ret
+0000064c <DirectionReleaseLeft>:
+ 64c:	81 11       	cpse	r24, r1
+ 64e:	02 c0       	rjmp	.+4      	; 0x654 <DirectionReleaseLeft+0x8>
+ 650:	5c 9a       	sbi	0x0b, 4	; 11
+ 652:	08 95       	ret
+ 654:	81 30       	cpi	r24, 0x01	; 1
+ 656:	11 f4       	brne	.+4      	; 0x65c <DirectionReleaseLeft+0x10>
+ 658:	5b 9a       	sbi	0x0b, 3	; 11
+ 65a:	08 95       	ret
+ 65c:	82 30       	cpi	r24, 0x02	; 2
+ 65e:	09 f4       	brne	.+2      	; 0x662 <DirectionReleaseLeft+0x16>
+ 660:	5e 9a       	sbi	0x0b, 6	; 11
+ 662:	08 95       	ret
 
-00000334 <DirectionReleaseLeft>:
-}
+00000664 <DirectionPressRight>:
+ 664:	81 11       	cpse	r24, r1
+ 666:	02 c0       	rjmp	.+4      	; 0x66c <DirectionPressRight+0x8>
+ 668:	5b 98       	cbi	0x0b, 3	; 11
+ 66a:	08 95       	ret
+ 66c:	81 30       	cpi	r24, 0x01	; 1
+ 66e:	11 f4       	brne	.+4      	; 0x674 <DirectionPressRight+0x10>
+ 670:	5c 98       	cbi	0x0b, 4	; 11
+ 672:	08 95       	ret
+ 674:	82 30       	cpi	r24, 0x02	; 2
+ 676:	09 f4       	brne	.+2      	; 0x67a <DirectionPressRight+0x16>
+ 678:	5b 98       	cbi	0x0b, 3	; 11
+ 67a:	08 95       	ret
 
-void DirectionReleaseLeft(uint8_t tempOrientation)
-{
-	// Release left on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 334:	81 11       	cpse	r24, r1
- 336:	02 c0       	rjmp	.+4      	; 0x33c <DirectionReleaseLeft+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 338:	5c 9a       	sbi	0x0b, 4	; 11
- 33a:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 33c:	81 30       	cpi	r24, 0x01	; 1
- 33e:	11 f4       	brne	.+4      	; 0x344 <DirectionReleaseLeft+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 340:	5b 9a       	sbi	0x0b, 3	; 11
- 342:	08 95       	ret
-	}
-	else if(tempOrientation == 2)
- 344:	82 30       	cpi	r24, 0x02	; 2
- 346:	09 f4       	brne	.+2      	; 0x34a <DirectionReleaseLeft+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 348:	5e 9a       	sbi	0x0b, 6	; 11
- 34a:	08 95       	ret
+0000067c <DirectionReleaseRight>:
+ 67c:	81 11       	cpse	r24, r1
+ 67e:	02 c0       	rjmp	.+4      	; 0x684 <DirectionReleaseRight+0x8>
+ 680:	5b 9a       	sbi	0x0b, 3	; 11
+ 682:	08 95       	ret
+ 684:	81 30       	cpi	r24, 0x01	; 1
+ 686:	11 f4       	brne	.+4      	; 0x68c <DirectionReleaseRight+0x10>
+ 688:	5c 9a       	sbi	0x0b, 4	; 11
+ 68a:	08 95       	ret
+ 68c:	82 30       	cpi	r24, 0x02	; 2
+ 68e:	09 f4       	brne	.+2      	; 0x692 <DirectionReleaseRight+0x16>
+ 690:	5b 9a       	sbi	0x0b, 3	; 11
+ 692:	08 95       	ret
 
-0000034c <DirectionPressRight>:
-}
+00000694 <DirectionPressDown>:
+ 694:	81 11       	cpse	r24, r1
+ 696:	02 c0       	rjmp	.+4      	; 0x69c <DirectionPressDown+0x8>
+ 698:	5e 98       	cbi	0x0b, 6	; 11
+ 69a:	08 95       	ret
+ 69c:	81 30       	cpi	r24, 0x01	; 1
+ 69e:	11 f4       	brne	.+4      	; 0x6a4 <DirectionPressDown+0x10>
+ 6a0:	5d 98       	cbi	0x0b, 5	; 11
+ 6a2:	08 95       	ret
+ 6a4:	82 30       	cpi	r24, 0x02	; 2
+ 6a6:	09 f4       	brne	.+2      	; 0x6aa <DirectionPressDown+0x16>
+ 6a8:	5e 98       	cbi	0x0b, 6	; 11
+ 6aa:	08 95       	ret
 
-void DirectionPressRight(uint8_t tempOrientation)
-{
-	// Press right on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 34c:	81 11       	cpse	r24, r1
- 34e:	02 c0       	rjmp	.+4      	; 0x354 <DirectionPressRight+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 350:	5b 98       	cbi	0x0b, 3	; 11
- 352:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 354:	81 30       	cpi	r24, 0x01	; 1
- 356:	11 f4       	brne	.+4      	; 0x35c <DirectionPressRight+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
- 358:	5c 98       	cbi	0x0b, 4	; 11
- 35a:	08 95       	ret
-		
-	}
-	else if(tempOrientation == 2)
- 35c:	82 30       	cpi	r24, 0x02	; 2
- 35e:	09 f4       	brne	.+2      	; 0x362 <DirectionPressRight+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 360:	5b 98       	cbi	0x0b, 3	; 11
- 362:	08 95       	ret
+000006ac <DirectionReleaseDown>:
+ 6ac:	81 11       	cpse	r24, r1
+ 6ae:	02 c0       	rjmp	.+4      	; 0x6b4 <DirectionReleaseDown+0x8>
+ 6b0:	5e 9a       	sbi	0x0b, 6	; 11
+ 6b2:	08 95       	ret
+ 6b4:	81 30       	cpi	r24, 0x01	; 1
+ 6b6:	11 f4       	brne	.+4      	; 0x6bc <DirectionReleaseDown+0x10>
+ 6b8:	5d 9a       	sbi	0x0b, 5	; 11
+ 6ba:	08 95       	ret
+ 6bc:	82 30       	cpi	r24, 0x02	; 2
+ 6be:	09 f4       	brne	.+2      	; 0x6c2 <DirectionReleaseDown+0x16>
+ 6c0:	5e 9a       	sbi	0x0b, 6	; 11
+ 6c2:	08 95       	ret
 
-00000364 <DirectionReleaseRight>:
-}
+000006c4 <DirectionPressUp>:
+ 6c4:	81 11       	cpse	r24, r1
+ 6c6:	02 c0       	rjmp	.+4      	; 0x6cc <DirectionPressUp+0x8>
+ 6c8:	5d 98       	cbi	0x0b, 5	; 11
+ 6ca:	08 95       	ret
+ 6cc:	81 30       	cpi	r24, 0x01	; 1
+ 6ce:	11 f4       	brne	.+4      	; 0x6d4 <DirectionPressUp+0x10>
+ 6d0:	5e 98       	cbi	0x0b, 6	; 11
+ 6d2:	08 95       	ret
+ 6d4:	82 30       	cpi	r24, 0x02	; 2
+ 6d6:	09 f4       	brne	.+2      	; 0x6da <DirectionPressUp+0x16>
+ 6d8:	5e 98       	cbi	0x0b, 6	; 11
+ 6da:	08 95       	ret
 
-void DirectionReleaseRight(uint8_t tempOrientation)
-{
-	// Release right on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 364:	81 11       	cpse	r24, r1
- 366:	02 c0       	rjmp	.+4      	; 0x36c <DirectionReleaseRight+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 368:	5b 9a       	sbi	0x0b, 3	; 11
- 36a:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 36c:	81 30       	cpi	r24, 0x01	; 1
- 36e:	11 f4       	brne	.+4      	; 0x374 <DirectionReleaseRight+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 370:	5c 9a       	sbi	0x0b, 4	; 11
- 372:	08 95       	ret
-	}
-	else if(tempOrientation == 2)
- 374:	82 30       	cpi	r24, 0x02	; 2
- 376:	09 f4       	brne	.+2      	; 0x37a <DirectionReleaseRight+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 378:	5b 9a       	sbi	0x0b, 3	; 11
- 37a:	08 95       	ret
+000006dc <DirectionReleaseUp>:
+ 6dc:	81 11       	cpse	r24, r1
+ 6de:	02 c0       	rjmp	.+4      	; 0x6e4 <DirectionReleaseUp+0x8>
+ 6e0:	5d 9a       	sbi	0x0b, 5	; 11
+ 6e2:	08 95       	ret
+ 6e4:	81 30       	cpi	r24, 0x01	; 1
+ 6e6:	11 f4       	brne	.+4      	; 0x6ec <DirectionReleaseUp+0x10>
+ 6e8:	5e 9a       	sbi	0x0b, 6	; 11
+ 6ea:	08 95       	ret
+ 6ec:	82 30       	cpi	r24, 0x02	; 2
+ 6ee:	09 f4       	brne	.+2      	; 0x6f2 <DirectionReleaseUp+0x16>
+ 6f0:	5c 9a       	sbi	0x0b, 4	; 11
+ 6f2:	08 95       	ret
 
-0000037c <DirectionPressDown>:
-}
+000006f4 <DirectionGetLeftState>:
+ 6f4:	83 b1       	in	r24, 0x03	; 3
+ 6f6:	82 70       	andi	r24, 0x02	; 2
+ 6f8:	08 95       	ret
 
-void DirectionPressDown(uint8_t tempOrientation)
-{
-	// Press down on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 37c:	81 11       	cpse	r24, r1
- 37e:	02 c0       	rjmp	.+4      	; 0x384 <DirectionPressDown+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 380:	5e 98       	cbi	0x0b, 6	; 11
- 382:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 384:	81 30       	cpi	r24, 0x01	; 1
- 386:	11 f4       	brne	.+4      	; 0x38c <DirectionPressDown+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
- 388:	5d 98       	cbi	0x0b, 5	; 11
- 38a:	08 95       	ret
-	}
-	else if(tempOrientation == 2)
- 38c:	82 30       	cpi	r24, 0x02	; 2
- 38e:	09 f4       	brne	.+2      	; 0x392 <DirectionPressDown+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 390:	5e 98       	cbi	0x0b, 6	; 11
- 392:	08 95       	ret
+000006fa <DirectionGetRightState>:
+ 6fa:	83 b1       	in	r24, 0x03	; 3
+ 6fc:	81 70       	andi	r24, 0x01	; 1
+ 6fe:	08 95       	ret
 
-00000394 <DirectionReleaseDown>:
-}
+00000700 <DirectionGetUpState>:
+ 700:	83 b1       	in	r24, 0x03	; 3
+ 702:	88 70       	andi	r24, 0x08	; 8
+ 704:	08 95       	ret
 
-void DirectionReleaseDown(uint8_t tempOrientation)
-{
-	// Release down on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 394:	81 11       	cpse	r24, r1
- 396:	02 c0       	rjmp	.+4      	; 0x39c <DirectionReleaseDown+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 398:	5e 9a       	sbi	0x0b, 6	; 11
- 39a:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 39c:	81 30       	cpi	r24, 0x01	; 1
- 39e:	11 f4       	brne	.+4      	; 0x3a4 <DirectionReleaseDown+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW3_CLEAN);
- 3a0:	5d 9a       	sbi	0x0b, 5	; 11
- 3a2:	08 95       	ret
-	}
-	else if(tempOrientation == 2)
- 3a4:	82 30       	cpi	r24, 0x02	; 2
- 3a6:	09 f4       	brne	.+2      	; 0x3aa <DirectionReleaseDown+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 3a8:	5e 9a       	sbi	0x0b, 6	; 11
- 3aa:	08 95       	ret
+00000706 <DirectionGetDownState>:
+ 706:	83 b1       	in	r24, 0x03	; 3
+ 708:	84 70       	andi	r24, 0x04	; 4
+ 70a:	08 95       	ret
 
-000003ac <DirectionPressUp>:
-}
-
-void DirectionPressUp(uint8_t tempOrientation)
-{
-	// Press up on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 3ac:	81 11       	cpse	r24, r1
- 3ae:	02 c0       	rjmp	.+4      	; 0x3b4 <DirectionPressUp+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
- 3b0:	5d 98       	cbi	0x0b, 5	; 11
- 3b2:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 3b4:	81 30       	cpi	r24, 0x01	; 1
- 3b6:	11 f4       	brne	.+4      	; 0x3bc <DirectionPressUp+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 3b8:	5e 98       	cbi	0x0b, 6	; 11
- 3ba:	08 95       	ret
-		
-	}
-	else if(tempOrientation == 2)
- 3bc:	82 30       	cpi	r24, 0x02	; 2
- 3be:	09 f4       	brne	.+2      	; 0x3c2 <DirectionPressUp+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 3c0:	5e 98       	cbi	0x0b, 6	; 11
- 3c2:	08 95       	ret
-
-000003c4 <DirectionReleaseUp>:
-}
-
-void DirectionReleaseUp(uint8_t tempOrientation)
-{
-	// Release left on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 3c4:	81 11       	cpse	r24, r1
- 3c6:	02 c0       	rjmp	.+4      	; 0x3cc <DirectionReleaseUp+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW3_CLEAN);
- 3c8:	5d 9a       	sbi	0x0b, 5	; 11
- 3ca:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 3cc:	81 30       	cpi	r24, 0x01	; 1
- 3ce:	11 f4       	brne	.+4      	; 0x3d4 <DirectionReleaseUp+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 3d0:	5e 9a       	sbi	0x0b, 6	; 11
- 3d2:	08 95       	ret
-		
-	}
-	else if(tempOrientation == 2)
- 3d4:	82 30       	cpi	r24, 0x02	; 2
- 3d6:	09 f4       	brne	.+2      	; 0x3da <DirectionReleaseUp+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 3d8:	5c 9a       	sbi	0x0b, 4	; 11
- 3da:	08 95       	ret
-
-000003dc <DirectionGetLeftState>:
-}
-
-// Reading Inputs
-uint8_t DirectionGetLeftState()
-{
-	return (PINB & (1 << DIRECTION_LEFT_BUTTON));
- 3dc:	83 b1       	in	r24, 0x03	; 3
-}
- 3de:	82 70       	andi	r24, 0x02	; 2
- 3e0:	08 95       	ret
-
-000003e2 <DirectionGetRightState>:
-
-uint8_t DirectionGetRightState()
-{
-	return (PINB & (1 << DIRECTION_RIGHT_BUTTON));
- 3e2:	83 b1       	in	r24, 0x03	; 3
-}
- 3e4:	81 70       	andi	r24, 0x01	; 1
- 3e6:	08 95       	ret
-
-000003e8 <DirectionGetUpState>:
-
-uint8_t DirectionGetUpState()
-{
-	return (PINB & (1 << DIRECTION_UP_BUTTON));
- 3e8:	83 b1       	in	r24, 0x03	; 3
-}
- 3ea:	88 70       	andi	r24, 0x08	; 8
- 3ec:	08 95       	ret
-
-000003ee <DirectionGetDownState>:
-
-uint8_t DirectionGetDownState()
-{
-	return (PINB & (1 << DIRECTION_DOWN_BUTTON));
- 3ee:	83 b1       	in	r24, 0x03	; 3
- 3f0:	84 70       	andi	r24, 0x04	; 4
- 3f2:	08 95       	ret
-
-000003f4 <MainCleanerX>:
+0000070c <MainCleanerX>:
 	}
 	return(0);
 }
 
 void MainCleanerX(uint8_t tempLeftState, uint8_t tempRightState)
 {
- 3f4:	cf 93       	push	r28
- 3f6:	df 93       	push	r29
- 3f8:	c8 2f       	mov	r28, r24
- 3fa:	d6 2f       	mov	r29, r22
+ 70c:	cf 93       	push	r28
+ 70e:	df 93       	push	r29
+ 710:	c8 2f       	mov	r28, r24
+ 712:	d6 2f       	mov	r29, r22
 	// Cleaning for x axis
 	if(ModeSwitchesX() == 0)
- 3fc:	0e 94 4c 01 	call	0x298	; 0x298 <ModeSwitchesX>
- 400:	81 11       	cpse	r24, r1
- 402:	05 c0       	rjmp	.+10     	; 0x40e <__LOCK_REGION_LENGTH__+0xe>
+ 714:	0e 94 d8 02 	call	0x5b0	; 0x5b0 <ModeSwitchesX>
+ 718:	81 11       	cpse	r24, r1
+ 71a:	05 c0       	rjmp	.+10     	; 0x726 <MainCleanerX+0x1a>
 	{
 		CleanerXNeutral(tempLeftState, tempRightState);
- 404:	6d 2f       	mov	r22, r29
- 406:	8c 2f       	mov	r24, r28
- 408:	0e 94 4e 00 	call	0x9c	; 0x9c <CleanerXNeutral>
- 40c:	16 c0       	rjmp	.+44     	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+ 71c:	6d 2f       	mov	r22, r29
+ 71e:	8c 2f       	mov	r24, r28
+ 720:	0e 94 4e 00 	call	0x9c	; 0x9c <CleanerXNeutral>
+ 724:	16 c0       	rjmp	.+44     	; 0x752 <MainCleanerX+0x46>
 	}
 	else if(ModeSwitchesX() == 1)
- 40e:	0e 94 4c 01 	call	0x298	; 0x298 <ModeSwitchesX>
- 412:	81 30       	cpi	r24, 0x01	; 1
- 414:	29 f4       	brne	.+10     	; 0x420 <__LOCK_REGION_LENGTH__+0x20>
+ 726:	0e 94 d8 02 	call	0x5b0	; 0x5b0 <ModeSwitchesX>
+ 72a:	81 30       	cpi	r24, 0x01	; 1
+ 72c:	29 f4       	brne	.+10     	; 0x738 <MainCleanerX+0x2c>
 	{
 		CleanerXLeft(tempLeftState, tempRightState);
- 416:	6d 2f       	mov	r22, r29
- 418:	8c 2f       	mov	r24, r28
- 41a:	0e 94 78 00 	call	0xf0	; 0xf0 <CleanerXLeft>
- 41e:	0d c0       	rjmp	.+26     	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+ 72e:	6d 2f       	mov	r22, r29
+ 730:	8c 2f       	mov	r24, r28
+ 732:	0e 94 78 00 	call	0xf0	; 0xf0 <CleanerXLeft>
+ 736:	0d c0       	rjmp	.+26     	; 0x752 <MainCleanerX+0x46>
 	}
 	else if(ModeSwitchesX() == 2)
- 420:	0e 94 4c 01 	call	0x298	; 0x298 <ModeSwitchesX>
- 424:	82 30       	cpi	r24, 0x02	; 2
- 426:	29 f4       	brne	.+10     	; 0x432 <__LOCK_REGION_LENGTH__+0x32>
+ 738:	0e 94 d8 02 	call	0x5b0	; 0x5b0 <ModeSwitchesX>
+ 73c:	82 30       	cpi	r24, 0x02	; 2
+ 73e:	29 f4       	brne	.+10     	; 0x74a <MainCleanerX+0x3e>
 	{
 		CleanerXRight(tempLeftState, tempRightState);
- 428:	6d 2f       	mov	r22, r29
- 42a:	8c 2f       	mov	r24, r28
- 42c:	0e 94 a2 00 	call	0x144	; 0x144 <CleanerXRight>
- 430:	04 c0       	rjmp	.+8      	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+ 740:	6d 2f       	mov	r22, r29
+ 742:	8c 2f       	mov	r24, r28
+ 744:	0e 94 a2 00 	call	0x144	; 0x144 <CleanerXRight>
+ 748:	04 c0       	rjmp	.+8      	; 0x752 <MainCleanerX+0x46>
 	}
 	else
 	{
 		CleanerXLastInput(tempLeftState, tempRightState);
- 432:	6d 2f       	mov	r22, r29
- 434:	8c 2f       	mov	r24, r28
- 436:	0e 94 cc 00 	call	0x198	; 0x198 <CleanerXLastInput>
+ 74a:	6d 2f       	mov	r22, r29
+ 74c:	8c 2f       	mov	r24, r28
+ 74e:	0e 94 cc 00 	call	0x198	; 0x198 <CleanerXLastInput>
 	}
 }
- 43a:	df 91       	pop	r29
- 43c:	cf 91       	pop	r28
- 43e:	08 95       	ret
+ 752:	df 91       	pop	r29
+ 754:	cf 91       	pop	r28
+ 756:	08 95       	ret
 
-00000440 <MainCleanerY>:
+00000758 <MainCleanerY>:
 
 void MainCleanerY(uint8_t tempDownState, uint8_t tempUpState)
 {
- 440:	cf 93       	push	r28
- 442:	df 93       	push	r29
- 444:	c8 2f       	mov	r28, r24
- 446:	d6 2f       	mov	r29, r22
+ 758:	cf 93       	push	r28
+ 75a:	df 93       	push	r29
+ 75c:	c8 2f       	mov	r28, r24
+ 75e:	d6 2f       	mov	r29, r22
 	// Cleaning for y axis
 	if(ModeSwitchesY() == 0)
- 448:	0e 94 62 01 	call	0x2c4	; 0x2c4 <ModeSwitchesY>
- 44c:	81 11       	cpse	r24, r1
- 44e:	05 c0       	rjmp	.+10     	; 0x45a <MainCleanerY+0x1a>
+ 760:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesY>
+ 764:	81 11       	cpse	r24, r1
+ 766:	05 c0       	rjmp	.+10     	; 0x772 <MainCleanerY+0x1a>
 	{
 		CleanerYNeutral(tempDownState, tempUpState);
- 450:	6d 2f       	mov	r22, r29
- 452:	8c 2f       	mov	r24, r28
- 454:	0e 94 cd 00 	call	0x19a	; 0x19a <CleanerYNeutral>
- 458:	16 c0       	rjmp	.+44     	; 0x486 <MainCleanerY+0x46>
+ 768:	6d 2f       	mov	r22, r29
+ 76a:	8c 2f       	mov	r24, r28
+ 76c:	0e 94 93 01 	call	0x326	; 0x326 <CleanerYNeutral>
+ 770:	16 c0       	rjmp	.+44     	; 0x79e <MainCleanerY+0x46>
 	}
 	else if(ModeSwitchesY() == 1)
- 45a:	0e 94 62 01 	call	0x2c4	; 0x2c4 <ModeSwitchesY>
- 45e:	81 30       	cpi	r24, 0x01	; 1
- 460:	29 f4       	brne	.+10     	; 0x46c <MainCleanerY+0x2c>
+ 772:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesY>
+ 776:	81 30       	cpi	r24, 0x01	; 1
+ 778:	29 f4       	brne	.+10     	; 0x784 <MainCleanerY+0x2c>
 	{
 		CleanerYDown(tempDownState, tempUpState);
- 462:	6d 2f       	mov	r22, r29
- 464:	8c 2f       	mov	r24, r28
- 466:	0e 94 f7 00 	call	0x1ee	; 0x1ee <CleanerYDown>
- 46a:	0d c0       	rjmp	.+26     	; 0x486 <MainCleanerY+0x46>
+ 77a:	6d 2f       	mov	r22, r29
+ 77c:	8c 2f       	mov	r24, r28
+ 77e:	0e 94 bd 01 	call	0x37a	; 0x37a <CleanerYDown>
+ 782:	0d c0       	rjmp	.+26     	; 0x79e <MainCleanerY+0x46>
 	}
 	else if(ModeSwitchesY() == 2)
- 46c:	0e 94 62 01 	call	0x2c4	; 0x2c4 <ModeSwitchesY>
- 470:	82 30       	cpi	r24, 0x02	; 2
- 472:	29 f4       	brne	.+10     	; 0x47e <MainCleanerY+0x3e>
+ 784:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesY>
+ 788:	82 30       	cpi	r24, 0x02	; 2
+ 78a:	29 f4       	brne	.+10     	; 0x796 <MainCleanerY+0x3e>
 	{
 		CleanerYUp(tempDownState, tempUpState);
- 474:	6d 2f       	mov	r22, r29
- 476:	8c 2f       	mov	r24, r28
- 478:	0e 94 21 01 	call	0x242	; 0x242 <CleanerYUp>
- 47c:	04 c0       	rjmp	.+8      	; 0x486 <MainCleanerY+0x46>
+ 78c:	6d 2f       	mov	r22, r29
+ 78e:	8c 2f       	mov	r24, r28
+ 790:	0e 94 e7 01 	call	0x3ce	; 0x3ce <CleanerYUp>
+ 794:	04 c0       	rjmp	.+8      	; 0x79e <MainCleanerY+0x46>
 	}
 	else
 	{
 		CleanerYLastInput(tempDownState, tempUpState);
- 47e:	6d 2f       	mov	r22, r29
- 480:	8c 2f       	mov	r24, r28
- 482:	0e 94 4b 01 	call	0x296	; 0x296 <CleanerYLastInput>
+ 796:	6d 2f       	mov	r22, r29
+ 798:	8c 2f       	mov	r24, r28
+ 79a:	0e 94 11 02 	call	0x422	; 0x422 <CleanerYLastInput>
 	}
 }
- 486:	df 91       	pop	r29
- 488:	cf 91       	pop	r28
- 48a:	08 95       	ret
+ 79e:	df 91       	pop	r29
+ 7a0:	cf 91       	pop	r28
+ 7a2:	08 95       	ret
 
-0000048c <MainInitialize>:
+000007a4 <MainInitialize>:
 
 void MainInitialize()
 {
 	// Set all ports to be configured as inputs
 	DDRB = 0b00000000;
- 48c:	14 b8       	out	0x04, r1	; 4
+ 7a4:	14 b8       	out	0x04, r1	; 4
 	DDRC = 0b00000000;
- 48e:	17 b8       	out	0x07, r1	; 7
+ 7a6:	17 b8       	out	0x07, r1	; 7
 	DDRD = 0b00000000;
- 490:	1a b8       	out	0x0a, r1	; 10
+ 7a8:	1a b8       	out	0x0a, r1	; 10
 
 	// Disable all internal pull-up resistors
 	PORTB = 0b00000000;
- 492:	15 b8       	out	0x05, r1	; 5
+ 7aa:	15 b8       	out	0x05, r1	; 5
 	PORTC = 0b00000000;
- 494:	18 b8       	out	0x08, r1	; 8
+ 7ac:	18 b8       	out	0x08, r1	; 8
 	PORTD = 0b00000000;
- 496:	1b b8       	out	0x0b, r1	; 11
+ 7ae:	1b b8       	out	0x0b, r1	; 11
 
 	// Enable necessary internal pull-up resistors
 	PORTB |= (1 << MAIN_RIGHT_BUTTON_PULLUP);
- 498:	28 9a       	sbi	0x05, 0	; 5
+ 7b0:	28 9a       	sbi	0x05, 0	; 5
 	PORTB |= (1 << MAIN_LEFT_BUTTON_PULLUP);
- 49a:	29 9a       	sbi	0x05, 1	; 5
+ 7b2:	29 9a       	sbi	0x05, 1	; 5
 	PORTB |= (1 << MAIN_DOWN_BUTTON_PULLUP);
- 49c:	2a 9a       	sbi	0x05, 2	; 5
+ 7b4:	2a 9a       	sbi	0x05, 2	; 5
 	PORTB |= (1 << MAIN_UP_BUTTON_PULLUP);
- 49e:	2b 9a       	sbi	0x05, 3	; 5
+ 7b6:	2b 9a       	sbi	0x05, 3	; 5
 	PORTC |= (1 << MAIN_DIP5_SW1_PULLUP);
- 4a0:	47 9a       	sbi	0x08, 7	; 8
+ 7b8:	47 9a       	sbi	0x08, 7	; 8
 	PORTC |= (1 << MAIN_DIP5_SW2_PULLUP);
- 4a2:	45 9a       	sbi	0x08, 5	; 8
+ 7ba:	45 9a       	sbi	0x08, 5	; 8
 	PORTC |= (1 << MAIN_DIP5_SW3_PULLUP);
- 4a4:	46 9a       	sbi	0x08, 6	; 8
+ 7bc:	46 9a       	sbi	0x08, 6	; 8
 	PORTC |= (1 << MAIN_DIP5_SW4_PULLUP);
- 4a6:	44 9a       	sbi	0x08, 4	; 8
+ 7be:	44 9a       	sbi	0x08, 4	; 8
 	PORTC |= (1 << MAIN_DIP5_SW5_PULLUP);
- 4a8:	42 9a       	sbi	0x08, 2	; 8
+ 7c0:	42 9a       	sbi	0x08, 2	; 8
 	PORTD |= (1 << MAIN_DIP2_SW1_PULLUP);
- 4aa:	59 9a       	sbi	0x0b, 1	; 11
+ 7c2:	59 9a       	sbi	0x0b, 1	; 11
 	PORTD |= (1 << MAIN_DIP2_SW2_PULLUP);
- 4ac:	5a 9a       	sbi	0x0b, 2	; 11
+ 7c4:	5a 9a       	sbi	0x0b, 2	; 11
 	PORTB |= (1 << MAIN_PRESET_BUTTON_PULLUP);
- 4ae:	2f 9a       	sbi	0x05, 7	; 5
+ 7c6:	2f 9a       	sbi	0x05, 7	; 5
 
 	// Set specific port bits to be configured as outputs
 	DDRD = DDRD | (1 << DIRECTION_SW1_CLEAN);
- 4b0:	53 9a       	sbi	0x0a, 3	; 10
+ 7c8:	53 9a       	sbi	0x0a, 3	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW2_CLEAN);
- 4b2:	54 9a       	sbi	0x0a, 4	; 10
+ 7ca:	54 9a       	sbi	0x0a, 4	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW3_CLEAN);
- 4b4:	55 9a       	sbi	0x0a, 5	; 10
+ 7cc:	55 9a       	sbi	0x0a, 5	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW4_CLEAN);
- 4b6:	56 9a       	sbi	0x0a, 6	; 10
+ 7ce:	56 9a       	sbi	0x0a, 6	; 10
 
 	// Default Button Positions
 	DirectionReleaseLeft(0);
- 4b8:	80 e0       	ldi	r24, 0x00	; 0
- 4ba:	0e 94 9a 01 	call	0x334	; 0x334 <DirectionReleaseLeft>
+ 7d0:	80 e0       	ldi	r24, 0x00	; 0
+ 7d2:	0e 94 26 03 	call	0x64c	; 0x64c <DirectionReleaseLeft>
 	DirectionReleaseRight(0);
- 4be:	80 e0       	ldi	r24, 0x00	; 0
- 4c0:	0e 94 b2 01 	call	0x364	; 0x364 <DirectionReleaseRight>
+ 7d6:	80 e0       	ldi	r24, 0x00	; 0
+ 7d8:	0e 94 3e 03 	call	0x67c	; 0x67c <DirectionReleaseRight>
 	DirectionReleaseDown(0);
- 4c4:	80 e0       	ldi	r24, 0x00	; 0
- 4c6:	0e 94 ca 01 	call	0x394	; 0x394 <DirectionReleaseDown>
+ 7dc:	80 e0       	ldi	r24, 0x00	; 0
+ 7de:	0e 94 56 03 	call	0x6ac	; 0x6ac <DirectionReleaseDown>
 	DirectionReleaseUp(0);
- 4ca:	80 e0       	ldi	r24, 0x00	; 0
- 4cc:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <DirectionReleaseUp>
- 4d0:	08 95       	ret
+ 7e2:	80 e0       	ldi	r24, 0x00	; 0
+ 7e4:	0e 94 6e 03 	call	0x6dc	; 0x6dc <DirectionReleaseUp>
+ 7e8:	08 95       	ret
 
-000004d2 <main>:
-#include <util/delay.h>
-
+000007ea <main>:
 int main(void)
 {	
+	// Testing out some changes in github
+	// Trying out another commit
 	// Setup I/O	
 	MainInitialize();
- 4d2:	0e 94 46 02 	call	0x48c	; 0x48c <MainInitialize>
+ 7ea:	0e 94 d2 03 	call	0x7a4	; 0x7a4 <MainInitialize>
 	
 	// Main program loop
     while(1) 
     {
 		// Clean x axis
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
- 4d6:	0e 94 f1 01 	call	0x3e2	; 0x3e2 <DirectionGetRightState>
- 4da:	c8 2f       	mov	r28, r24
- 4dc:	0e 94 ee 01 	call	0x3dc	; 0x3dc <DirectionGetLeftState>
- 4e0:	6c 2f       	mov	r22, r28
- 4e2:	0e 94 fa 01 	call	0x3f4	; 0x3f4 <MainCleanerX>
+ 7ee:	0e 94 7d 03 	call	0x6fa	; 0x6fa <DirectionGetRightState>
+ 7f2:	c8 2f       	mov	r28, r24
+ 7f4:	0e 94 7a 03 	call	0x6f4	; 0x6f4 <DirectionGetLeftState>
+ 7f8:	6c 2f       	mov	r22, r28
+ 7fa:	0e 94 86 03 	call	0x70c	; 0x70c <MainCleanerX>
 		// Note: 
 		// Would like to implement local and remote mode by doing: MainCleanerX(DirectionGetLeftState(), DirectionGetRightState(), ModeSwitchesRemote());
 		// Or something like that!
 		
 		// Clean y axis
 		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
- 4e6:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <DirectionGetUpState>
- 4ea:	c8 2f       	mov	r28, r24
- 4ec:	0e 94 f7 01 	call	0x3ee	; 0x3ee <DirectionGetDownState>
- 4f0:	6c 2f       	mov	r22, r28
- 4f2:	0e 94 20 02 	call	0x440	; 0x440 <MainCleanerY>
- 4f6:	ef cf       	rjmp	.-34     	; 0x4d6 <main+0x4>
+ 7fe:	0e 94 80 03 	call	0x700	; 0x700 <DirectionGetUpState>
+ 802:	c8 2f       	mov	r28, r24
+ 804:	0e 94 83 03 	call	0x706	; 0x706 <DirectionGetDownState>
+ 808:	6c 2f       	mov	r22, r28
+ 80a:	0e 94 ac 03 	call	0x758	; 0x758 <MainCleanerY>
+ 80e:	ef cf       	rjmp	.-34     	; 0x7ee <main+0x4>
 
-000004f8 <_exit>:
- 4f8:	f8 94       	cli
+00000810 <_exit>:
+ 810:	f8 94       	cli
 
-000004fa <__stop_program>:
- 4fa:	ff cf       	rjmp	.-2      	; 0x4fa <__stop_program>
+00000812 <__stop_program>:
+ 812:	ff cf       	rjmp	.-2      	; 0x812 <__stop_program>

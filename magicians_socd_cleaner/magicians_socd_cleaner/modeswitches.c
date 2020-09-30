@@ -111,7 +111,6 @@ uint8_t ModeSwitchesRemote()
 	return modeCode;
 }
 
-// PROBLEM CHILD
 uint8_t ModeSwitchesOrientation()
 {
 	// Decide mode for default OEM controller
