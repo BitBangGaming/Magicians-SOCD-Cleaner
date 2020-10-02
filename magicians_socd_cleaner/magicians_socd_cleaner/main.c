@@ -25,9 +25,7 @@ int main(void)
 
 static void MainGoClean()
 {
-	uint8_t remoteMode = ModeSwitchesRemote();
-	
-	if(remoteMode == 0)
+	if(ModeSwitchesRemote() == 0)
 	{
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
 		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());

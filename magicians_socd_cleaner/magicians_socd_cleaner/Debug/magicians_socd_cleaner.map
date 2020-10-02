@@ -202,7 +202,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x95a
+.text           0x00000000      0x960
  *(.vectors)
  .vectors       0x00000000       0x74 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
                 0x00000000                __vector_default
@@ -323,56 +323,56 @@ END GROUP
                 0x000005fc       0x2c modeswitches.o
                 0x000005fc                ModeSwitchesY
  .text.ModeSwitchesRemote
-                0x00000628        0x6 modeswitches.o
+                0x00000628        0xe modeswitches.o
                 0x00000628                ModeSwitchesRemote
  .text.ModeSwitchesOrientation
-                0x0000062e       0x2c modeswitches.o
-                0x0000062e                ModeSwitchesOrientation
+                0x00000636       0x2c modeswitches.o
+                0x00000636                ModeSwitchesOrientation
  .text.DirectionPressLeft
-                0x0000065a       0x18 direction.o
-                0x0000065a                DirectionPressLeft
+                0x00000662       0x18 direction.o
+                0x00000662                DirectionPressLeft
  .text.DirectionReleaseLeft
-                0x00000672       0x18 direction.o
-                0x00000672                DirectionReleaseLeft
+                0x0000067a       0x18 direction.o
+                0x0000067a                DirectionReleaseLeft
  .text.DirectionPressRight
-                0x0000068a       0x18 direction.o
-                0x0000068a                DirectionPressRight
+                0x00000692       0x18 direction.o
+                0x00000692                DirectionPressRight
  .text.DirectionReleaseRight
-                0x000006a2       0x18 direction.o
-                0x000006a2                DirectionReleaseRight
+                0x000006aa       0x18 direction.o
+                0x000006aa                DirectionReleaseRight
  .text.DirectionPressDown
-                0x000006ba       0x18 direction.o
-                0x000006ba                DirectionPressDown
+                0x000006c2       0x18 direction.o
+                0x000006c2                DirectionPressDown
  .text.DirectionReleaseDown
-                0x000006d2       0x18 direction.o
-                0x000006d2                DirectionReleaseDown
+                0x000006da       0x18 direction.o
+                0x000006da                DirectionReleaseDown
  .text.DirectionPressUp
-                0x000006ea       0x18 direction.o
-                0x000006ea                DirectionPressUp
+                0x000006f2       0x18 direction.o
+                0x000006f2                DirectionPressUp
  .text.DirectionReleaseUp
-                0x00000702       0x18 direction.o
-                0x00000702                DirectionReleaseUp
+                0x0000070a       0x18 direction.o
+                0x0000070a                DirectionReleaseUp
  .text.DirectionGetLeftState
-                0x0000071a        0x6 direction.o
-                0x0000071a                DirectionGetLeftState
+                0x00000722        0x6 direction.o
+                0x00000722                DirectionGetLeftState
  .text.DirectionGetRightState
-                0x00000720        0x6 direction.o
-                0x00000720                DirectionGetRightState
+                0x00000728        0x6 direction.o
+                0x00000728                DirectionGetRightState
  .text.DirectionGetUpState
-                0x00000726        0x6 direction.o
-                0x00000726                DirectionGetUpState
+                0x0000072e        0x6 direction.o
+                0x0000072e                DirectionGetUpState
  .text.DirectionGetDownState
-                0x0000072c        0x6 direction.o
-                0x0000072c                DirectionGetDownState
- .text.main     0x00000732      0x218 main.o
-                0x00000732                main
- .text.libgcc   0x0000094a        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
-                0x0000094a                __tablejump2__
-                0x00000956                . = ALIGN (0x2)
+                0x00000734        0x6 direction.o
+                0x00000734                DirectionGetDownState
+ .text.main     0x0000073a      0x216 main.o
+                0x0000073a                main
+ .text.libgcc   0x00000950        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000950                __tablejump2__
+                0x0000095c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000956        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
-                0x00000956                _exit
-                0x00000956                exit
+ .fini9         0x0000095c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x0000095c                _exit
+                0x0000095c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -391,11 +391,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000956        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+ .fini0         0x0000095c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000095a                _etext = .
+                0x00000960                _etext = .
 
-.data           0x00800100        0x0 load address 0x0000095a
+.data           0x00800100        0x0 load address 0x00000960
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -419,8 +419,8 @@ END GROUP
                 0x00800102        0x1 main.o
  *(COMMON)
                 0x00800103                PROVIDE (__bss_end, .)
-                0x0000095a                __data_load_start = LOADADDR (.data)
-                0x0000095a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000960                __data_load_start = LOADADDR (.data)
+                0x00000960                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800103        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -508,29 +508,29 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1bbf
+.debug_info     0x00000000     0x1b9c
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x6ba C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
  .debug_info    0x000006ba      0x9d7 cleaner.o
  .debug_info    0x00001091      0x1a2 modeswitches.o
  .debug_info    0x00001233      0x215 direction.o
- .debug_info    0x00001448      0x777 main.o
+ .debug_info    0x00001448      0x754 main.o
 
-.debug_abbrev   0x00000000      0x952
+.debug_abbrev   0x00000000      0x940
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x65d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
  .debug_abbrev  0x0000065d       0xb7 cleaner.o
  .debug_abbrev  0x00000714       0x9c modeswitches.o
  .debug_abbrev  0x000007b0       0x7c direction.o
- .debug_abbrev  0x0000082c      0x126 main.o
+ .debug_abbrev  0x0000082c      0x114 main.o
 
-.debug_line     0x00000000      0xdb7
+.debug_line     0x00000000      0xdb3
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x145 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
  .debug_line    0x00000145      0x577 cleaner.o
- .debug_line    0x000006bc      0x19d modeswitches.o
- .debug_line    0x00000859      0x2a7 direction.o
- .debug_line    0x00000b00      0x2b7 main.o
+ .debug_line    0x000006bc      0x1a3 modeswitches.o
+ .debug_line    0x0000085f      0x2a7 direction.o
+ .debug_line    0x00000b06      0x2ad main.o
 
 .debug_frame    0x00000000      0x1f0
  *(.debug_frame)
@@ -539,7 +539,7 @@ END GROUP
  .debug_frame   0x000000f8       0xd4 direction.o
  .debug_frame   0x000001cc       0x24 main.o
 
-.debug_str      0x00000000      0x757
+.debug_str      0x00000000      0x74c
  *(.debug_str)
  .debug_str     0x00000000      0x262 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
  .debug_str     0x00000262      0x2fe cleaner.o
@@ -548,14 +548,14 @@ END GROUP
                                 0x2c0 (size before relaxing)
  .debug_str     0x0000066d       0x78 direction.o
                                 0x2b1 (size before relaxing)
- .debug_str     0x000006e5       0x72 main.o
-                                0x3b8 (size before relaxing)
+ .debug_str     0x000006e5       0x67 main.o
+                                0x3ad (size before relaxing)
 
-.debug_loc      0x00000000      0xcc1
+.debug_loc      0x00000000      0xcaa
  *(.debug_loc)
  .debug_loc     0x00000000      0xb0c cleaner.o
- .debug_loc     0x00000b0c       0x7d modeswitches.o
- .debug_loc     0x00000b89      0x138 main.o
+ .debug_loc     0x00000b0c       0x84 modeswitches.o
+ .debug_loc     0x00000b90      0x11a main.o
 
 .debug_macinfo
  *(.debug_macinfo)

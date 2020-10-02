@@ -98,7 +98,7 @@ uint8_t ModeSwitchesRemote()
 {
 	// Decide mode based on preset choosing button
 	uint8_t modeCode = 0;
-	if ( (ModeSwitchesReadDip5Sw5() == 1) )
+	if ( (ModeSwitchesReadDip5Sw5() > 0) )
 	{
 		// Mode code for dip selection
 		modeCode = 0;
