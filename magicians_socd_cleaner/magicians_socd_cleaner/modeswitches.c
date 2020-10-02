@@ -105,7 +105,7 @@ uint8_t ModeSwitchesRemote()
 	}
 	else
 	{
-		// Mode code for preset button selection
+		// Mode code for remote button selection
 		modeCode = 1;
 	}
 	return modeCode;

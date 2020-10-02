@@ -17,23 +17,30 @@ int main(void)
 	// Main program loop
     while(1) 
     {
-		// Clean x axis
-		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
-		// Note: 
-		// Would like to implement local and remote mode by doing: MainCleanerX(DirectionGetLeftState(), DirectionGetRightState(), ModeSwitchesRemote());
-		// Or something like that!
-		
-		// Clean y axis
-		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
-		// Would like to implement local and remote mode by doing: MainCleanerX(DirectionGetDownState(), DirectionGetUpState(), ModeSwitchesRemote());
-		// Or something like that!
+		// Go and clean
+		MainGoClean();		
 	}
 	return(0);
 }
 
-void MainCleanerX(uint8_t tempLeftState, uint8_t tempRightState)
+static void MainGoClean()
 {
-	// Cleaning for x axis
+	uint8_t remoteMode = ModeSwitchesRemote();
+	
+	if(remoteMode == 0)
+	{
+		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
+		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
+	}
+	else
+	{
+		MainCleanerRemote(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
+	}
+}
+
+static void MainCleanerX(uint8_t tempLeftState, uint8_t tempRightState)
+{
+	// Grab cleaner from local dip switches
 	if(ModeSwitchesX() == 0)
 	{
 		CleanerXNeutral(tempLeftState, tempRightState);
@@ -52,7 +59,7 @@ void MainCleanerX(uint8_t tempLeftState, uint8_t tempRightState)
 	}
 }
 
-void MainCleanerY(uint8_t tempDownState, uint8_t tempUpState)
+static void MainCleanerY(uint8_t tempDownState, uint8_t tempUpState)
 {
 	// Cleaning for y axis
 	if(ModeSwitchesY() == 0)
@@ -73,7 +80,93 @@ void MainCleanerY(uint8_t tempDownState, uint8_t tempUpState)
 	}
 }
 
-void MainInitialize()
+static void MainCleanerRemote(uint8_t tempLeftState, uint8_t tempRightState, uint8_t tempDownState, uint8_t tempUpState)
+{
+	switch (remoteModeCode)
+	{
+		case REMOTE_MODE_0:
+			CleanerXNeutral(tempLeftState, tempRightState);
+			CleanerYNeutral(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_1:
+			CleanerXNeutral(tempLeftState, tempRightState);
+			CleanerYDown(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_2:
+			CleanerXNeutral(tempLeftState, tempRightState);
+			CleanerYUp(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_3:
+			CleanerXNeutral(tempLeftState, tempRightState);
+			CleanerYLastInput(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_4:
+			CleanerXLeft(tempLeftState, tempRightState);
+			CleanerYNeutral(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_5:
+			CleanerXLeft(tempLeftState, tempRightState);
+			CleanerYDown(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_6:
+			CleanerXLeft(tempLeftState, tempRightState);
+			CleanerYUp(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_7:
+			CleanerXLeft(tempLeftState, tempRightState);
+			CleanerYLastInput(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_8:
+			CleanerXRight(tempLeftState, tempRightState);
+			CleanerYNeutral(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_9:
+			CleanerXRight(tempLeftState, tempRightState);
+			CleanerYDown(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_10:
+			CleanerXRight(tempLeftState, tempRightState);
+			CleanerYUp(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_11:
+			CleanerXRight(tempLeftState, tempRightState);
+			CleanerYLastInput(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_12:
+			CleanerXLastInput(tempLeftState, tempRightState);
+			CleanerYNeutral(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_13:
+			CleanerXLastInput(tempLeftState, tempRightState);
+			CleanerYDown(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_14:
+			CleanerXLastInput(tempLeftState, tempRightState);
+			CleanerYUp(tempDownState, tempUpState);
+			break;
+		
+		case REMOTE_MODE_15:
+			CleanerXLastInput(tempLeftState, tempRightState);
+			CleanerYLastInput(tempDownState, tempUpState);
+			break;
+	}
+}
+
+static void MainInitialize()
 {
 	// Set all ports to be configured as inputs
 	DDRB = 0b00000000;
@@ -105,9 +198,12 @@ void MainInitialize()
 	DDRD = DDRD | (1 << DIRECTION_SW3_CLEAN);
 	DDRD = DDRD | (1 << DIRECTION_SW4_CLEAN);
 
-	// Default Button Positions
+	// Default button positions
 	DirectionReleaseLeft(0);
 	DirectionReleaseRight(0);
 	DirectionReleaseDown(0);
 	DirectionReleaseUp(0);
+	
+	// Default remote mode code
+	remoteModeCode = 0;
 }

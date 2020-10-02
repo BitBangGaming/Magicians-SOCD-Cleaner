@@ -8,14 +8,14 @@
 #include "modeswitches.h"
 
 /* Macros */
-// X axis states
+// X axis states for last input cleaner
 #define NEUTRAL_X  0
 #define LEFT	   1
 #define LEFT_LOST  2
 #define RIGHT	   3
 #define RIGHT_LOST 4
 
-// Y axis states
+// Y axis states for last input cleaner
 #define NEUTRAL_Y  0
 #define DOWN	   1
 #define DOWN_LOST  2
@@ -23,7 +23,7 @@
 #define UP_LOST	   4
 
 /* Variables */
-// State trackers
+// State trackers for last input cleaner
 static uint8_t CleanerXAxisState;
 static uint8_t CleanerYAxisState;
 

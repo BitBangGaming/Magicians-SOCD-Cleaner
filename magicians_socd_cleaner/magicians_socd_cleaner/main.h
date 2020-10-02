@@ -6,6 +6,7 @@
 // None
 
 /* Macros */
+// I/O
 #define MAIN_RIGHT_BUTTON_PULLUP  PB0
 #define MAIN_LEFT_BUTTON_PULLUP   PB1
 #define MAIN_DOWN_BUTTON_PULLUP   PB2
@@ -19,21 +20,38 @@
 #define	MAIN_DIP2_SW2_PULLUP	  PD2
 #define	MAIN_PRESET_BUTTON_PULLUP PB7
 
+// Remote mode codes
+#define	REMOTE_MODE_0  0
+#define	REMOTE_MODE_1  1
+#define	REMOTE_MODE_2  2
+#define	REMOTE_MODE_3  3
+#define	REMOTE_MODE_4  4
+#define	REMOTE_MODE_5  5
+#define	REMOTE_MODE_6  6
+#define	REMOTE_MODE_7  7
+#define	REMOTE_MODE_8  8
+#define	REMOTE_MODE_9  9
+#define	REMOTE_MODE_10 10
+#define	REMOTE_MODE_11 11
+#define	REMOTE_MODE_12 12
+#define	REMOTE_MODE_13 13
+#define	REMOTE_MODE_14 14
+#define	REMOTE_MODE_15 15
+
 /* Variables */
-uint8_t leftState = 0;
-uint8_t rightState = 0;
-uint8_t downState = 0;
-uint8_t upState = 0;
+static uint8_t remoteModeCode;
 
 /* Function Declarations */
 // Main routine 
 int main(void);
 
 // Cleaning Selection Logic 
-void MainCleanerX(uint8_t, uint8_t);
-void MainCleanerY(uint8_t, uint8_t);
+static void MainGoClean(void);
+static void MainCleanerX(uint8_t, uint8_t);
+static void MainCleanerY(uint8_t, uint8_t);
+static void MainCleanerRemote(uint8_t, uint8_t, uint8_t, uint8_t);
 
 // Initialization
-void MainInitialize(void);
+static void MainInitialize(void);
 
 #endif // MAIN_H_ 

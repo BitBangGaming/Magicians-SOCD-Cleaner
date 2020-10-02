@@ -270,107 +270,107 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 	switch (CleanerYAxisState)
 	{
 		case NEUTRAL_Y:
-		if ( (tempDownState == 0) )
-		{
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN;
-		}
-		else if ( (tempUpState == 0) )
-		{
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = UP;
-		}
-		else
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			CleanerYAxisState = NEUTRAL_Y;
-		}
-		break;
+			if ( (tempDownState == 0) )
+			{
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN;
+			}
+			else if ( (tempUpState == 0) )
+			{
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = UP;
+			}
+			else
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerYAxisState = NEUTRAL_Y;
+			}
+			break;
 		
 		case DOWN:
-		if ( (tempDownState > 0) )
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			CleanerYAxisState = NEUTRAL_Y;
-		}
-		else if ( (tempUpState == 0) )
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN_LOST;
-		}
-		else
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN;
-		}
-		break;
+			if ( (tempDownState > 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				CleanerYAxisState = NEUTRAL_Y;
+			}
+			else if ( (tempUpState == 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN_LOST;
+			}
+			else
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN;
+			}
+			break;
 		
 		case DOWN_LOST:
-		if ( (tempDownState > 0) )
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = UP;
-		}
-		else if ( (tempUpState > 0) )
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN;
-		}
-		else
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN_LOST;
-		}
-		break;
+			if ( (tempDownState > 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = UP;
+			}
+			else if ( (tempUpState > 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN;
+			}
+			else
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN_LOST;
+			}
+			break;
 		
 		case UP:
-		if ( (tempUpState > 0) )
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			CleanerYAxisState = NEUTRAL_Y;
-		}
-		else if ( (tempDownState == 0) )
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = UP_LOST;
-		}
-		else
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = UP;
-		}
-		break;
+			if ( (tempUpState > 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerYAxisState = NEUTRAL_Y;
+			}
+			else if ( (tempDownState == 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = UP_LOST;
+			}
+			else
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = UP;
+			}
+			break;
 		
 		case UP_LOST:
-		if ( (tempUpState > 0) )
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = DOWN;
-		}
-		else if ( (tempDownState > 0) )
-		{
-			DirectionReleaseDown(ModeSwitchesOrientation());
-			DirectionPressUp(ModeSwitchesOrientation());
-			CleanerYAxisState = UP;
-		}
-		else
-		{
-			DirectionReleaseUp(ModeSwitchesOrientation());
-			DirectionPressDown(ModeSwitchesOrientation());
-			CleanerYAxisState = UP_LOST;
-		}
-		break;
+			if ( (tempUpState > 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = DOWN;
+			}
+			else if ( (tempDownState > 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerYAxisState = UP;
+			}
+			else
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerYAxisState = UP_LOST;
+			}
+			break;
 		
 		default:
-		break;
+			break;
 	}
 }
