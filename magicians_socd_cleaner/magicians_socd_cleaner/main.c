@@ -33,6 +33,8 @@ static void MainGoClean()
 	else
 	{
 		MainCleanerRemote(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
+		MainUpdateProgramModeCounter();
+		MainProgramModeChecker();
 	}
 }
 
@@ -164,6 +166,113 @@ static void MainCleanerRemote(uint8_t tempLeftState, uint8_t tempRightState, uin
 	}
 }
 
+static void MainUpdateProgramModeCounter()
+{
+	// Update counter whenever timer ticks above 0.05 seconds
+	if(TCNT1 >= 49999)
+	{
+		// Update program mode counter only if all inputs are pressed
+		if((DirectionGetLeftState() == 0) && (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) && (DirectionGetUpState() == 0))
+		{
+			programModeCounter++;
+			TCNT1 = 0;
+		}
+		else
+		{
+			programModeCounter = 0;
+		}
+	}
+}
+
+static void MainProgramModeChecker()
+{
+	// Determine if we should go into program mode after 5 seconds
+	// In other words, 0.05 seconds have been counted 100 times
+	if(programModeCounter > 100)
+	{
+		// Indicate you are in program mode
+		// future
+		
+		// Read the inputs every 50 milliseconds for the next 5 seconds to determine the new cleaning operation
+		for(uint8_t i = 0; i < 100; i++)
+		{
+			MainUpdateRemoteModeCode(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
+			_delay_ms(50);
+		}
+		
+		// Task complete so reset the counter
+		programModeCounter = 0;
+	}
+}
+
+static void MainUpdateRemoteModeCode(uint8_t tempLeftState, uint8_t tempRightState, uint8_t tempDownState, uint8_t tempUpState)
+{
+	if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_0;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_1;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_2;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_3;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_4;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_5;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_6;
+	}
+	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_7;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_8;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_9;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_10;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_11;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_12;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
+	{
+		remoteModeCode = REMOTE_MODE_13;
+	}
+	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
+	{
+		remoteModeCode = REMOTE_MODE_14;
+	}
+	else
+	{
+		remoteModeCode = REMOTE_MODE_15;
+	}
+}
+
 static void MainInitialize()
 {
 	// Set all ports to be configured as inputs
@@ -203,5 +312,11 @@ static void MainInitialize()
 	DirectionReleaseUp(0);
 	
 	// Default remote mode code
-	remoteModeCode = 0;
+	remoteModeCode = REMOTE_MODE_1;
+	
+	// Set up the 16 bit timer to keep counting up
+	TCCR1B |= (1 << CS10);
+	
+	// Default program mode counter
+	programModeCounter = 0;
 }

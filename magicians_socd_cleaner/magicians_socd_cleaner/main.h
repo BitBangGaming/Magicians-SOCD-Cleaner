@@ -40,6 +40,7 @@
 
 /* Variables */
 static uint8_t remoteModeCode;
+static uint8_t programModeCounter;
 
 /* Function Declarations */
 // Main routine 
@@ -50,6 +51,9 @@ static void MainGoClean(void);
 static void MainCleanerX(uint8_t, uint8_t);
 static void MainCleanerY(uint8_t, uint8_t);
 static void MainCleanerRemote(uint8_t, uint8_t, uint8_t, uint8_t);
+static void MainUpdateProgramModeCounter(void);
+static void MainProgramModeChecker(void);
+static void MainUpdateRemoteModeCode(uint8_t, uint8_t, uint8_t, uint8_t);
 
 // Initialization
 static void MainInitialize(void);
