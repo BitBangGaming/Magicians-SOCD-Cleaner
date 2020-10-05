@@ -6,6 +6,7 @@
 #include "main.h"
 #define F_CPU 1000000UL
 #include <util/delay.h>
+#include <avr/eeprom.h>
 
 int main(void)
 {	
@@ -209,68 +210,70 @@ static void MainUpdateRemoteModeCode(uint8_t tempLeftState, uint8_t tempRightSta
 {
 	if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_0;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_0 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_1;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_1 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_2;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_2 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_3;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_3 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_4;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_4 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_5;
+		eeprom_update_byte (( uint8_t *) 0, REMOTE_MODE_5 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_6;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_6 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_7;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_7 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_8;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_8 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_9;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_9 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_10;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_10 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_11;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_11 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_12;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_12 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		remoteModeCode = REMOTE_MODE_13;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_13 );
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
 	{
-		remoteModeCode = REMOTE_MODE_14;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_14 );
 	}
 	else
 	{
-		remoteModeCode = REMOTE_MODE_15;
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_15 );
 	}
+	_delay_ms(5);
+	remoteModeCode = eeprom_read_byte (( uint8_t *) 46);
 }
 
 static void MainInitialize()
@@ -311,8 +314,17 @@ static void MainInitialize()
 	DirectionReleaseDown(0);
 	DirectionReleaseUp(0);
 	
-	// Default remote mode code
-	remoteModeCode = REMOTE_MODE_1;
+	// Read in saved remote mode code, but
+	// default to REMOTE_MODE_1 if eeprom data is not in range
+	uint8_t tempData = eeprom_read_byte (( uint8_t *) 46);
+	if (tempData > 15)
+	{
+		remoteModeCode = REMOTE_MODE_0;
+	}
+	else
+	{
+		remoteModeCode = tempData;
+	}
 	
 	// Set up the 16 bit timer to keep counting up
 	TCCR1B |= (1 << CS10);
