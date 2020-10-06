@@ -21,11 +21,17 @@
 // None
 
 /* Function Declarations */
-// Mode
+uint8_t ModeSwitchesReadDip5Sw1(void);
+uint8_t ModeSwitchesReadDip5Sw2(void);
+uint8_t ModeSwitchesReadDip5Sw3(void);
+uint8_t ModeSwitchesReadDip5Sw4(void);
+uint8_t ModeSwitchesReadDip5Sw5(void);
+uint8_t ModeSwitchesReadDip2Sw1(void);
+uint8_t ModeSwitchesReadDip2Sw2(void);
+uint8_t ModeSwitchesReadRemoteButton(void);
 uint8_t ModeSwitchesX(void);
 uint8_t ModeSwitchesY(void);
 uint8_t ModeSwitchesRemote(void);
 uint8_t ModeSwitchesOrientation(void);
-uint8_t ModeSwitchesPresetEnable(void);
 
 #endif // MODESWITCHES_H_ 

@@ -172,16 +172,33 @@ static void MainUpdateProgramModeCounter()
 	// Update counter whenever timer ticks above 0.05 seconds
 	if(TCNT1 >= 49999)
 	{
-		// Update program mode counter only if all inputs are pressed
-		if((DirectionGetLeftState() == 0) && (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) && (DirectionGetUpState() == 0))
+		if(ModeSwitchesReadDip5Sw1() == 0)
 		{
-			programModeCounter++;
-			TCNT1 = 0;
+			// Update program mode counter only if all inputs are pressed
+			if((DirectionGetLeftState() == 0) && (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) && (DirectionGetUpState() == 0))
+			{
+				programModeCounter++;
+				TCNT1 = 0;
+			}
+			else
+			{
+				programModeCounter = 0;
+			}
 		}
 		else
 		{
-			programModeCounter = 0;
+			// Update program mode counter only if all inputs are pressed
+			if(ModeSwitchesReadRemoteButton() == 0)
+			{
+				programModeCounter++;
+				TCNT1 = 0;
+			}
+			else
+			{
+				programModeCounter = 0;
+			}
 		}
+		
 	}
 }
 

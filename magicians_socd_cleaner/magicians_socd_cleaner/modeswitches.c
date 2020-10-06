@@ -4,39 +4,44 @@
 /* Function Definitions */
 
 // Reading Inputs
-static uint8_t ModeSwitchesReadDip5Sw1()
+uint8_t ModeSwitchesReadDip5Sw1()
 {
 	return (PINC & (1 << MODESWITCHES_DIP5_SW1));
 }
 
-static uint8_t ModeSwitchesReadDip5Sw2()
+uint8_t ModeSwitchesReadDip5Sw2()
 {
 	return (PINC & (1 << MODESWITCHES_DIP5_SW2));
 }
 
-static uint8_t ModeSwitchesReadDip5Sw3()
+uint8_t ModeSwitchesReadDip5Sw3()
 {
 	return (PINC & (1 << MODESWITCHES_DIP5_SW3));
 }
 
-static uint8_t ModeSwitchesReadDip5Sw4()
+uint8_t ModeSwitchesReadDip5Sw4()
 {
 	return (PINC & (1 << MODESWITCHES_DIP5_SW4));
 }
 
-static uint8_t ModeSwitchesReadDip5Sw5()
+uint8_t ModeSwitchesReadDip5Sw5()
 {
 	return (PINC & (1 << MODESWITCHES_DIP5_SW5));
 }
 
-static uint8_t ModeSwitchesReadDip2Sw1()
+uint8_t ModeSwitchesReadDip2Sw1()
 {
 	return (PIND & (1 << MODESWITCHES_DIP2_SW1));
 }
 
-static uint8_t ModeSwitchesReadDip2Sw2()
+uint8_t ModeSwitchesReadDip2Sw2()
 {
 	return (PIND & (1 << MODESWITCHES_DIP2_SW2));
+}
+
+uint8_t ModeSwitchesReadRemoteButton()
+{
+	return (PINB & (1 << MODESWITCHES_PRESET_BUTTON));
 }
 
 // Mode Decision
@@ -137,11 +142,4 @@ uint8_t ModeSwitchesOrientation()
 	}
 	
 	return modeCode;
-}
-
-uint8_t ModeSwitchesPresetEnable()
-{
-	// Decide mode to choose remote choice
-	// Nothing yet
-	return 0;
 }
