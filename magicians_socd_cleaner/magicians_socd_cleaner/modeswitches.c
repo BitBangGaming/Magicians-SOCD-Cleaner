@@ -53,12 +53,12 @@ uint8_t ModeSwitchesX()
 		// Mode code for cleaner x neutral
 		modeCode = 0;
 	}
-	else if ( (ModeSwitchesReadDip5Sw1() > 0) && (ModeSwitchesReadDip5Sw2() == 0) )
+	else if ( (ModeSwitchesReadDip5Sw1() == 0) && (ModeSwitchesReadDip5Sw2() > 0) )
 	{
 		// Mode code for cleaner x left
 		modeCode = 1;
 	}
-	else if ( (ModeSwitchesReadDip5Sw1() == 0) && (ModeSwitchesReadDip5Sw2() > 0) )
+	else if ( (ModeSwitchesReadDip5Sw1() > 0) && (ModeSwitchesReadDip5Sw2() == 0) )
 	{
 		// Mode code for cleaner x right
 		modeCode = 2;
