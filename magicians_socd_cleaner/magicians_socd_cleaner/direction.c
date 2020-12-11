@@ -211,22 +211,22 @@ void DirectionReleaseUp(uint8_t tempOrientation)
 // LED Outputs
 void DirectionPressRightLed()
 {
-	PORTB &= ~(1 << DIRECTION_RIGHT_LED);
+	PORTD &= ~(1 << DIRECTION_RIGHT_LED);
 }
 
 void DirectionReleaseRightLed()
 {
-	PORTB |= (1 << DIRECTION_RIGHT_LED);
+	PORTD |= (1 << DIRECTION_RIGHT_LED);
 }
 
 void DirectionPressLeftLed()
 {
-	PORTD &= ~(1 << DIRECTION_LEFT_LED);
+	PORTB &= ~(1 << DIRECTION_LEFT_LED);
 }
 
 void DirectionReleaseLeftLed()
 {
-	PORTD |= (1 << DIRECTION_LEFT_LED);
+	PORTB |= (1 << DIRECTION_LEFT_LED);
 }
 
 void DirectionPressDownLed()

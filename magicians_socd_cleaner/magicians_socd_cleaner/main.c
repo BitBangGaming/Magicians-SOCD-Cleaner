@@ -324,6 +324,10 @@ static void MainInitialize()
 	DDRD = DDRD | (1 << DIRECTION_SW2_CLEAN);
 	DDRD = DDRD | (1 << DIRECTION_SW3_CLEAN);
 	DDRD = DDRD | (1 << DIRECTION_SW4_CLEAN);
+	DDRD = DDRD | (1 << DIRECTION_RIGHT_LED);
+	DDRB = DDRB | (1 << DIRECTION_LEFT_LED);
+	DDRB = DDRB | (1 << DIRECTION_DOWN_LED);
+	DDRB = DDRB | (1 << DIRECTION_UP_LED);
 
 	// Default button positions
 	DirectionReleaseLeft(0);

@@ -3,31 +3,31 @@ magicians_socd_cleaner.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000bee  2**0
+  0 .data         00000000  00800100  00800100  00000c36  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000b7a  00000000  00000000  00000074  2**1
+  1 .text         00000bc2  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000004  00800100  00800100  00000bee  2**0
+  2 .bss          00000004  00800100  00800100  00000c36  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000bee  2**0
+  3 .comment      00000030  00000000  00000000  00000c36  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000c20  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000c68  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000001a8  00000000  00000000  00000c60  2**3
+  5 .debug_aranges 000001e8  00000000  00000000  00000ca8  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000021ad  00000000  00000000  00000e08  2**0
+  6 .debug_info   000022b0  00000000  00000000  00000e90  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a02  00000000  00000000  00002fb5  2**0
+  7 .debug_abbrev 00000a3d  00000000  00000000  00003140  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000119c  00000000  00000000  000039b7  2**0
+  8 .debug_line   0000129c  00000000  00000000  00003b7d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000260  00000000  00000000  00004b54  2**2
+  9 .debug_frame  000002e0  00000000  00000000  00004e1c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000831  00000000  00000000  00004db4  2**0
+ 10 .debug_str    000008e7  00000000  00000000  000050fc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000ea0  00000000  00000000  000055e5  2**0
+ 11 .debug_loc    00000fa8  00000000  00000000  000059e3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000140  00000000  00000000  00006485  2**0
+ 12 .debug_ranges 00000180  00000000  00000000  0000698b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -62,22 +62,22 @@ Disassembly of section .text:
   68:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   6c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   70:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
-  74:	43 04       	cpc	r4, r3
-  76:	4b 04       	cpc	r4, r11
-  78:	53 04       	cpc	r5, r3
-  7a:	5b 04       	cpc	r5, r11
-  7c:	63 04       	cpc	r6, r3
-  7e:	6b 04       	cpc	r6, r11
-  80:	73 04       	cpc	r7, r3
-  82:	7b 04       	cpc	r7, r11
-  84:	83 04       	cpc	r8, r3
-  86:	8b 04       	cpc	r8, r11
-  88:	93 04       	cpc	r9, r3
-  8a:	9b 04       	cpc	r9, r11
-  8c:	a3 04       	cpc	r10, r3
-  8e:	ab 04       	cpc	r10, r11
-  90:	b3 04       	cpc	r11, r3
-  92:	bb 04       	cpc	r11, r11
+  74:	67 04       	cpc	r6, r7
+  76:	6f 04       	cpc	r6, r15
+  78:	77 04       	cpc	r7, r7
+  7a:	7f 04       	cpc	r7, r15
+  7c:	87 04       	cpc	r8, r7
+  7e:	8f 04       	cpc	r8, r15
+  80:	97 04       	cpc	r9, r7
+  82:	9f 04       	cpc	r9, r15
+  84:	a7 04       	cpc	r10, r7
+  86:	af 04       	cpc	r10, r15
+  88:	b7 04       	cpc	r11, r7
+  8a:	bf 04       	cpc	r11, r15
+  8c:	c7 04       	cpc	r12, r7
+  8e:	cf 04       	cpc	r12, r15
+  90:	d7 04       	cpc	r13, r7
+  92:	df 04       	cpc	r13, r15
 
 00000094 <__ctors_end>:
   94:	11 24       	eor	r1, r1
@@ -100,8 +100,8 @@ Disassembly of section .text:
   aa:	a4 30       	cpi	r26, 0x04	; 4
   ac:	b2 07       	cpc	r27, r18
   ae:	e1 f7       	brne	.-8      	; 0xa8 <.do_clear_bss_loop>
-  b0:	0e 94 a3 03 	call	0x746	; 0x746 <main>
-  b4:	0c 94 bb 05 	jmp	0xb76	; 0xb76 <_exit>
+  b0:	0e 94 c3 03 	call	0x786	; 0x786 <main>
+  b4:	0c 94 df 05 	jmp	0xbbe	; 0xbbe <_exit>
 
 000000b8 <__bad_interrupt>:
   b8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -120,20 +120,20 @@ void CleanerXNeutral(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
   c4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  c8:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+  c8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
   cc:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  d0:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+  d0:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
   d4:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
   d6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  da:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+  da:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
   de:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  e2:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+  e2:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
   e6:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -142,20 +142,20 @@ void CleanerXNeutral(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
   ec:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  f0:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+  f0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
   f4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
-  f8:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+  f8:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
   fc:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
   fe:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 102:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 102:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  106:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 10a:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 10a:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  10e:	08 95       	ret
 
 00000110 <CleanerXLeft>:
@@ -172,20 +172,20 @@ void CleanerXLeft(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
  118:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 11c:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 11c:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  120:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 124:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 124:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  128:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
  12a:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 12e:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 12e:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  132:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 136:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 136:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  13a:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -194,20 +194,20 @@ void CleanerXLeft(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
  140:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 144:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 144:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
  148:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 14c:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 14c:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
  150:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
  152:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 156:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 156:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  15a:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 15e:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 15e:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  162:	08 95       	ret
 
 00000164 <CleanerXRight>:
@@ -224,20 +224,20 @@ void CleanerXRight(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
  16c:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 170:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 170:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
  174:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 178:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 178:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
  17c:	08 95       	ret
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) )
 	{
 		DirectionPressLeft(ModeSwitchesOrientation());
  17e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 182:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 182:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  186:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 18a:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 18a:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  18e:	08 95       	ret
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) )
@@ -246,20 +246,20 @@ void CleanerXRight(uint8_t tempLeftState, uint8_t tempRightState)
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
  194:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 198:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 198:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionPressRight(ModeSwitchesOrientation());
  19c:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 1a0:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 1a0:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
  1a4:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseLeft(ModeSwitchesOrientation());
  1a6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 1aa:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 1aa:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 		DirectionReleaseRight(ModeSwitchesOrientation());
  1ae:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 1b2:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 1b2:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
  1b6:	08 95       	ret
 
 000001b8 <CleanerXLastInput>:
@@ -294,7 +294,7 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionPressLeft(ModeSwitchesOrientation());
  1e0:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 1e4:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 1e4:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = LEFT;
  1e8:	81 e0       	ldi	r24, 0x01	; 1
  1ea:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -306,7 +306,7 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionPressRight(ModeSwitchesOrientation());
  1f4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 1f8:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 1f8:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = RIGHT;
  1fc:	83 e0       	ldi	r24, 0x03	; 3
  1fe:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -316,10 +316,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  204:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 208:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 208:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionReleaseRight(ModeSwitchesOrientation());
  20c:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 210:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 210:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				CleanerXAxisState = NEUTRAL_X;
  214:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
  218:	08 95       	ret
@@ -333,7 +333,7 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  21e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 222:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 222:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				CleanerXAxisState = NEUTRAL_X;
  226:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
  22a:	08 95       	ret
@@ -344,10 +344,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  230:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 234:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 234:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionPressRight(ModeSwitchesOrientation());
  238:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 23c:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 23c:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = LEFT_LOST;
  240:	82 e0       	ldi	r24, 0x02	; 2
  242:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -357,10 +357,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  248:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 24c:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 24c:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				DirectionPressLeft(ModeSwitchesOrientation());
  250:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 254:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 254:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = LEFT;
  258:	81 e0       	ldi	r24, 0x01	; 1
  25a:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -375,10 +375,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  264:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 268:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 268:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionPressRight(ModeSwitchesOrientation());
  26c:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 270:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 270:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = RIGHT;
  274:	83 e0       	ldi	r24, 0x03	; 3
  276:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -390,10 +390,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  280:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 284:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 284:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				DirectionPressLeft(ModeSwitchesOrientation());
  288:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 28c:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 28c:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = LEFT;
  290:	81 e0       	ldi	r24, 0x01	; 1
  292:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -403,10 +403,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  298:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 29c:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 29c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionPressRight(ModeSwitchesOrientation());
  2a0:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2a4:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 2a4:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = LEFT_LOST;
  2a8:	82 e0       	ldi	r24, 0x02	; 2
  2aa:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -421,7 +421,7 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  2b4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2b8:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 2b8:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				CleanerXAxisState = NEUTRAL_X;
  2bc:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <CleanerXAxisState>
  2c0:	08 95       	ret
@@ -432,10 +432,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  2c6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2ca:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 2ca:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				DirectionPressLeft(ModeSwitchesOrientation());
  2ce:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2d2:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 2d2:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = RIGHT_LOST;
  2d6:	84 e0       	ldi	r24, 0x04	; 4
  2d8:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -445,10 +445,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  2de:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2e2:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 2e2:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionPressRight(ModeSwitchesOrientation());
  2e6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2ea:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 2ea:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = RIGHT;
  2ee:	83 e0       	ldi	r24, 0x03	; 3
  2f0:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -463,10 +463,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  2fa:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 2fe:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 2fe:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				DirectionPressLeft(ModeSwitchesOrientation());
  302:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 306:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 306:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = LEFT;
  30a:	81 e0       	ldi	r24, 0x01	; 1
  30c:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -478,10 +478,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseLeft(ModeSwitchesOrientation());
  316:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 31a:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 31a:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 				DirectionPressRight(ModeSwitchesOrientation());
  31e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 322:	0e 94 4f 03 	call	0x69e	; 0x69e <DirectionPressRight>
+ 322:	0e 94 39 03 	call	0x672	; 0x672 <DirectionPressRight>
 				CleanerXAxisState = RIGHT;
  326:	83 e0       	ldi	r24, 0x03	; 3
  328:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -491,10 +491,10 @@ void CleanerXLastInput(uint8_t tempLeftState, uint8_t tempRightState)
 			{
 				DirectionReleaseRight(ModeSwitchesOrientation());
  32e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 332:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 332:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 				DirectionPressLeft(ModeSwitchesOrientation());
  336:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 33a:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressLeft>
+ 33a:	0e 94 59 03 	call	0x6b2	; 0x6b2 <DirectionPressLeft>
 				CleanerXAxisState = RIGHT_LOST;
  33e:	84 e0       	ldi	r24, 0x04	; 4
  340:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <CleanerXAxisState>
@@ -514,20 +514,20 @@ void CleanerYNeutral(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  34e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 352:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 352:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  356:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 35a:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 35a:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  35e:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
  360:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 364:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 364:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  368:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 36c:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 36c:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  370:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
@@ -536,20 +536,20 @@ void CleanerYNeutral(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  376:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 37a:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 37a:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
  37e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 382:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 382:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
  386:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  388:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 38c:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 38c:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  390:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 394:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 394:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  398:	08 95       	ret
 
 0000039a <CleanerYDown>:
@@ -566,20 +566,20 @@ void CleanerYDown(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
  3a2:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3a6:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 3a6:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  3aa:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3ae:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 3ae:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  3b2:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
  3b4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3b8:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 3b8:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  3bc:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3c0:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 3c0:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  3c4:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
@@ -588,20 +588,20 @@ void CleanerYDown(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  3ca:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3ce:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 3ce:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
  3d2:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3d6:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 3d6:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
  3da:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  3dc:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3e0:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 3e0:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  3e4:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3e8:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 3e8:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  3ec:	08 95       	ret
 
 000003ee <CleanerYUp>:
@@ -618,20 +618,20 @@ void CleanerYUp(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  3f6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 3fa:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 3fa:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
  3fe:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 402:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 402:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
  406:	08 95       	ret
 	}
 	else if ( (tempDownState == 0) && (tempUpState > 0) )
 	{
 		DirectionPressDown(ModeSwitchesOrientation());
  408:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 40c:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 40c:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  410:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 414:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 414:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  418:	08 95       	ret
 	}
 	else if ( (tempDownState > 0) && (tempUpState == 0) )
@@ -640,20 +640,20 @@ void CleanerYUp(uint8_t tempDownState, uint8_t tempUpState)
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  41e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 422:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 422:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionPressUp(ModeSwitchesOrientation());
  426:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 42a:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 42a:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
  42e:	08 95       	ret
 	}
 	else
 	{
 		DirectionReleaseDown(ModeSwitchesOrientation());
  430:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 434:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 434:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 		DirectionReleaseUp(ModeSwitchesOrientation());
  438:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 43c:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 43c:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
  440:	08 95       	ret
 
 00000442 <CleanerYLastInput>:
@@ -688,7 +688,7 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionPressDown(ModeSwitchesOrientation());
  46a:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 46e:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 46e:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = DOWN;
  472:	81 e0       	ldi	r24, 0x01	; 1
  474:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -700,7 +700,7 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionPressUp(ModeSwitchesOrientation());
  47e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 482:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 482:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = UP;
  486:	83 e0       	ldi	r24, 0x03	; 3
  488:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -710,10 +710,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  48e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 492:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 492:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionReleaseUp(ModeSwitchesOrientation());
  496:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 49a:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 49a:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				CleanerYAxisState = NEUTRAL_Y;
  49e:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
  4a2:	08 95       	ret
@@ -727,7 +727,7 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  4a8:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4ac:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 4ac:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				CleanerYAxisState = NEUTRAL_Y;
  4b0:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
  4b4:	08 95       	ret
@@ -738,10 +738,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  4ba:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4be:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 4be:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionPressUp(ModeSwitchesOrientation());
  4c2:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4c6:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 4c6:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = DOWN_LOST;
  4ca:	82 e0       	ldi	r24, 0x02	; 2
  4cc:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -751,10 +751,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  4d2:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4d6:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 4d6:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				DirectionPressDown(ModeSwitchesOrientation());
  4da:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4de:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 4de:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = DOWN;
  4e2:	81 e0       	ldi	r24, 0x01	; 1
  4e4:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -769,10 +769,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  4ee:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4f2:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 4f2:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionPressUp(ModeSwitchesOrientation());
  4f6:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 4fa:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 4fa:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = UP;
  4fe:	83 e0       	ldi	r24, 0x03	; 3
  500:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -784,10 +784,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  50a:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 50e:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 50e:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				DirectionPressDown(ModeSwitchesOrientation());
  512:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 516:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 516:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = DOWN;
  51a:	81 e0       	ldi	r24, 0x01	; 1
  51c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -797,10 +797,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  522:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 526:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 526:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionPressUp(ModeSwitchesOrientation());
  52a:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 52e:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 52e:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = DOWN_LOST;
  532:	82 e0       	ldi	r24, 0x02	; 2
  534:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -815,7 +815,7 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  53e:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 542:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 542:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				CleanerYAxisState = NEUTRAL_Y;
  546:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
  54a:	08 95       	ret
@@ -826,10 +826,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  550:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 554:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 554:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				DirectionPressDown(ModeSwitchesOrientation());
  558:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 55c:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 55c:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = UP_LOST;
  560:	84 e0       	ldi	r24, 0x04	; 4
  562:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -839,10 +839,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  568:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 56c:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 56c:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionPressUp(ModeSwitchesOrientation());
  570:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 574:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 574:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = UP;
  578:	83 e0       	ldi	r24, 0x03	; 3
  57a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -857,10 +857,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  584:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 588:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 588:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				DirectionPressDown(ModeSwitchesOrientation());
  58c:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 590:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 590:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = DOWN;
  594:	81 e0       	ldi	r24, 0x01	; 1
  596:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -872,10 +872,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseDown(ModeSwitchesOrientation());
  5a0:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 5a4:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 5a4:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 				DirectionPressUp(ModeSwitchesOrientation());
  5a8:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 5ac:	0e 94 7f 03 	call	0x6fe	; 0x6fe <DirectionPressUp>
+ 5ac:	0e 94 99 03 	call	0x732	; 0x732 <DirectionPressUp>
 				CleanerYAxisState = UP;
  5b0:	83 e0       	ldi	r24, 0x03	; 3
  5b2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -885,10 +885,10 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			{
 				DirectionReleaseUp(ModeSwitchesOrientation());
  5b8:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 5bc:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 5bc:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 				DirectionPressDown(ModeSwitchesOrientation());
  5c0:	0e 94 21 03 	call	0x642	; 0x642 <ModeSwitchesOrientation>
- 5c4:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionPressDown>
+ 5c4:	0e 94 79 03 	call	0x6f2	; 0x6f2 <DirectionPressDown>
 				CleanerYAxisState = UP_LOST;
  5c8:	84 e0       	ldi	r24, 0x04	; 4
  5ca:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
@@ -1160,1109 +1160,1253 @@ uint8_t ModeSwitchesOrientation()
 	return modeCode;
  66c:	08 95       	ret
 
-0000066e <DirectionPressLeft>:
-
-// Setting Outputs
-void DirectionPressLeft(uint8_t tempOrientation)
-{
-	// Press left on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 66e:	81 11       	cpse	r24, r1
- 670:	02 c0       	rjmp	.+4      	; 0x676 <DirectionPressLeft+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
- 672:	5c 98       	cbi	0x0b, 4	; 11
- 674:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 676:	81 30       	cpi	r24, 0x01	; 1
- 678:	11 f4       	brne	.+4      	; 0x67e <DirectionPressLeft+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 67a:	5b 98       	cbi	0x0b, 3	; 11
- 67c:	08 95       	ret
-		
-	}
-	else if(tempOrientation == 2)
- 67e:	82 30       	cpi	r24, 0x02	; 2
- 680:	09 f4       	brne	.+2      	; 0x684 <DirectionPressLeft+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 682:	5e 98       	cbi	0x0b, 6	; 11
- 684:	08 95       	ret
-
-00000686 <DirectionReleaseLeft>:
+0000066e <DirectionPressRightLed>:
 }
 
-void DirectionReleaseLeft(uint8_t tempOrientation)
+// LED Outputs
+void DirectionPressRightLed()
 {
-	// Release left on correct pin (OEM controller dependent)
-	if(tempOrientation == 0)
- 686:	81 11       	cpse	r24, r1
- 688:	02 c0       	rjmp	.+4      	; 0x68e <DirectionReleaseLeft+0x8>
-	{
-		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 68a:	5c 9a       	sbi	0x0b, 4	; 11
- 68c:	08 95       	ret
-	}
-	else if(tempOrientation == 1)
- 68e:	81 30       	cpi	r24, 0x01	; 1
- 690:	11 f4       	brne	.+4      	; 0x696 <DirectionReleaseLeft+0x10>
-	{
-		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 692:	5b 9a       	sbi	0x0b, 3	; 11
- 694:	08 95       	ret
-	}
-	else if(tempOrientation == 2)
- 696:	82 30       	cpi	r24, 0x02	; 2
- 698:	09 f4       	brne	.+2      	; 0x69c <DirectionReleaseLeft+0x16>
-	{
-		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 69a:	5e 9a       	sbi	0x0b, 6	; 11
- 69c:	08 95       	ret
+	PORTD &= ~(1 << DIRECTION_RIGHT_LED);
+ 66e:	58 98       	cbi	0x0b, 0	; 11
+ 670:	08 95       	ret
 
-0000069e <DirectionPressRight>:
+00000672 <DirectionPressRight>:
 }
 
 void DirectionPressRight(uint8_t tempOrientation)
 {
 	// Press right on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 69e:	81 11       	cpse	r24, r1
- 6a0:	02 c0       	rjmp	.+4      	; 0x6a6 <DirectionPressRight+0x8>
+ 672:	81 11       	cpse	r24, r1
+ 674:	02 c0       	rjmp	.+4      	; 0x67a <DirectionPressRight+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 6a2:	5b 98       	cbi	0x0b, 3	; 11
- 6a4:	08 95       	ret
+ 676:	5b 98       	cbi	0x0b, 3	; 11
+ 678:	07 c0       	rjmp	.+14     	; 0x688 <DirectionPressRight+0x16>
 	}
 	else if(tempOrientation == 1)
- 6a6:	81 30       	cpi	r24, 0x01	; 1
- 6a8:	11 f4       	brne	.+4      	; 0x6ae <DirectionPressRight+0x10>
+ 67a:	81 30       	cpi	r24, 0x01	; 1
+ 67c:	11 f4       	brne	.+4      	; 0x682 <DirectionPressRight+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
- 6aa:	5c 98       	cbi	0x0b, 4	; 11
- 6ac:	08 95       	ret
+ 67e:	5c 98       	cbi	0x0b, 4	; 11
+ 680:	03 c0       	rjmp	.+6      	; 0x688 <DirectionPressRight+0x16>
 		
 	}
 	else if(tempOrientation == 2)
- 6ae:	82 30       	cpi	r24, 0x02	; 2
- 6b0:	09 f4       	brne	.+2      	; 0x6b4 <DirectionPressRight+0x16>
+ 682:	82 30       	cpi	r24, 0x02	; 2
+ 684:	09 f4       	brne	.+2      	; 0x688 <DirectionPressRight+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
- 6b2:	5b 98       	cbi	0x0b, 3	; 11
- 6b4:	08 95       	ret
+ 686:	5b 98       	cbi	0x0b, 3	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionPressRightLed();
+ 688:	0e 94 37 03 	call	0x66e	; 0x66e <DirectionPressRightLed>
+ 68c:	08 95       	ret
 
-000006b6 <DirectionReleaseRight>:
+0000068e <DirectionReleaseRightLed>:
+	PORTD &= ~(1 << DIRECTION_RIGHT_LED);
+}
+
+void DirectionReleaseRightLed()
+{
+	PORTD |= (1 << DIRECTION_RIGHT_LED);
+ 68e:	58 9a       	sbi	0x0b, 0	; 11
+ 690:	08 95       	ret
+
+00000692 <DirectionReleaseRight>:
 }
 
 void DirectionReleaseRight(uint8_t tempOrientation)
 {
 	// Release right on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 6b6:	81 11       	cpse	r24, r1
- 6b8:	02 c0       	rjmp	.+4      	; 0x6be <DirectionReleaseRight+0x8>
+ 692:	81 11       	cpse	r24, r1
+ 694:	02 c0       	rjmp	.+4      	; 0x69a <DirectionReleaseRight+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 6ba:	5b 9a       	sbi	0x0b, 3	; 11
- 6bc:	08 95       	ret
+ 696:	5b 9a       	sbi	0x0b, 3	; 11
+ 698:	07 c0       	rjmp	.+14     	; 0x6a8 <DirectionReleaseRight+0x16>
 	}
 	else if(tempOrientation == 1)
- 6be:	81 30       	cpi	r24, 0x01	; 1
- 6c0:	11 f4       	brne	.+4      	; 0x6c6 <DirectionReleaseRight+0x10>
+ 69a:	81 30       	cpi	r24, 0x01	; 1
+ 69c:	11 f4       	brne	.+4      	; 0x6a2 <DirectionReleaseRight+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 6c2:	5c 9a       	sbi	0x0b, 4	; 11
- 6c4:	08 95       	ret
+ 69e:	5c 9a       	sbi	0x0b, 4	; 11
+ 6a0:	03 c0       	rjmp	.+6      	; 0x6a8 <DirectionReleaseRight+0x16>
 	}
 	else if(tempOrientation == 2)
- 6c6:	82 30       	cpi	r24, 0x02	; 2
- 6c8:	09 f4       	brne	.+2      	; 0x6cc <DirectionReleaseRight+0x16>
+ 6a2:	82 30       	cpi	r24, 0x02	; 2
+ 6a4:	09 f4       	brne	.+2      	; 0x6a8 <DirectionReleaseRight+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD |= (1 << DIRECTION_SW1_CLEAN);
- 6ca:	5b 9a       	sbi	0x0b, 3	; 11
+ 6a6:	5b 9a       	sbi	0x0b, 3	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionReleaseRightLed();
+ 6a8:	0e 94 47 03 	call	0x68e	; 0x68e <DirectionReleaseRightLed>
+ 6ac:	08 95       	ret
+
+000006ae <DirectionPressLeftLed>:
+	PORTD |= (1 << DIRECTION_RIGHT_LED);
+}
+
+void DirectionPressLeftLed()
+{
+	PORTB &= ~(1 << DIRECTION_LEFT_LED);
+ 6ae:	2c 98       	cbi	0x05, 4	; 5
+ 6b0:	08 95       	ret
+
+000006b2 <DirectionPressLeft>:
+
+// Setting Outputs
+void DirectionPressLeft(uint8_t tempOrientation)
+{
+	// Press left on correct pin (OEM controller dependent)
+	if(tempOrientation == 0)
+ 6b2:	81 11       	cpse	r24, r1
+ 6b4:	02 c0       	rjmp	.+4      	; 0x6ba <DirectionPressLeft+0x8>
+	{
+		// G  R  L  U  D on JST connector
+		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+ 6b6:	5c 98       	cbi	0x0b, 4	; 11
+ 6b8:	07 c0       	rjmp	.+14     	; 0x6c8 <DirectionPressLeft+0x16>
+	}
+	else if(tempOrientation == 1)
+ 6ba:	81 30       	cpi	r24, 0x01	; 1
+ 6bc:	11 f4       	brne	.+4      	; 0x6c2 <DirectionPressLeft+0x10>
+	{
+		// G  L  R  D  U on JST connector
+		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+ 6be:	5b 98       	cbi	0x0b, 3	; 11
+ 6c0:	03 c0       	rjmp	.+6      	; 0x6c8 <DirectionPressLeft+0x16>
+		
+	}
+	else if(tempOrientation == 2)
+ 6c2:	82 30       	cpi	r24, 0x02	; 2
+ 6c4:	09 f4       	brne	.+2      	; 0x6c8 <DirectionPressLeft+0x16>
+	{
+		// G  R  U  L  D on JST connector
+		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+ 6c6:	5e 98       	cbi	0x0b, 6	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionPressLeftLed();
+ 6c8:	0e 94 57 03 	call	0x6ae	; 0x6ae <DirectionPressLeftLed>
  6cc:	08 95       	ret
 
-000006ce <DirectionPressDown>:
+000006ce <DirectionReleaseLeftLed>:
+	PORTB &= ~(1 << DIRECTION_LEFT_LED);
+}
+
+void DirectionReleaseLeftLed()
+{
+	PORTB |= (1 << DIRECTION_LEFT_LED);
+ 6ce:	2c 9a       	sbi	0x05, 4	; 5
+ 6d0:	08 95       	ret
+
+000006d2 <DirectionReleaseLeft>:
+}
+
+void DirectionReleaseLeft(uint8_t tempOrientation)
+{
+	// Release left on correct pin (OEM controller dependent)
+	if(tempOrientation == 0)
+ 6d2:	81 11       	cpse	r24, r1
+ 6d4:	02 c0       	rjmp	.+4      	; 0x6da <DirectionReleaseLeft+0x8>
+	{
+		// G  R  L  U  D on JST connector
+		PORTD |= (1 << DIRECTION_SW2_CLEAN);
+ 6d6:	5c 9a       	sbi	0x0b, 4	; 11
+ 6d8:	07 c0       	rjmp	.+14     	; 0x6e8 <DirectionReleaseLeft+0x16>
+	}
+	else if(tempOrientation == 1)
+ 6da:	81 30       	cpi	r24, 0x01	; 1
+ 6dc:	11 f4       	brne	.+4      	; 0x6e2 <DirectionReleaseLeft+0x10>
+	{
+		// G  L  R  D  U on JST connector
+		PORTD |= (1 << DIRECTION_SW1_CLEAN);
+ 6de:	5b 9a       	sbi	0x0b, 3	; 11
+ 6e0:	03 c0       	rjmp	.+6      	; 0x6e8 <DirectionReleaseLeft+0x16>
+	}
+	else if(tempOrientation == 2)
+ 6e2:	82 30       	cpi	r24, 0x02	; 2
+ 6e4:	09 f4       	brne	.+2      	; 0x6e8 <DirectionReleaseLeft+0x16>
+	{
+		// G  R  U  L  D on JST connector
+		PORTD |= (1 << DIRECTION_SW4_CLEAN);
+ 6e6:	5e 9a       	sbi	0x0b, 6	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionReleaseLeftLed();
+ 6e8:	0e 94 67 03 	call	0x6ce	; 0x6ce <DirectionReleaseLeftLed>
+ 6ec:	08 95       	ret
+
+000006ee <DirectionPressDownLed>:
+	PORTB |= (1 << DIRECTION_LEFT_LED);
+}
+
+void DirectionPressDownLed()
+{
+	PORTB &= ~(1 << DIRECTION_DOWN_LED);
+ 6ee:	2d 98       	cbi	0x05, 5	; 5
+ 6f0:	08 95       	ret
+
+000006f2 <DirectionPressDown>:
 }
 
 void DirectionPressDown(uint8_t tempOrientation)
 {
 	// Press down on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 6ce:	81 11       	cpse	r24, r1
- 6d0:	02 c0       	rjmp	.+4      	; 0x6d6 <DirectionPressDown+0x8>
+ 6f2:	81 11       	cpse	r24, r1
+ 6f4:	02 c0       	rjmp	.+4      	; 0x6fa <DirectionPressDown+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 6d2:	5e 98       	cbi	0x0b, 6	; 11
- 6d4:	08 95       	ret
+ 6f6:	5e 98       	cbi	0x0b, 6	; 11
+ 6f8:	07 c0       	rjmp	.+14     	; 0x708 <DirectionPressDown+0x16>
 	}
 	else if(tempOrientation == 1)
- 6d6:	81 30       	cpi	r24, 0x01	; 1
- 6d8:	11 f4       	brne	.+4      	; 0x6de <DirectionPressDown+0x10>
+ 6fa:	81 30       	cpi	r24, 0x01	; 1
+ 6fc:	11 f4       	brne	.+4      	; 0x702 <DirectionPressDown+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
- 6da:	5d 98       	cbi	0x0b, 5	; 11
- 6dc:	08 95       	ret
+ 6fe:	5d 98       	cbi	0x0b, 5	; 11
+ 700:	03 c0       	rjmp	.+6      	; 0x708 <DirectionPressDown+0x16>
 	}
 	else if(tempOrientation == 2)
- 6de:	82 30       	cpi	r24, 0x02	; 2
- 6e0:	09 f4       	brne	.+2      	; 0x6e4 <DirectionPressDown+0x16>
+ 702:	82 30       	cpi	r24, 0x02	; 2
+ 704:	09 f4       	brne	.+2      	; 0x708 <DirectionPressDown+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 6e2:	5e 98       	cbi	0x0b, 6	; 11
- 6e4:	08 95       	ret
+ 706:	5e 98       	cbi	0x0b, 6	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionPressDownLed();
+ 708:	0e 94 77 03 	call	0x6ee	; 0x6ee <DirectionPressDownLed>
+ 70c:	08 95       	ret
 
-000006e6 <DirectionReleaseDown>:
+0000070e <DirectionReleaseDownLed>:
+	PORTB &= ~(1 << DIRECTION_DOWN_LED);
+}
+
+void DirectionReleaseDownLed()
+{
+	PORTB |= (1 << DIRECTION_DOWN_LED);
+ 70e:	2d 9a       	sbi	0x05, 5	; 5
+ 710:	08 95       	ret
+
+00000712 <DirectionReleaseDown>:
 }
 
 void DirectionReleaseDown(uint8_t tempOrientation)
 {
 	// Release down on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 6e6:	81 11       	cpse	r24, r1
- 6e8:	02 c0       	rjmp	.+4      	; 0x6ee <DirectionReleaseDown+0x8>
+ 712:	81 11       	cpse	r24, r1
+ 714:	02 c0       	rjmp	.+4      	; 0x71a <DirectionReleaseDown+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 6ea:	5e 9a       	sbi	0x0b, 6	; 11
- 6ec:	08 95       	ret
+ 716:	5e 9a       	sbi	0x0b, 6	; 11
+ 718:	07 c0       	rjmp	.+14     	; 0x728 <DirectionReleaseDown+0x16>
 	}
 	else if(tempOrientation == 1)
- 6ee:	81 30       	cpi	r24, 0x01	; 1
- 6f0:	11 f4       	brne	.+4      	; 0x6f6 <DirectionReleaseDown+0x10>
+ 71a:	81 30       	cpi	r24, 0x01	; 1
+ 71c:	11 f4       	brne	.+4      	; 0x722 <DirectionReleaseDown+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD |= (1 << DIRECTION_SW3_CLEAN);
- 6f2:	5d 9a       	sbi	0x0b, 5	; 11
- 6f4:	08 95       	ret
+ 71e:	5d 9a       	sbi	0x0b, 5	; 11
+ 720:	03 c0       	rjmp	.+6      	; 0x728 <DirectionReleaseDown+0x16>
 	}
 	else if(tempOrientation == 2)
- 6f6:	82 30       	cpi	r24, 0x02	; 2
- 6f8:	09 f4       	brne	.+2      	; 0x6fc <DirectionReleaseDown+0x16>
+ 722:	82 30       	cpi	r24, 0x02	; 2
+ 724:	09 f4       	brne	.+2      	; 0x728 <DirectionReleaseDown+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 6fa:	5e 9a       	sbi	0x0b, 6	; 11
- 6fc:	08 95       	ret
+ 726:	5e 9a       	sbi	0x0b, 6	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionReleaseDownLed();
+ 728:	0e 94 87 03 	call	0x70e	; 0x70e <DirectionReleaseDownLed>
+ 72c:	08 95       	ret
 
-000006fe <DirectionPressUp>:
+0000072e <DirectionPressUpLed>:
+	PORTB |= (1 << DIRECTION_DOWN_LED);
+}
+
+void DirectionPressUpLed()
+{
+	PORTB &= ~(1 << DIRECTION_UP_LED);
+ 72e:	2e 98       	cbi	0x05, 6	; 5
+ 730:	08 95       	ret
+
+00000732 <DirectionPressUp>:
 }
 
 void DirectionPressUp(uint8_t tempOrientation)
 {
 	// Press up on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 6fe:	81 11       	cpse	r24, r1
- 700:	02 c0       	rjmp	.+4      	; 0x706 <DirectionPressUp+0x8>
+ 732:	81 11       	cpse	r24, r1
+ 734:	02 c0       	rjmp	.+4      	; 0x73a <DirectionPressUp+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
- 702:	5d 98       	cbi	0x0b, 5	; 11
- 704:	08 95       	ret
+ 736:	5d 98       	cbi	0x0b, 5	; 11
+ 738:	07 c0       	rjmp	.+14     	; 0x748 <DirectionPressUp+0x16>
 	}
 	else if(tempOrientation == 1)
- 706:	81 30       	cpi	r24, 0x01	; 1
- 708:	11 f4       	brne	.+4      	; 0x70e <DirectionPressUp+0x10>
+ 73a:	81 30       	cpi	r24, 0x01	; 1
+ 73c:	11 f4       	brne	.+4      	; 0x742 <DirectionPressUp+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 70a:	5e 98       	cbi	0x0b, 6	; 11
- 70c:	08 95       	ret
+ 73e:	5e 98       	cbi	0x0b, 6	; 11
+ 740:	03 c0       	rjmp	.+6      	; 0x748 <DirectionPressUp+0x16>
 		
 	}
 	else if(tempOrientation == 2)
- 70e:	82 30       	cpi	r24, 0x02	; 2
- 710:	09 f4       	brne	.+2      	; 0x714 <DirectionPressUp+0x16>
+ 742:	82 30       	cpi	r24, 0x02	; 2
+ 744:	09 f4       	brne	.+2      	; 0x748 <DirectionPressUp+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
- 712:	5e 98       	cbi	0x0b, 6	; 11
- 714:	08 95       	ret
+ 746:	5e 98       	cbi	0x0b, 6	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionPressUpLed();
+ 748:	0e 94 97 03 	call	0x72e	; 0x72e <DirectionPressUpLed>
+ 74c:	08 95       	ret
 
-00000716 <DirectionReleaseUp>:
+0000074e <DirectionReleaseUpLed>:
+	PORTB &= ~(1 << DIRECTION_UP_LED);
+}
+
+void DirectionReleaseUpLed()
+{
+	PORTB |= (1 << DIRECTION_UP_LED);
+ 74e:	2e 9a       	sbi	0x05, 6	; 5
+ 750:	08 95       	ret
+
+00000752 <DirectionReleaseUp>:
 }
 
 void DirectionReleaseUp(uint8_t tempOrientation)
 {
 	// Release left on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
- 716:	81 11       	cpse	r24, r1
- 718:	02 c0       	rjmp	.+4      	; 0x71e <DirectionReleaseUp+0x8>
+ 752:	81 11       	cpse	r24, r1
+ 754:	02 c0       	rjmp	.+4      	; 0x75a <DirectionReleaseUp+0x8>
 	{
 		// G  R  L  U  D on JST connector
 		PORTD |= (1 << DIRECTION_SW3_CLEAN);
- 71a:	5d 9a       	sbi	0x0b, 5	; 11
- 71c:	08 95       	ret
+ 756:	5d 9a       	sbi	0x0b, 5	; 11
+ 758:	07 c0       	rjmp	.+14     	; 0x768 <DirectionReleaseUp+0x16>
 	}
 	else if(tempOrientation == 1)
- 71e:	81 30       	cpi	r24, 0x01	; 1
- 720:	11 f4       	brne	.+4      	; 0x726 <DirectionReleaseUp+0x10>
+ 75a:	81 30       	cpi	r24, 0x01	; 1
+ 75c:	11 f4       	brne	.+4      	; 0x762 <DirectionReleaseUp+0x10>
 	{
 		// G  L  R  D  U on JST connector
 		PORTD |= (1 << DIRECTION_SW4_CLEAN);
- 722:	5e 9a       	sbi	0x0b, 6	; 11
- 724:	08 95       	ret
+ 75e:	5e 9a       	sbi	0x0b, 6	; 11
+ 760:	03 c0       	rjmp	.+6      	; 0x768 <DirectionReleaseUp+0x16>
 		
 	}
 	else if(tempOrientation == 2)
- 726:	82 30       	cpi	r24, 0x02	; 2
- 728:	09 f4       	brne	.+2      	; 0x72c <DirectionReleaseUp+0x16>
+ 762:	82 30       	cpi	r24, 0x02	; 2
+ 764:	09 f4       	brne	.+2      	; 0x768 <DirectionReleaseUp+0x16>
 	{
 		// G  R  U  L  D on JST connector
 		PORTD |= (1 << DIRECTION_SW2_CLEAN);
- 72a:	5c 9a       	sbi	0x0b, 4	; 11
- 72c:	08 95       	ret
+ 766:	5c 9a       	sbi	0x0b, 4	; 11
+	}
+	else
+	{
+		// Future orientation...do nothing for now
+	}
+	DirectionReleaseUpLed();
+ 768:	0e 94 a7 03 	call	0x74e	; 0x74e <DirectionReleaseUpLed>
+ 76c:	08 95       	ret
 
-0000072e <DirectionGetLeftState>:
+0000076e <DirectionGetLeftState>:
 }
 
 // Reading Inputs
 uint8_t DirectionGetLeftState()
 {
 	return (PINB & (1 << DIRECTION_LEFT_BUTTON));
- 72e:	83 b1       	in	r24, 0x03	; 3
+ 76e:	83 b1       	in	r24, 0x03	; 3
 }
- 730:	82 70       	andi	r24, 0x02	; 2
- 732:	08 95       	ret
+ 770:	82 70       	andi	r24, 0x02	; 2
+ 772:	08 95       	ret
 
-00000734 <DirectionGetRightState>:
+00000774 <DirectionGetRightState>:
 
 uint8_t DirectionGetRightState()
 {
 	return (PINB & (1 << DIRECTION_RIGHT_BUTTON));
- 734:	83 b1       	in	r24, 0x03	; 3
+ 774:	83 b1       	in	r24, 0x03	; 3
 }
- 736:	81 70       	andi	r24, 0x01	; 1
- 738:	08 95       	ret
+ 776:	81 70       	andi	r24, 0x01	; 1
+ 778:	08 95       	ret
 
-0000073a <DirectionGetUpState>:
+0000077a <DirectionGetUpState>:
 
 uint8_t DirectionGetUpState()
 {
 	return (PINB & (1 << DIRECTION_UP_BUTTON));
- 73a:	83 b1       	in	r24, 0x03	; 3
+ 77a:	83 b1       	in	r24, 0x03	; 3
 }
- 73c:	88 70       	andi	r24, 0x08	; 8
- 73e:	08 95       	ret
+ 77c:	88 70       	andi	r24, 0x08	; 8
+ 77e:	08 95       	ret
 
-00000740 <DirectionGetDownState>:
+00000780 <DirectionGetDownState>:
 
 uint8_t DirectionGetDownState()
 {
 	return (PINB & (1 << DIRECTION_DOWN_BUTTON));
- 740:	83 b1       	in	r24, 0x03	; 3
- 742:	84 70       	andi	r24, 0x04	; 4
- 744:	08 95       	ret
+ 780:	83 b1       	in	r24, 0x03	; 3
+ 782:	84 70       	andi	r24, 0x04	; 4
+ 784:	08 95       	ret
 
-00000746 <main>:
+00000786 <main>:
 }
 
 static void MainInitialize()
 {
 	// Set all ports to be configured as inputs
 	DDRB = 0b00000000;
- 746:	14 b8       	out	0x04, r1	; 4
+ 786:	14 b8       	out	0x04, r1	; 4
 	DDRC = 0b00000000;
- 748:	17 b8       	out	0x07, r1	; 7
+ 788:	17 b8       	out	0x07, r1	; 7
 	DDRD = 0b00000000;
- 74a:	1a b8       	out	0x0a, r1	; 10
+ 78a:	1a b8       	out	0x0a, r1	; 10
 
 	// Disable all internal pull-up resistors
 	PORTB = 0b00000000;
- 74c:	15 b8       	out	0x05, r1	; 5
+ 78c:	15 b8       	out	0x05, r1	; 5
 	PORTC = 0b00000000;
- 74e:	18 b8       	out	0x08, r1	; 8
+ 78e:	18 b8       	out	0x08, r1	; 8
 	PORTD = 0b00000000;
- 750:	1b b8       	out	0x0b, r1	; 11
+ 790:	1b b8       	out	0x0b, r1	; 11
 
 	// Enable necessary internal pull-up resistors
 	PORTB |= (1 << MAIN_RIGHT_BUTTON_PULLUP);
- 752:	28 9a       	sbi	0x05, 0	; 5
+ 792:	28 9a       	sbi	0x05, 0	; 5
 	PORTB |= (1 << MAIN_LEFT_BUTTON_PULLUP);
- 754:	29 9a       	sbi	0x05, 1	; 5
+ 794:	29 9a       	sbi	0x05, 1	; 5
 	PORTB |= (1 << MAIN_DOWN_BUTTON_PULLUP);
- 756:	2a 9a       	sbi	0x05, 2	; 5
+ 796:	2a 9a       	sbi	0x05, 2	; 5
 	PORTB |= (1 << MAIN_UP_BUTTON_PULLUP);
- 758:	2b 9a       	sbi	0x05, 3	; 5
+ 798:	2b 9a       	sbi	0x05, 3	; 5
 	PORTC |= (1 << MAIN_DIP5_SW1_PULLUP);
- 75a:	47 9a       	sbi	0x08, 7	; 8
+ 79a:	47 9a       	sbi	0x08, 7	; 8
 	PORTC |= (1 << MAIN_DIP5_SW2_PULLUP);
- 75c:	45 9a       	sbi	0x08, 5	; 8
+ 79c:	45 9a       	sbi	0x08, 5	; 8
 	PORTC |= (1 << MAIN_DIP5_SW3_PULLUP);
- 75e:	46 9a       	sbi	0x08, 6	; 8
+ 79e:	46 9a       	sbi	0x08, 6	; 8
 	PORTC |= (1 << MAIN_DIP5_SW4_PULLUP);
- 760:	44 9a       	sbi	0x08, 4	; 8
+ 7a0:	44 9a       	sbi	0x08, 4	; 8
 	PORTC |= (1 << MAIN_DIP5_SW5_PULLUP);
- 762:	42 9a       	sbi	0x08, 2	; 8
+ 7a2:	42 9a       	sbi	0x08, 2	; 8
 	PORTD |= (1 << MAIN_DIP2_SW1_PULLUP);
- 764:	59 9a       	sbi	0x0b, 1	; 11
+ 7a4:	59 9a       	sbi	0x0b, 1	; 11
 	PORTD |= (1 << MAIN_DIP2_SW2_PULLUP);
- 766:	5a 9a       	sbi	0x0b, 2	; 11
+ 7a6:	5a 9a       	sbi	0x0b, 2	; 11
 	PORTB |= (1 << MAIN_PRESET_BUTTON_PULLUP);
- 768:	2f 9a       	sbi	0x05, 7	; 5
+ 7a8:	2f 9a       	sbi	0x05, 7	; 5
 
 	// Set specific port bits to be configured as outputs
 	DDRD = DDRD | (1 << DIRECTION_SW1_CLEAN);
- 76a:	53 9a       	sbi	0x0a, 3	; 10
+ 7aa:	53 9a       	sbi	0x0a, 3	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW2_CLEAN);
- 76c:	54 9a       	sbi	0x0a, 4	; 10
+ 7ac:	54 9a       	sbi	0x0a, 4	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW3_CLEAN);
- 76e:	55 9a       	sbi	0x0a, 5	; 10
+ 7ae:	55 9a       	sbi	0x0a, 5	; 10
 	DDRD = DDRD | (1 << DIRECTION_SW4_CLEAN);
- 770:	56 9a       	sbi	0x0a, 6	; 10
+ 7b0:	56 9a       	sbi	0x0a, 6	; 10
+	DDRD = DDRD | (1 << DIRECTION_RIGHT_LED);
+ 7b2:	50 9a       	sbi	0x0a, 0	; 10
+	DDRB = DDRB | (1 << DIRECTION_LEFT_LED);
+ 7b4:	24 9a       	sbi	0x04, 4	; 4
+	DDRB = DDRB | (1 << DIRECTION_DOWN_LED);
+ 7b6:	25 9a       	sbi	0x04, 5	; 4
+	DDRB = DDRB | (1 << DIRECTION_UP_LED);
+ 7b8:	26 9a       	sbi	0x04, 6	; 4
 
 	// Default button positions
 	DirectionReleaseLeft(0);
- 772:	80 e0       	ldi	r24, 0x00	; 0
- 774:	0e 94 43 03 	call	0x686	; 0x686 <DirectionReleaseLeft>
+ 7ba:	80 e0       	ldi	r24, 0x00	; 0
+ 7bc:	0e 94 69 03 	call	0x6d2	; 0x6d2 <DirectionReleaseLeft>
 	DirectionReleaseRight(0);
- 778:	80 e0       	ldi	r24, 0x00	; 0
- 77a:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <DirectionReleaseRight>
+ 7c0:	80 e0       	ldi	r24, 0x00	; 0
+ 7c2:	0e 94 49 03 	call	0x692	; 0x692 <DirectionReleaseRight>
 	DirectionReleaseDown(0);
- 77e:	80 e0       	ldi	r24, 0x00	; 0
- 780:	0e 94 73 03 	call	0x6e6	; 0x6e6 <DirectionReleaseDown>
+ 7c6:	80 e0       	ldi	r24, 0x00	; 0
+ 7c8:	0e 94 89 03 	call	0x712	; 0x712 <DirectionReleaseDown>
 	DirectionReleaseUp(0);
- 784:	80 e0       	ldi	r24, 0x00	; 0
- 786:	0e 94 8b 03 	call	0x716	; 0x716 <DirectionReleaseUp>
+ 7cc:	80 e0       	ldi	r24, 0x00	; 0
+ 7ce:	0e 94 a9 03 	call	0x752	; 0x752 <DirectionReleaseUp>
 	
 	// Read in saved remote mode code, but
 	// default to REMOTE_MODE_1 if eeprom data is not in range
 	uint8_t tempData = eeprom_read_byte (( uint8_t *) 46);
- 78a:	8e e2       	ldi	r24, 0x2E	; 46
- 78c:	90 e0       	ldi	r25, 0x00	; 0
- 78e:	0e 94 a1 05 	call	0xb42	; 0xb42 <eeprom_read_byte>
+ 7d2:	8e e2       	ldi	r24, 0x2E	; 46
+ 7d4:	90 e0       	ldi	r25, 0x00	; 0
+ 7d6:	0e 94 c5 05 	call	0xb8a	; 0xb8a <eeprom_read_byte>
 	if (tempData > 15)
- 792:	80 31       	cpi	r24, 0x10	; 16
- 794:	18 f0       	brcs	.+6      	; 0x79c <main+0x56>
+ 7da:	80 31       	cpi	r24, 0x10	; 16
+ 7dc:	18 f0       	brcs	.+6      	; 0x7e4 <main+0x5e>
 	{
 		remoteModeCode = REMOTE_MODE_0;
- 796:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <remoteModeCode>
- 79a:	02 c0       	rjmp	.+4      	; 0x7a0 <main+0x5a>
+ 7de:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <remoteModeCode>
+ 7e2:	02 c0       	rjmp	.+4      	; 0x7e8 <main+0x62>
 	}
 	else
 	{
 		remoteModeCode = tempData;
- 79c:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <remoteModeCode>
+ 7e4:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <remoteModeCode>
 	}
 	
 	// Set up the 16 bit timer to keep counting up
 	TCCR1B |= (1 << CS10);
- 7a0:	e1 e8       	ldi	r30, 0x81	; 129
- 7a2:	f0 e0       	ldi	r31, 0x00	; 0
- 7a4:	80 81       	ld	r24, Z
- 7a6:	81 60       	ori	r24, 0x01	; 1
- 7a8:	80 83       	st	Z, r24
+ 7e8:	e1 e8       	ldi	r30, 0x81	; 129
+ 7ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 7ec:	80 81       	ld	r24, Z
+ 7ee:	81 60       	ori	r24, 0x01	; 1
+ 7f0:	80 83       	st	Z, r24
 	
 	// Default program mode counter
 	programModeCounter = 0;
- 7aa:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
+ 7f2:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
 }
 
 static void MainUpdateProgramModeCounter()
 {
 	// Update counter whenever timer ticks above 0.05 seconds
 	if(TCNT1 >= 49999)
- 7ae:	0f 2e       	mov	r0, r31
- 7b0:	f4 e8       	ldi	r31, 0x84	; 132
- 7b2:	ef 2e       	mov	r14, r31
- 7b4:	f1 2c       	mov	r15, r1
- 7b6:	f0 2d       	mov	r31, r0
+ 7f6:	0f 2e       	mov	r0, r31
+ 7f8:	f4 e8       	ldi	r31, 0x84	; 132
+ 7fa:	ef 2e       	mov	r14, r31
+ 7fc:	f1 2c       	mov	r15, r1
+ 7fe:	f0 2d       	mov	r31, r0
 	return(0);
 }
 
 static void MainGoClean()
 {
 	if(ModeSwitchesRemote() == 0)
- 7b8:	0e 94 1a 03 	call	0x634	; 0x634 <ModeSwitchesRemote>
- 7bc:	81 11       	cpse	r24, r1
- 7be:	4b c0       	rjmp	.+150    	; 0x856 <main+0x110>
+ 800:	0e 94 1a 03 	call	0x634	; 0x634 <ModeSwitchesRemote>
+ 804:	81 11       	cpse	r24, r1
+ 806:	4b c0       	rjmp	.+150    	; 0x89e <main+0x118>
 	{
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
- 7c0:	0e 94 9a 03 	call	0x734	; 0x734 <DirectionGetRightState>
- 7c4:	d8 2f       	mov	r29, r24
- 7c6:	0e 94 97 03 	call	0x72e	; 0x72e <DirectionGetLeftState>
- 7ca:	c8 2f       	mov	r28, r24
+ 808:	0e 94 ba 03 	call	0x774	; 0x774 <DirectionGetRightState>
+ 80c:	d8 2f       	mov	r29, r24
+ 80e:	0e 94 b7 03 	call	0x76e	; 0x76e <DirectionGetLeftState>
+ 812:	c8 2f       	mov	r28, r24
 }
 
 static void MainCleanerX(uint8_t tempLeftState, uint8_t tempRightState)
 {
 	// Grab cleaner from local dip switches
 	if(ModeSwitchesX() == 0)
- 7cc:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
- 7d0:	81 11       	cpse	r24, r1
- 7d2:	05 c0       	rjmp	.+10     	; 0x7de <main+0x98>
+ 814:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
+ 818:	81 11       	cpse	r24, r1
+ 81a:	05 c0       	rjmp	.+10     	; 0x826 <main+0xa0>
 	{
 		CleanerXNeutral(tempLeftState, tempRightState);
- 7d4:	6d 2f       	mov	r22, r29
- 7d6:	8c 2f       	mov	r24, r28
- 7d8:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
- 7dc:	16 c0       	rjmp	.+44     	; 0x80a <main+0xc4>
+ 81c:	6d 2f       	mov	r22, r29
+ 81e:	8c 2f       	mov	r24, r28
+ 820:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
+ 824:	16 c0       	rjmp	.+44     	; 0x852 <main+0xcc>
 	}
 	else if(ModeSwitchesX() == 1)
- 7de:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
- 7e2:	81 30       	cpi	r24, 0x01	; 1
- 7e4:	29 f4       	brne	.+10     	; 0x7f0 <main+0xaa>
+ 826:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
+ 82a:	81 30       	cpi	r24, 0x01	; 1
+ 82c:	29 f4       	brne	.+10     	; 0x838 <main+0xb2>
 	{
 		CleanerXLeft(tempLeftState, tempRightState);
- 7e6:	6d 2f       	mov	r22, r29
- 7e8:	8c 2f       	mov	r24, r28
- 7ea:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
- 7ee:	0d c0       	rjmp	.+26     	; 0x80a <main+0xc4>
+ 82e:	6d 2f       	mov	r22, r29
+ 830:	8c 2f       	mov	r24, r28
+ 832:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
+ 836:	0d c0       	rjmp	.+26     	; 0x852 <main+0xcc>
 	}
 	else if(ModeSwitchesX() == 2)
- 7f0:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
- 7f4:	82 30       	cpi	r24, 0x02	; 2
- 7f6:	29 f4       	brne	.+10     	; 0x802 <main+0xbc>
+ 838:	0e 94 ee 02 	call	0x5dc	; 0x5dc <ModeSwitchesX>
+ 83c:	82 30       	cpi	r24, 0x02	; 2
+ 83e:	29 f4       	brne	.+10     	; 0x84a <main+0xc4>
 	{
 		CleanerXRight(tempLeftState, tempRightState);
- 7f8:	6d 2f       	mov	r22, r29
- 7fa:	8c 2f       	mov	r24, r28
- 7fc:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
- 800:	04 c0       	rjmp	.+8      	; 0x80a <main+0xc4>
+ 840:	6d 2f       	mov	r22, r29
+ 842:	8c 2f       	mov	r24, r28
+ 844:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
+ 848:	04 c0       	rjmp	.+8      	; 0x852 <main+0xcc>
 	}
 	else
 	{
 		CleanerXLastInput(tempLeftState, tempRightState);
- 802:	6d 2f       	mov	r22, r29
- 804:	8c 2f       	mov	r24, r28
- 806:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
+ 84a:	6d 2f       	mov	r22, r29
+ 84c:	8c 2f       	mov	r24, r28
+ 84e:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
 static void MainGoClean()
 {
 	if(ModeSwitchesRemote() == 0)
 	{
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
 		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
- 80a:	0e 94 9d 03 	call	0x73a	; 0x73a <DirectionGetUpState>
- 80e:	d8 2f       	mov	r29, r24
- 810:	0e 94 a0 03 	call	0x740	; 0x740 <DirectionGetDownState>
- 814:	c8 2f       	mov	r28, r24
+ 852:	0e 94 bd 03 	call	0x77a	; 0x77a <DirectionGetUpState>
+ 856:	d8 2f       	mov	r29, r24
+ 858:	0e 94 c0 03 	call	0x780	; 0x780 <DirectionGetDownState>
+ 85c:	c8 2f       	mov	r28, r24
 }
 
 static void MainCleanerY(uint8_t tempDownState, uint8_t tempUpState)
 {
 	// Cleaning for y axis
 	if(ModeSwitchesY() == 0)
- 816:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
- 81a:	81 11       	cpse	r24, r1
- 81c:	05 c0       	rjmp	.+10     	; 0x828 <main+0xe2>
+ 85e:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
+ 862:	81 11       	cpse	r24, r1
+ 864:	05 c0       	rjmp	.+10     	; 0x870 <main+0xea>
 	{
 		CleanerYNeutral(tempDownState, tempUpState);
- 81e:	6d 2f       	mov	r22, r29
- 820:	8c 2f       	mov	r24, r28
- 822:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
- 826:	c8 cf       	rjmp	.-112    	; 0x7b8 <main+0x72>
+ 866:	6d 2f       	mov	r22, r29
+ 868:	8c 2f       	mov	r24, r28
+ 86a:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
+ 86e:	c8 cf       	rjmp	.-112    	; 0x800 <main+0x7a>
 	}
 	else if(ModeSwitchesY() == 1)
- 828:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
- 82c:	81 30       	cpi	r24, 0x01	; 1
- 82e:	29 f4       	brne	.+10     	; 0x83a <main+0xf4>
+ 870:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
+ 874:	81 30       	cpi	r24, 0x01	; 1
+ 876:	29 f4       	brne	.+10     	; 0x882 <main+0xfc>
 	{
 		CleanerYDown(tempDownState, tempUpState);
- 830:	6d 2f       	mov	r22, r29
- 832:	8c 2f       	mov	r24, r28
- 834:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
- 838:	bf cf       	rjmp	.-130    	; 0x7b8 <main+0x72>
+ 878:	6d 2f       	mov	r22, r29
+ 87a:	8c 2f       	mov	r24, r28
+ 87c:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
+ 880:	bf cf       	rjmp	.-130    	; 0x800 <main+0x7a>
 	}
 	else if(ModeSwitchesY() == 2)
- 83a:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
- 83e:	82 30       	cpi	r24, 0x02	; 2
- 840:	29 f4       	brne	.+10     	; 0x84c <main+0x106>
+ 882:	0e 94 04 03 	call	0x608	; 0x608 <ModeSwitchesY>
+ 886:	82 30       	cpi	r24, 0x02	; 2
+ 888:	29 f4       	brne	.+10     	; 0x894 <main+0x10e>
 	{
 		CleanerYUp(tempDownState, tempUpState);
- 842:	6d 2f       	mov	r22, r29
- 844:	8c 2f       	mov	r24, r28
- 846:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
- 84a:	b6 cf       	rjmp	.-148    	; 0x7b8 <main+0x72>
+ 88a:	6d 2f       	mov	r22, r29
+ 88c:	8c 2f       	mov	r24, r28
+ 88e:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
+ 892:	b6 cf       	rjmp	.-148    	; 0x800 <main+0x7a>
 	}
 	else
 	{
 		CleanerYLastInput(tempDownState, tempUpState);
- 84c:	6d 2f       	mov	r22, r29
- 84e:	8c 2f       	mov	r24, r28
- 850:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
- 854:	b1 cf       	rjmp	.-158    	; 0x7b8 <main+0x72>
+ 894:	6d 2f       	mov	r22, r29
+ 896:	8c 2f       	mov	r24, r28
+ 898:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
+ 89c:	b1 cf       	rjmp	.-158    	; 0x800 <main+0x7a>
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
 		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
 	}
 	else
 	{
 		MainCleanerRemote(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
- 856:	0e 94 9d 03 	call	0x73a	; 0x73a <DirectionGetUpState>
- 85a:	d8 2f       	mov	r29, r24
- 85c:	0e 94 a0 03 	call	0x740	; 0x740 <DirectionGetDownState>
- 860:	c8 2f       	mov	r28, r24
- 862:	0e 94 9a 03 	call	0x734	; 0x734 <DirectionGetRightState>
- 866:	18 2f       	mov	r17, r24
- 868:	0e 94 97 03 	call	0x72e	; 0x72e <DirectionGetLeftState>
+ 89e:	0e 94 bd 03 	call	0x77a	; 0x77a <DirectionGetUpState>
+ 8a2:	d8 2f       	mov	r29, r24
+ 8a4:	0e 94 c0 03 	call	0x780	; 0x780 <DirectionGetDownState>
+ 8a8:	c8 2f       	mov	r28, r24
+ 8aa:	0e 94 ba 03 	call	0x774	; 0x774 <DirectionGetRightState>
+ 8ae:	18 2f       	mov	r17, r24
+ 8b0:	0e 94 b7 03 	call	0x76e	; 0x76e <DirectionGetLeftState>
 	}
 }
 
 static void MainCleanerRemote(uint8_t tempLeftState, uint8_t tempRightState, uint8_t tempDownState, uint8_t tempUpState)
 {
 	switch (remoteModeCode)
- 86c:	e0 91 03 01 	lds	r30, 0x0103	; 0x800103 <remoteModeCode>
- 870:	4e 2f       	mov	r20, r30
- 872:	50 e0       	ldi	r21, 0x00	; 0
- 874:	40 31       	cpi	r20, 0x10	; 16
- 876:	51 05       	cpc	r21, r1
- 878:	08 f0       	brcs	.+2      	; 0x87c <main+0x136>
- 87a:	84 c0       	rjmp	.+264    	; 0x984 <main+0x23e>
- 87c:	fa 01       	movw	r30, r20
- 87e:	e6 5c       	subi	r30, 0xC6	; 198
- 880:	ff 4f       	sbci	r31, 0xFF	; 255
- 882:	0c 94 9b 05 	jmp	0xb36	; 0xb36 <__tablejump2__>
+ 8b4:	e0 91 03 01 	lds	r30, 0x0103	; 0x800103 <remoteModeCode>
+ 8b8:	4e 2f       	mov	r20, r30
+ 8ba:	50 e0       	ldi	r21, 0x00	; 0
+ 8bc:	40 31       	cpi	r20, 0x10	; 16
+ 8be:	51 05       	cpc	r21, r1
+ 8c0:	08 f0       	brcs	.+2      	; 0x8c4 <main+0x13e>
+ 8c2:	84 c0       	rjmp	.+264    	; 0x9cc <main+0x246>
+ 8c4:	fa 01       	movw	r30, r20
+ 8c6:	e6 5c       	subi	r30, 0xC6	; 198
+ 8c8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8ca:	0c 94 bf 05 	jmp	0xb7e	; 0xb7e <__tablejump2__>
 	{
 		case REMOTE_MODE_0:
 			CleanerXNeutral(tempLeftState, tempRightState);
- 886:	61 2f       	mov	r22, r17
- 888:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
+ 8ce:	61 2f       	mov	r22, r17
+ 8d0:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
 			CleanerYNeutral(tempDownState, tempUpState);
- 88c:	6d 2f       	mov	r22, r29
- 88e:	8c 2f       	mov	r24, r28
- 890:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
- 894:	77 c0       	rjmp	.+238    	; 0x984 <main+0x23e>
+ 8d4:	6d 2f       	mov	r22, r29
+ 8d6:	8c 2f       	mov	r24, r28
+ 8d8:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
+ 8dc:	77 c0       	rjmp	.+238    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_1:
 			CleanerXNeutral(tempLeftState, tempRightState);
- 896:	61 2f       	mov	r22, r17
- 898:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
+ 8de:	61 2f       	mov	r22, r17
+ 8e0:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
 			CleanerYDown(tempDownState, tempUpState);
- 89c:	6d 2f       	mov	r22, r29
- 89e:	8c 2f       	mov	r24, r28
- 8a0:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
- 8a4:	6f c0       	rjmp	.+222    	; 0x984 <main+0x23e>
+ 8e4:	6d 2f       	mov	r22, r29
+ 8e6:	8c 2f       	mov	r24, r28
+ 8e8:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
+ 8ec:	6f c0       	rjmp	.+222    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_2:
 			CleanerXNeutral(tempLeftState, tempRightState);
- 8a6:	61 2f       	mov	r22, r17
- 8a8:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
+ 8ee:	61 2f       	mov	r22, r17
+ 8f0:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
 			CleanerYUp(tempDownState, tempUpState);
- 8ac:	6d 2f       	mov	r22, r29
- 8ae:	8c 2f       	mov	r24, r28
- 8b0:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
- 8b4:	67 c0       	rjmp	.+206    	; 0x984 <main+0x23e>
+ 8f4:	6d 2f       	mov	r22, r29
+ 8f6:	8c 2f       	mov	r24, r28
+ 8f8:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
+ 8fc:	67 c0       	rjmp	.+206    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_3:
 			CleanerXNeutral(tempLeftState, tempRightState);
- 8b6:	61 2f       	mov	r22, r17
- 8b8:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
+ 8fe:	61 2f       	mov	r22, r17
+ 900:	0e 94 5e 00 	call	0xbc	; 0xbc <CleanerXNeutral>
 			CleanerYLastInput(tempDownState, tempUpState);
- 8bc:	6d 2f       	mov	r22, r29
- 8be:	8c 2f       	mov	r24, r28
- 8c0:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
- 8c4:	5f c0       	rjmp	.+190    	; 0x984 <main+0x23e>
+ 904:	6d 2f       	mov	r22, r29
+ 906:	8c 2f       	mov	r24, r28
+ 908:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
+ 90c:	5f c0       	rjmp	.+190    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_4:
 			CleanerXLeft(tempLeftState, tempRightState);
- 8c6:	61 2f       	mov	r22, r17
- 8c8:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
+ 90e:	61 2f       	mov	r22, r17
+ 910:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
 			CleanerYNeutral(tempDownState, tempUpState);
- 8cc:	6d 2f       	mov	r22, r29
- 8ce:	8c 2f       	mov	r24, r28
- 8d0:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
- 8d4:	57 c0       	rjmp	.+174    	; 0x984 <main+0x23e>
+ 914:	6d 2f       	mov	r22, r29
+ 916:	8c 2f       	mov	r24, r28
+ 918:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
+ 91c:	57 c0       	rjmp	.+174    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_5:
 			CleanerXLeft(tempLeftState, tempRightState);
- 8d6:	61 2f       	mov	r22, r17
- 8d8:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
+ 91e:	61 2f       	mov	r22, r17
+ 920:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
 			CleanerYDown(tempDownState, tempUpState);
- 8dc:	6d 2f       	mov	r22, r29
- 8de:	8c 2f       	mov	r24, r28
- 8e0:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
- 8e4:	4f c0       	rjmp	.+158    	; 0x984 <main+0x23e>
+ 924:	6d 2f       	mov	r22, r29
+ 926:	8c 2f       	mov	r24, r28
+ 928:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
+ 92c:	4f c0       	rjmp	.+158    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_6:
 			CleanerXLeft(tempLeftState, tempRightState);
- 8e6:	61 2f       	mov	r22, r17
- 8e8:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
+ 92e:	61 2f       	mov	r22, r17
+ 930:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
 			CleanerYUp(tempDownState, tempUpState);
- 8ec:	6d 2f       	mov	r22, r29
- 8ee:	8c 2f       	mov	r24, r28
- 8f0:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
- 8f4:	47 c0       	rjmp	.+142    	; 0x984 <main+0x23e>
+ 934:	6d 2f       	mov	r22, r29
+ 936:	8c 2f       	mov	r24, r28
+ 938:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
+ 93c:	47 c0       	rjmp	.+142    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_7:
 			CleanerXLeft(tempLeftState, tempRightState);
- 8f6:	61 2f       	mov	r22, r17
- 8f8:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
+ 93e:	61 2f       	mov	r22, r17
+ 940:	0e 94 88 00 	call	0x110	; 0x110 <CleanerXLeft>
 			CleanerYLastInput(tempDownState, tempUpState);
- 8fc:	6d 2f       	mov	r22, r29
- 8fe:	8c 2f       	mov	r24, r28
- 900:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
- 904:	3f c0       	rjmp	.+126    	; 0x984 <main+0x23e>
+ 944:	6d 2f       	mov	r22, r29
+ 946:	8c 2f       	mov	r24, r28
+ 948:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
+ 94c:	3f c0       	rjmp	.+126    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_8:
 			CleanerXRight(tempLeftState, tempRightState);
- 906:	61 2f       	mov	r22, r17
- 908:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
+ 94e:	61 2f       	mov	r22, r17
+ 950:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
 			CleanerYNeutral(tempDownState, tempUpState);
- 90c:	6d 2f       	mov	r22, r29
- 90e:	8c 2f       	mov	r24, r28
- 910:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
- 914:	37 c0       	rjmp	.+110    	; 0x984 <main+0x23e>
+ 954:	6d 2f       	mov	r22, r29
+ 956:	8c 2f       	mov	r24, r28
+ 958:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
+ 95c:	37 c0       	rjmp	.+110    	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_9:
 			CleanerXRight(tempLeftState, tempRightState);
- 916:	61 2f       	mov	r22, r17
- 918:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
+ 95e:	61 2f       	mov	r22, r17
+ 960:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
 			CleanerYDown(tempDownState, tempUpState);
- 91c:	6d 2f       	mov	r22, r29
- 91e:	8c 2f       	mov	r24, r28
- 920:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
- 924:	2f c0       	rjmp	.+94     	; 0x984 <main+0x23e>
+ 964:	6d 2f       	mov	r22, r29
+ 966:	8c 2f       	mov	r24, r28
+ 968:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
+ 96c:	2f c0       	rjmp	.+94     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_10:
 			CleanerXRight(tempLeftState, tempRightState);
- 926:	61 2f       	mov	r22, r17
- 928:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
+ 96e:	61 2f       	mov	r22, r17
+ 970:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
 			CleanerYUp(tempDownState, tempUpState);
- 92c:	6d 2f       	mov	r22, r29
- 92e:	8c 2f       	mov	r24, r28
- 930:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
- 934:	27 c0       	rjmp	.+78     	; 0x984 <main+0x23e>
+ 974:	6d 2f       	mov	r22, r29
+ 976:	8c 2f       	mov	r24, r28
+ 978:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
+ 97c:	27 c0       	rjmp	.+78     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_11:
 			CleanerXRight(tempLeftState, tempRightState);
- 936:	61 2f       	mov	r22, r17
- 938:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
+ 97e:	61 2f       	mov	r22, r17
+ 980:	0e 94 b2 00 	call	0x164	; 0x164 <CleanerXRight>
 			CleanerYLastInput(tempDownState, tempUpState);
- 93c:	6d 2f       	mov	r22, r29
- 93e:	8c 2f       	mov	r24, r28
- 940:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
- 944:	1f c0       	rjmp	.+62     	; 0x984 <main+0x23e>
+ 984:	6d 2f       	mov	r22, r29
+ 986:	8c 2f       	mov	r24, r28
+ 988:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
+ 98c:	1f c0       	rjmp	.+62     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_12:
 			CleanerXLastInput(tempLeftState, tempRightState);
- 946:	61 2f       	mov	r22, r17
- 948:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
+ 98e:	61 2f       	mov	r22, r17
+ 990:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
 			CleanerYNeutral(tempDownState, tempUpState);
- 94c:	6d 2f       	mov	r22, r29
- 94e:	8c 2f       	mov	r24, r28
- 950:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
- 954:	17 c0       	rjmp	.+46     	; 0x984 <main+0x23e>
+ 994:	6d 2f       	mov	r22, r29
+ 996:	8c 2f       	mov	r24, r28
+ 998:	0e 94 a3 01 	call	0x346	; 0x346 <CleanerYNeutral>
+ 99c:	17 c0       	rjmp	.+46     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_13:
 			CleanerXLastInput(tempLeftState, tempRightState);
- 956:	61 2f       	mov	r22, r17
- 958:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
+ 99e:	61 2f       	mov	r22, r17
+ 9a0:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
 			CleanerYDown(tempDownState, tempUpState);
- 95c:	6d 2f       	mov	r22, r29
- 95e:	8c 2f       	mov	r24, r28
- 960:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
- 964:	0f c0       	rjmp	.+30     	; 0x984 <main+0x23e>
+ 9a4:	6d 2f       	mov	r22, r29
+ 9a6:	8c 2f       	mov	r24, r28
+ 9a8:	0e 94 cd 01 	call	0x39a	; 0x39a <CleanerYDown>
+ 9ac:	0f c0       	rjmp	.+30     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_14:
 			CleanerXLastInput(tempLeftState, tempRightState);
- 966:	61 2f       	mov	r22, r17
- 968:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
+ 9ae:	61 2f       	mov	r22, r17
+ 9b0:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
 			CleanerYUp(tempDownState, tempUpState);
- 96c:	6d 2f       	mov	r22, r29
- 96e:	8c 2f       	mov	r24, r28
- 970:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
- 974:	07 c0       	rjmp	.+14     	; 0x984 <main+0x23e>
+ 9b4:	6d 2f       	mov	r22, r29
+ 9b6:	8c 2f       	mov	r24, r28
+ 9b8:	0e 94 f7 01 	call	0x3ee	; 0x3ee <CleanerYUp>
+ 9bc:	07 c0       	rjmp	.+14     	; 0x9cc <main+0x246>
 			break;
 		
 		case REMOTE_MODE_15:
 			CleanerXLastInput(tempLeftState, tempRightState);
- 976:	61 2f       	mov	r22, r17
- 978:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
+ 9be:	61 2f       	mov	r22, r17
+ 9c0:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <CleanerXLastInput>
 			CleanerYLastInput(tempDownState, tempUpState);
- 97c:	6d 2f       	mov	r22, r29
- 97e:	8c 2f       	mov	r24, r28
- 980:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
+ 9c4:	6d 2f       	mov	r22, r29
+ 9c6:	8c 2f       	mov	r24, r28
+ 9c8:	0e 94 21 02 	call	0x442	; 0x442 <CleanerYLastInput>
 }
 
 static void MainUpdateProgramModeCounter()
 {
 	// Update counter whenever timer ticks above 0.05 seconds
 	if(TCNT1 >= 49999)
- 984:	f7 01       	movw	r30, r14
- 986:	80 81       	ld	r24, Z
- 988:	91 81       	ldd	r25, Z+1	; 0x01
- 98a:	8f 34       	cpi	r24, 0x4F	; 79
- 98c:	93 4c       	sbci	r25, 0xC3	; 195
- 98e:	08 f4       	brcc	.+2      	; 0x992 <main+0x24c>
- 990:	cc c0       	rjmp	.+408    	; 0xb2a <main+0x3e4>
+ 9cc:	f7 01       	movw	r30, r14
+ 9ce:	80 81       	ld	r24, Z
+ 9d0:	91 81       	ldd	r25, Z+1	; 0x01
+ 9d2:	8f 34       	cpi	r24, 0x4F	; 79
+ 9d4:	93 4c       	sbci	r25, 0xC3	; 195
+ 9d6:	08 f4       	brcc	.+2      	; 0x9da <main+0x254>
+ 9d8:	cc c0       	rjmp	.+408    	; 0xb72 <main+0x3ec>
 	{
 		if(ModeSwitchesReadDip5Sw1() == 0)
- 992:	0e 94 e8 02 	call	0x5d0	; 0x5d0 <ModeSwitchesReadDip5Sw1>
- 996:	81 11       	cpse	r24, r1
- 998:	1c c0       	rjmp	.+56     	; 0x9d2 <main+0x28c>
+ 9da:	0e 94 e8 02 	call	0x5d0	; 0x5d0 <ModeSwitchesReadDip5Sw1>
+ 9de:	81 11       	cpse	r24, r1
+ 9e0:	1c c0       	rjmp	.+56     	; 0xa1a <main+0x294>
 		{
 			// Update program mode counter only if all inputs are pressed
 			if((DirectionGetLeftState() == 0) && (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) && (DirectionGetUpState() == 0))
- 99a:	0e 94 97 03 	call	0x72e	; 0x72e <DirectionGetLeftState>
- 99e:	81 11       	cpse	r24, r1
- 9a0:	15 c0       	rjmp	.+42     	; 0x9cc <main+0x286>
- 9a2:	0e 94 9a 03 	call	0x734	; 0x734 <DirectionGetRightState>
- 9a6:	81 11       	cpse	r24, r1
- 9a8:	11 c0       	rjmp	.+34     	; 0x9cc <main+0x286>
- 9aa:	0e 94 a0 03 	call	0x740	; 0x740 <DirectionGetDownState>
- 9ae:	81 11       	cpse	r24, r1
- 9b0:	0d c0       	rjmp	.+26     	; 0x9cc <main+0x286>
- 9b2:	0e 94 9d 03 	call	0x73a	; 0x73a <DirectionGetUpState>
- 9b6:	81 11       	cpse	r24, r1
- 9b8:	09 c0       	rjmp	.+18     	; 0x9cc <main+0x286>
+ 9e2:	0e 94 b7 03 	call	0x76e	; 0x76e <DirectionGetLeftState>
+ 9e6:	81 11       	cpse	r24, r1
+ 9e8:	15 c0       	rjmp	.+42     	; 0xa14 <main+0x28e>
+ 9ea:	0e 94 ba 03 	call	0x774	; 0x774 <DirectionGetRightState>
+ 9ee:	81 11       	cpse	r24, r1
+ 9f0:	11 c0       	rjmp	.+34     	; 0xa14 <main+0x28e>
+ 9f2:	0e 94 c0 03 	call	0x780	; 0x780 <DirectionGetDownState>
+ 9f6:	81 11       	cpse	r24, r1
+ 9f8:	0d c0       	rjmp	.+26     	; 0xa14 <main+0x28e>
+ 9fa:	0e 94 bd 03 	call	0x77a	; 0x77a <DirectionGetUpState>
+ 9fe:	81 11       	cpse	r24, r1
+ a00:	09 c0       	rjmp	.+18     	; 0xa14 <main+0x28e>
 			{
 				programModeCounter++;
- 9ba:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
- 9be:	8f 5f       	subi	r24, 0xFF	; 255
- 9c0:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <programModeCounter>
+ a02:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
+ a06:	8f 5f       	subi	r24, 0xFF	; 255
+ a08:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <programModeCounter>
 				TCNT1 = 0;
- 9c4:	f7 01       	movw	r30, r14
- 9c6:	11 82       	std	Z+1, r1	; 0x01
- 9c8:	10 82       	st	Z, r1
- 9ca:	af c0       	rjmp	.+350    	; 0xb2a <main+0x3e4>
+ a0c:	f7 01       	movw	r30, r14
+ a0e:	11 82       	std	Z+1, r1	; 0x01
+ a10:	10 82       	st	Z, r1
+ a12:	af c0       	rjmp	.+350    	; 0xb72 <main+0x3ec>
 			}
 			else
 			{
 				programModeCounter = 0;
- 9cc:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
- 9d0:	f3 ce       	rjmp	.-538    	; 0x7b8 <main+0x72>
+ a14:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
+ a18:	f3 ce       	rjmp	.-538    	; 0x800 <main+0x7a>
 			}
 		}
 		else
 		{
 			// Update program mode counter only if all inputs are pressed
 			if(ModeSwitchesReadRemoteButton() == 0)
- 9d2:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <ModeSwitchesReadRemoteButton>
- 9d6:	81 11       	cpse	r24, r1
- 9d8:	09 c0       	rjmp	.+18     	; 0x9ec <main+0x2a6>
+ a1a:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <ModeSwitchesReadRemoteButton>
+ a1e:	81 11       	cpse	r24, r1
+ a20:	09 c0       	rjmp	.+18     	; 0xa34 <main+0x2ae>
 			{
 				programModeCounter++;
- 9da:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
- 9de:	8f 5f       	subi	r24, 0xFF	; 255
- 9e0:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <programModeCounter>
+ a22:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
+ a26:	8f 5f       	subi	r24, 0xFF	; 255
+ a28:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <programModeCounter>
 				TCNT1 = 0;
- 9e4:	f7 01       	movw	r30, r14
- 9e6:	11 82       	std	Z+1, r1	; 0x01
- 9e8:	10 82       	st	Z, r1
- 9ea:	9f c0       	rjmp	.+318    	; 0xb2a <main+0x3e4>
+ a2c:	f7 01       	movw	r30, r14
+ a2e:	11 82       	std	Z+1, r1	; 0x01
+ a30:	10 82       	st	Z, r1
+ a32:	9f c0       	rjmp	.+318    	; 0xb72 <main+0x3ec>
 			}
 			else
 			{
 				programModeCounter = 0;
- 9ec:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
- 9f0:	e3 ce       	rjmp	.-570    	; 0x7b8 <main+0x72>
+ a34:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
+ a38:	e3 ce       	rjmp	.-570    	; 0x800 <main+0x7a>
 
 static void MainProgramModeChecker()
 {
 	// Determine if we should go into program mode after 5 seconds
 	// In other words, 0.05 seconds have been counted 100 times
 	if(programModeCounter > 100)
- 9f2:	c4 e6       	ldi	r28, 0x64	; 100
+ a3a:	c4 e6       	ldi	r28, 0x64	; 100
 		// future
 		
 		// Read the inputs every 50 milliseconds for the next 5 seconds to determine the new cleaning operation
 		for(uint8_t i = 0; i < 100; i++)
 		{
 			MainUpdateRemoteModeCode(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
- 9f4:	0e 94 9d 03 	call	0x73a	; 0x73a <DirectionGetUpState>
- 9f8:	18 2f       	mov	r17, r24
- 9fa:	0e 94 a0 03 	call	0x740	; 0x740 <DirectionGetDownState>
- 9fe:	08 2f       	mov	r16, r24
- a00:	0e 94 9a 03 	call	0x734	; 0x734 <DirectionGetRightState>
- a04:	d8 2f       	mov	r29, r24
- a06:	0e 94 97 03 	call	0x72e	; 0x72e <DirectionGetLeftState>
+ a3c:	0e 94 bd 03 	call	0x77a	; 0x77a <DirectionGetUpState>
+ a40:	18 2f       	mov	r17, r24
+ a42:	0e 94 c0 03 	call	0x780	; 0x780 <DirectionGetDownState>
+ a46:	08 2f       	mov	r16, r24
+ a48:	0e 94 ba 03 	call	0x774	; 0x774 <DirectionGetRightState>
+ a4c:	d8 2f       	mov	r29, r24
+ a4e:	0e 94 b7 03 	call	0x76e	; 0x76e <DirectionGetLeftState>
 	}
 }
 
 static void MainUpdateRemoteModeCode(uint8_t tempLeftState, uint8_t tempRightState, uint8_t tempDownState, uint8_t tempUpState)
 {
 	if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
- a0a:	81 11       	cpse	r24, r1
- a0c:	39 c0       	rjmp	.+114    	; 0xa80 <main+0x33a>
- a0e:	d1 11       	cpse	r29, r1
- a10:	1e c0       	rjmp	.+60     	; 0xa4e <main+0x308>
- a12:	01 11       	cpse	r16, r1
- a14:	0e c0       	rjmp	.+28     	; 0xa32 <main+0x2ec>
- a16:	11 11       	cpse	r17, r1
- a18:	06 c0       	rjmp	.+12     	; 0xa26 <main+0x2e0>
+ a52:	81 11       	cpse	r24, r1
+ a54:	39 c0       	rjmp	.+114    	; 0xac8 <main+0x342>
+ a56:	d1 11       	cpse	r29, r1
+ a58:	1e c0       	rjmp	.+60     	; 0xa96 <main+0x310>
+ a5a:	01 11       	cpse	r16, r1
+ a5c:	0e c0       	rjmp	.+28     	; 0xa7a <main+0x2f4>
+ a5e:	11 11       	cpse	r17, r1
+ a60:	06 c0       	rjmp	.+12     	; 0xa6e <main+0x2e8>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_0 );
- a1a:	60 e0       	ldi	r22, 0x00	; 0
- a1c:	8e e2       	ldi	r24, 0x2E	; 46
- a1e:	90 e0       	ldi	r25, 0x00	; 0
- a20:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a24:	6a c0       	rjmp	.+212    	; 0xafa <main+0x3b4>
+ a62:	60 e0       	ldi	r22, 0x00	; 0
+ a64:	8e e2       	ldi	r24, 0x2E	; 46
+ a66:	90 e0       	ldi	r25, 0x00	; 0
+ a68:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ a6c:	6a c0       	rjmp	.+212    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_1 );
- a26:	61 e0       	ldi	r22, 0x01	; 1
- a28:	8e e2       	ldi	r24, 0x2E	; 46
- a2a:	90 e0       	ldi	r25, 0x00	; 0
- a2c:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a30:	64 c0       	rjmp	.+200    	; 0xafa <main+0x3b4>
+ a6e:	61 e0       	ldi	r22, 0x01	; 1
+ a70:	8e e2       	ldi	r24, 0x2E	; 46
+ a72:	90 e0       	ldi	r25, 0x00	; 0
+ a74:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ a78:	64 c0       	rjmp	.+200    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
- a32:	11 11       	cpse	r17, r1
- a34:	06 c0       	rjmp	.+12     	; 0xa42 <main+0x2fc>
+ a7a:	11 11       	cpse	r17, r1
+ a7c:	06 c0       	rjmp	.+12     	; 0xa8a <main+0x304>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_2 );
- a36:	62 e0       	ldi	r22, 0x02	; 2
- a38:	8e e2       	ldi	r24, 0x2E	; 46
- a3a:	90 e0       	ldi	r25, 0x00	; 0
- a3c:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a40:	5c c0       	rjmp	.+184    	; 0xafa <main+0x3b4>
+ a7e:	62 e0       	ldi	r22, 0x02	; 2
+ a80:	8e e2       	ldi	r24, 0x2E	; 46
+ a82:	90 e0       	ldi	r25, 0x00	; 0
+ a84:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ a88:	5c c0       	rjmp	.+184    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_3 );
- a42:	63 e0       	ldi	r22, 0x03	; 3
- a44:	8e e2       	ldi	r24, 0x2E	; 46
- a46:	90 e0       	ldi	r25, 0x00	; 0
- a48:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a4c:	56 c0       	rjmp	.+172    	; 0xafa <main+0x3b4>
+ a8a:	63 e0       	ldi	r22, 0x03	; 3
+ a8c:	8e e2       	ldi	r24, 0x2E	; 46
+ a8e:	90 e0       	ldi	r25, 0x00	; 0
+ a90:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ a94:	56 c0       	rjmp	.+172    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
- a4e:	01 11       	cpse	r16, r1
- a50:	09 c0       	rjmp	.+18     	; 0xa64 <main+0x31e>
- a52:	11 23       	and	r17, r17
- a54:	09 f4       	brne	.+2      	; 0xa58 <main+0x312>
- a56:	4c c0       	rjmp	.+152    	; 0xaf0 <main+0x3aa>
+ a96:	01 11       	cpse	r16, r1
+ a98:	09 c0       	rjmp	.+18     	; 0xaac <main+0x326>
+ a9a:	11 23       	and	r17, r17
+ a9c:	09 f4       	brne	.+2      	; 0xaa0 <main+0x31a>
+ a9e:	4c c0       	rjmp	.+152    	; 0xb38 <main+0x3b2>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_4 );
- a58:	64 e0       	ldi	r22, 0x04	; 4
- a5a:	8e e2       	ldi	r24, 0x2E	; 46
- a5c:	90 e0       	ldi	r25, 0x00	; 0
- a5e:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a62:	4b c0       	rjmp	.+150    	; 0xafa <main+0x3b4>
+ aa0:	64 e0       	ldi	r22, 0x04	; 4
+ aa2:	8e e2       	ldi	r24, 0x2E	; 46
+ aa4:	90 e0       	ldi	r25, 0x00	; 0
+ aa6:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ aaa:	4b c0       	rjmp	.+150    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 0, REMOTE_MODE_5 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
- a64:	11 11       	cpse	r17, r1
- a66:	06 c0       	rjmp	.+12     	; 0xa74 <main+0x32e>
+ aac:	11 11       	cpse	r17, r1
+ aae:	06 c0       	rjmp	.+12     	; 0xabc <main+0x336>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_6 );
- a68:	66 e0       	ldi	r22, 0x06	; 6
- a6a:	8e e2       	ldi	r24, 0x2E	; 46
- a6c:	90 e0       	ldi	r25, 0x00	; 0
- a6e:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a72:	43 c0       	rjmp	.+134    	; 0xafa <main+0x3b4>
+ ab0:	66 e0       	ldi	r22, 0x06	; 6
+ ab2:	8e e2       	ldi	r24, 0x2E	; 46
+ ab4:	90 e0       	ldi	r25, 0x00	; 0
+ ab6:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ aba:	43 c0       	rjmp	.+134    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_7 );
- a74:	67 e0       	ldi	r22, 0x07	; 7
- a76:	8e e2       	ldi	r24, 0x2E	; 46
- a78:	90 e0       	ldi	r25, 0x00	; 0
- a7a:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a7e:	3d c0       	rjmp	.+122    	; 0xafa <main+0x3b4>
+ abc:	67 e0       	ldi	r22, 0x07	; 7
+ abe:	8e e2       	ldi	r24, 0x2E	; 46
+ ac0:	90 e0       	ldi	r25, 0x00	; 0
+ ac2:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ ac6:	3d c0       	rjmp	.+122    	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState == 0) )
- a80:	d1 11       	cpse	r29, r1
- a82:	1e c0       	rjmp	.+60     	; 0xac0 <main+0x37a>
- a84:	01 11       	cpse	r16, r1
- a86:	0e c0       	rjmp	.+28     	; 0xaa4 <main+0x35e>
- a88:	11 11       	cpse	r17, r1
- a8a:	06 c0       	rjmp	.+12     	; 0xa98 <main+0x352>
+ ac8:	d1 11       	cpse	r29, r1
+ aca:	1e c0       	rjmp	.+60     	; 0xb08 <main+0x382>
+ acc:	01 11       	cpse	r16, r1
+ ace:	0e c0       	rjmp	.+28     	; 0xaec <main+0x366>
+ ad0:	11 11       	cpse	r17, r1
+ ad2:	06 c0       	rjmp	.+12     	; 0xae0 <main+0x35a>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_8 );
- a8c:	68 e0       	ldi	r22, 0x08	; 8
- a8e:	8e e2       	ldi	r24, 0x2E	; 46
- a90:	90 e0       	ldi	r25, 0x00	; 0
- a92:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- a96:	31 c0       	rjmp	.+98     	; 0xafa <main+0x3b4>
+ ad4:	68 e0       	ldi	r22, 0x08	; 8
+ ad6:	8e e2       	ldi	r24, 0x2E	; 46
+ ad8:	90 e0       	ldi	r25, 0x00	; 0
+ ada:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ ade:	31 c0       	rjmp	.+98     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_9 );
- a98:	69 e0       	ldi	r22, 0x09	; 9
- a9a:	8e e2       	ldi	r24, 0x2E	; 46
- a9c:	90 e0       	ldi	r25, 0x00	; 0
- a9e:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- aa2:	2b c0       	rjmp	.+86     	; 0xafa <main+0x3b4>
+ ae0:	69 e0       	ldi	r22, 0x09	; 9
+ ae2:	8e e2       	ldi	r24, 0x2E	; 46
+ ae4:	90 e0       	ldi	r25, 0x00	; 0
+ ae6:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ aea:	2b c0       	rjmp	.+86     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState == 0) )
- aa4:	11 11       	cpse	r17, r1
- aa6:	06 c0       	rjmp	.+12     	; 0xab4 <main+0x36e>
+ aec:	11 11       	cpse	r17, r1
+ aee:	06 c0       	rjmp	.+12     	; 0xafc <main+0x376>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_10 );
- aa8:	6a e0       	ldi	r22, 0x0A	; 10
- aaa:	8e e2       	ldi	r24, 0x2E	; 46
- aac:	90 e0       	ldi	r25, 0x00	; 0
- aae:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- ab2:	23 c0       	rjmp	.+70     	; 0xafa <main+0x3b4>
+ af0:	6a e0       	ldi	r22, 0x0A	; 10
+ af2:	8e e2       	ldi	r24, 0x2E	; 46
+ af4:	90 e0       	ldi	r25, 0x00	; 0
+ af6:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ afa:	23 c0       	rjmp	.+70     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_11 );
- ab4:	6b e0       	ldi	r22, 0x0B	; 11
- ab6:	8e e2       	ldi	r24, 0x2E	; 46
- ab8:	90 e0       	ldi	r25, 0x00	; 0
- aba:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- abe:	1d c0       	rjmp	.+58     	; 0xafa <main+0x3b4>
+ afc:	6b e0       	ldi	r22, 0x0B	; 11
+ afe:	8e e2       	ldi	r24, 0x2E	; 46
+ b00:	90 e0       	ldi	r25, 0x00	; 0
+ b02:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ b06:	1d c0       	rjmp	.+58     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState == 0) )
- ac0:	01 11       	cpse	r16, r1
- ac2:	0e c0       	rjmp	.+28     	; 0xae0 <main+0x39a>
- ac4:	11 11       	cpse	r17, r1
- ac6:	06 c0       	rjmp	.+12     	; 0xad4 <main+0x38e>
+ b08:	01 11       	cpse	r16, r1
+ b0a:	0e c0       	rjmp	.+28     	; 0xb28 <main+0x3a2>
+ b0c:	11 11       	cpse	r17, r1
+ b0e:	06 c0       	rjmp	.+12     	; 0xb1c <main+0x396>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_12 );
- ac8:	6c e0       	ldi	r22, 0x0C	; 12
- aca:	8e e2       	ldi	r24, 0x2E	; 46
- acc:	90 e0       	ldi	r25, 0x00	; 0
- ace:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- ad2:	13 c0       	rjmp	.+38     	; 0xafa <main+0x3b4>
+ b10:	6c e0       	ldi	r22, 0x0C	; 12
+ b12:	8e e2       	ldi	r24, 0x2E	; 46
+ b14:	90 e0       	ldi	r25, 0x00	; 0
+ b16:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ b1a:	13 c0       	rjmp	.+38     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_13 );
- ad4:	6d e0       	ldi	r22, 0x0D	; 13
- ad6:	8e e2       	ldi	r24, 0x2E	; 46
- ad8:	90 e0       	ldi	r25, 0x00	; 0
- ada:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- ade:	0d c0       	rjmp	.+26     	; 0xafa <main+0x3b4>
+ b1c:	6d e0       	ldi	r22, 0x0D	; 13
+ b1e:	8e e2       	ldi	r24, 0x2E	; 46
+ b20:	90 e0       	ldi	r25, 0x00	; 0
+ b22:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ b26:	0d c0       	rjmp	.+26     	; 0xb42 <main+0x3bc>
 	}
 	else if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
- ae0:	11 11       	cpse	r17, r1
- ae2:	06 c0       	rjmp	.+12     	; 0xaf0 <main+0x3aa>
+ b28:	11 11       	cpse	r17, r1
+ b2a:	06 c0       	rjmp	.+12     	; 0xb38 <main+0x3b2>
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_14 );
- ae4:	6e e0       	ldi	r22, 0x0E	; 14
- ae6:	8e e2       	ldi	r24, 0x2E	; 46
- ae8:	90 e0       	ldi	r25, 0x00	; 0
- aea:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
- aee:	05 c0       	rjmp	.+10     	; 0xafa <main+0x3b4>
+ b2c:	6e e0       	ldi	r22, 0x0E	; 14
+ b2e:	8e e2       	ldi	r24, 0x2E	; 46
+ b30:	90 e0       	ldi	r25, 0x00	; 0
+ b32:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
+ b36:	05 c0       	rjmp	.+10     	; 0xb42 <main+0x3bc>
 	}
 	else
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_15 );
- af0:	6f e0       	ldi	r22, 0x0F	; 15
- af2:	8e e2       	ldi	r24, 0x2E	; 46
- af4:	90 e0       	ldi	r25, 0x00	; 0
- af6:	0e 94 a9 05 	call	0xb52	; 0xb52 <eeprom_update_byte>
+ b38:	6f e0       	ldi	r22, 0x0F	; 15
+ b3a:	8e e2       	ldi	r24, 0x2E	; 46
+ b3c:	90 e0       	ldi	r25, 0x00	; 0
+ b3e:	0e 94 cd 05 	call	0xb9a	; 0xb9a <eeprom_update_byte>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- afa:	81 ee       	ldi	r24, 0xE1	; 225
- afc:	94 e0       	ldi	r25, 0x04	; 4
- afe:	01 97       	sbiw	r24, 0x01	; 1
- b00:	f1 f7       	brne	.-4      	; 0xafe <main+0x3b8>
- b02:	00 c0       	rjmp	.+0      	; 0xb04 <main+0x3be>
- b04:	00 00       	nop
+ b42:	81 ee       	ldi	r24, 0xE1	; 225
+ b44:	94 e0       	ldi	r25, 0x04	; 4
+ b46:	01 97       	sbiw	r24, 0x01	; 1
+ b48:	f1 f7       	brne	.-4      	; 0xb46 <main+0x3c0>
+ b4a:	00 c0       	rjmp	.+0      	; 0xb4c <main+0x3c6>
+ b4c:	00 00       	nop
 	}
 	_delay_ms(5);
 	remoteModeCode = eeprom_read_byte (( uint8_t *) 46);
- b06:	8e e2       	ldi	r24, 0x2E	; 46
- b08:	90 e0       	ldi	r25, 0x00	; 0
- b0a:	0e 94 a1 05 	call	0xb42	; 0xb42 <eeprom_read_byte>
- b0e:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <remoteModeCode>
- b12:	e3 ed       	ldi	r30, 0xD3	; 211
- b14:	f0 e3       	ldi	r31, 0x30	; 48
- b16:	31 97       	sbiw	r30, 0x01	; 1
- b18:	f1 f7       	brne	.-4      	; 0xb16 <main+0x3d0>
- b1a:	00 c0       	rjmp	.+0      	; 0xb1c <main+0x3d6>
- b1c:	00 00       	nop
- b1e:	c1 50       	subi	r28, 0x01	; 1
+ b4e:	8e e2       	ldi	r24, 0x2E	; 46
+ b50:	90 e0       	ldi	r25, 0x00	; 0
+ b52:	0e 94 c5 05 	call	0xb8a	; 0xb8a <eeprom_read_byte>
+ b56:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <remoteModeCode>
+ b5a:	e3 ed       	ldi	r30, 0xD3	; 211
+ b5c:	f0 e3       	ldi	r31, 0x30	; 48
+ b5e:	31 97       	sbiw	r30, 0x01	; 1
+ b60:	f1 f7       	brne	.-4      	; 0xb5e <main+0x3d8>
+ b62:	00 c0       	rjmp	.+0      	; 0xb64 <main+0x3de>
+ b64:	00 00       	nop
+ b66:	c1 50       	subi	r28, 0x01	; 1
 	{
 		// Indicate you are in program mode
 		// future
 		
 		// Read the inputs every 50 milliseconds for the next 5 seconds to determine the new cleaning operation
 		for(uint8_t i = 0; i < 100; i++)
- b20:	09 f0       	breq	.+2      	; 0xb24 <main+0x3de>
- b22:	68 cf       	rjmp	.-304    	; 0x9f4 <main+0x2ae>
+ b68:	09 f0       	breq	.+2      	; 0xb6c <main+0x3e6>
+ b6a:	68 cf       	rjmp	.-304    	; 0xa3c <main+0x2b6>
 			MainUpdateRemoteModeCode(DirectionGetLeftState(), DirectionGetRightState(), DirectionGetDownState(), DirectionGetUpState());
 			_delay_ms(50);
 		}
 		
 		// Task complete so reset the counter
 		programModeCounter = 0;
- b24:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
- b28:	47 ce       	rjmp	.-882    	; 0x7b8 <main+0x72>
+ b6c:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <programModeCounter>
+ b70:	47 ce       	rjmp	.-882    	; 0x800 <main+0x7a>
 
 static void MainProgramModeChecker()
 {
 	// Determine if we should go into program mode after 5 seconds
 	// In other words, 0.05 seconds have been counted 100 times
 	if(programModeCounter > 100)
- b2a:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
- b2e:	85 36       	cpi	r24, 0x65	; 101
- b30:	08 f0       	brcs	.+2      	; 0xb34 <main+0x3ee>
- b32:	5f cf       	rjmp	.-322    	; 0x9f2 <main+0x2ac>
- b34:	41 ce       	rjmp	.-894    	; 0x7b8 <main+0x72>
+ b72:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <programModeCounter>
+ b76:	85 36       	cpi	r24, 0x65	; 101
+ b78:	08 f0       	brcs	.+2      	; 0xb7c <main+0x3f6>
+ b7a:	5f cf       	rjmp	.-322    	; 0xa3a <main+0x2b4>
+ b7c:	41 ce       	rjmp	.-894    	; 0x800 <main+0x7a>
 
-00000b36 <__tablejump2__>:
- b36:	ee 0f       	add	r30, r30
- b38:	ff 1f       	adc	r31, r31
- b3a:	05 90       	lpm	r0, Z+
- b3c:	f4 91       	lpm	r31, Z
- b3e:	e0 2d       	mov	r30, r0
- b40:	09 94       	ijmp
+00000b7e <__tablejump2__>:
+ b7e:	ee 0f       	add	r30, r30
+ b80:	ff 1f       	adc	r31, r31
+ b82:	05 90       	lpm	r0, Z+
+ b84:	f4 91       	lpm	r31, Z
+ b86:	e0 2d       	mov	r30, r0
+ b88:	09 94       	ijmp
 
-00000b42 <eeprom_read_byte>:
- b42:	f9 99       	sbic	0x1f, 1	; 31
- b44:	fe cf       	rjmp	.-4      	; 0xb42 <eeprom_read_byte>
- b46:	92 bd       	out	0x22, r25	; 34
- b48:	81 bd       	out	0x21, r24	; 33
- b4a:	f8 9a       	sbi	0x1f, 0	; 31
- b4c:	99 27       	eor	r25, r25
- b4e:	80 b5       	in	r24, 0x20	; 32
- b50:	08 95       	ret
+00000b8a <eeprom_read_byte>:
+ b8a:	f9 99       	sbic	0x1f, 1	; 31
+ b8c:	fe cf       	rjmp	.-4      	; 0xb8a <eeprom_read_byte>
+ b8e:	92 bd       	out	0x22, r25	; 34
+ b90:	81 bd       	out	0x21, r24	; 33
+ b92:	f8 9a       	sbi	0x1f, 0	; 31
+ b94:	99 27       	eor	r25, r25
+ b96:	80 b5       	in	r24, 0x20	; 32
+ b98:	08 95       	ret
 
-00000b52 <eeprom_update_byte>:
- b52:	26 2f       	mov	r18, r22
+00000b9a <eeprom_update_byte>:
+ b9a:	26 2f       	mov	r18, r22
 
-00000b54 <eeprom_update_r18>:
- b54:	f9 99       	sbic	0x1f, 1	; 31
- b56:	fe cf       	rjmp	.-4      	; 0xb54 <eeprom_update_r18>
- b58:	92 bd       	out	0x22, r25	; 34
- b5a:	81 bd       	out	0x21, r24	; 33
- b5c:	f8 9a       	sbi	0x1f, 0	; 31
- b5e:	01 97       	sbiw	r24, 0x01	; 1
- b60:	00 b4       	in	r0, 0x20	; 32
- b62:	02 16       	cp	r0, r18
- b64:	39 f0       	breq	.+14     	; 0xb74 <eeprom_update_r18+0x20>
- b66:	1f ba       	out	0x1f, r1	; 31
- b68:	20 bd       	out	0x20, r18	; 32
- b6a:	0f b6       	in	r0, 0x3f	; 63
- b6c:	f8 94       	cli
- b6e:	fa 9a       	sbi	0x1f, 2	; 31
- b70:	f9 9a       	sbi	0x1f, 1	; 31
- b72:	0f be       	out	0x3f, r0	; 63
- b74:	08 95       	ret
+00000b9c <eeprom_update_r18>:
+ b9c:	f9 99       	sbic	0x1f, 1	; 31
+ b9e:	fe cf       	rjmp	.-4      	; 0xb9c <eeprom_update_r18>
+ ba0:	92 bd       	out	0x22, r25	; 34
+ ba2:	81 bd       	out	0x21, r24	; 33
+ ba4:	f8 9a       	sbi	0x1f, 0	; 31
+ ba6:	01 97       	sbiw	r24, 0x01	; 1
+ ba8:	00 b4       	in	r0, 0x20	; 32
+ baa:	02 16       	cp	r0, r18
+ bac:	39 f0       	breq	.+14     	; 0xbbc <eeprom_update_r18+0x20>
+ bae:	1f ba       	out	0x1f, r1	; 31
+ bb0:	20 bd       	out	0x20, r18	; 32
+ bb2:	0f b6       	in	r0, 0x3f	; 63
+ bb4:	f8 94       	cli
+ bb6:	fa 9a       	sbi	0x1f, 2	; 31
+ bb8:	f9 9a       	sbi	0x1f, 1	; 31
+ bba:	0f be       	out	0x3f, r0	; 63
+ bbc:	08 95       	ret
 
-00000b76 <_exit>:
- b76:	f8 94       	cli
+00000bbe <_exit>:
+ bbe:	f8 94       	cli
 
-00000b78 <__stop_program>:
- b78:	ff cf       	rjmp	.-2      	; 0xb78 <__stop_program>
+00000bc0 <__stop_program>:
+ bc0:	ff cf       	rjmp	.-2      	; 0xbc0 <__stop_program>
