@@ -27,6 +27,7 @@ void DirectionPressLeft(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionPressLeftLed();
 }
 
 void DirectionReleaseLeft(uint8_t tempOrientation)
@@ -51,6 +52,7 @@ void DirectionReleaseLeft(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionReleaseLeftLed();
 }
 
 void DirectionPressRight(uint8_t tempOrientation)
@@ -76,6 +78,7 @@ void DirectionPressRight(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionPressRightLed();
 }
 
 void DirectionReleaseRight(uint8_t tempOrientation)
@@ -100,6 +103,7 @@ void DirectionReleaseRight(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionReleaseRightLed();
 }
 
 void DirectionPressDown(uint8_t tempOrientation)
@@ -124,6 +128,7 @@ void DirectionPressDown(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionPressDownLed();
 }
 
 void DirectionReleaseDown(uint8_t tempOrientation)
@@ -148,6 +153,7 @@ void DirectionReleaseDown(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionReleaseDownLed();
 }
 
 void DirectionPressUp(uint8_t tempOrientation)
@@ -173,6 +179,7 @@ void DirectionPressUp(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionPressUpLed();
 }
 
 void DirectionReleaseUp(uint8_t tempOrientation)
@@ -198,6 +205,48 @@ void DirectionReleaseUp(uint8_t tempOrientation)
 	{
 		// Future orientation...do nothing for now
 	}
+	DirectionReleaseUpLed();
+}
+
+// LED Outputs
+void DirectionPressRightLed()
+{
+	PORTB &= ~(1 << DIRECTION_RIGHT_LED);
+}
+
+void DirectionReleaseRightLed()
+{
+	PORTB |= (1 << DIRECTION_RIGHT_LED);
+}
+
+void DirectionPressLeftLed()
+{
+	PORTD &= ~(1 << DIRECTION_LEFT_LED);
+}
+
+void DirectionReleaseLeftLed()
+{
+	PORTD |= (1 << DIRECTION_LEFT_LED);
+}
+
+void DirectionPressDownLed()
+{
+	PORTB &= ~(1 << DIRECTION_DOWN_LED);
+}
+
+void DirectionReleaseDownLed()
+{
+	PORTB |= (1 << DIRECTION_DOWN_LED);
+}
+
+void DirectionPressUpLed()
+{
+	PORTB &= ~(1 << DIRECTION_UP_LED);
+}
+
+void DirectionReleaseUpLed()
+{
+	PORTB |= (1 << DIRECTION_UP_LED);
 }
 
 // Reading Inputs

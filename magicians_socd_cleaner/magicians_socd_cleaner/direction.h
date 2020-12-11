@@ -11,6 +11,10 @@
 #define DIRECTION_SW2_CLEAN PD4
 #define DIRECTION_SW3_CLEAN PD5
 #define DIRECTION_SW4_CLEAN PD6
+#define DIRECTION_RIGHT_LED PB4
+#define DIRECTION_LEFT_LED  PD0
+#define DIRECTION_DOWN_LED  PB5
+#define DIRECTION_UP_LED    PB6
 
 // Input Pins
 #define DIRECTION_RIGHT_BUTTON PINB0
@@ -31,6 +35,16 @@ void DirectionPressDown(uint8_t);
 void DirectionReleaseDown(uint8_t);
 void DirectionPressUp(uint8_t);
 void DirectionReleaseUp(uint8_t);
+
+// LED Outputs
+void DirectionPressLeftLed();
+void DirectionReleaseLeftLed();
+void DirectionPressRightLed();
+void DirectionReleaseRightLed();
+void DirectionPressDownLed();
+void DirectionReleaseDownLed();
+void DirectionPressUpLed();
+void DirectionReleaseUpLed();
 
 // Reading Inputs
 uint8_t DirectionGetLeftState(void);
