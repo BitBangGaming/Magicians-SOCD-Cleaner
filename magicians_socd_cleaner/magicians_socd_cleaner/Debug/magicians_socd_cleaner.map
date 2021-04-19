@@ -1,26 +1,52 @@
 Archive member included to satisfy reference by file (symbol)
 
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
-                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o (exit)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
-                              main.o (__tablejump2__)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
+                              cleaner.o (__tablejump2__)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+                              cleaner.o (__do_copy_data)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
                               cleaner.o (__do_clear_bss)
-C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
-                              main.o (eeprom_read_byte)
-C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+                              direction.o (eeprom_read_byte)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
                               main.o (eeprom_update_byte)
 
 Discarded input sections
 
- .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
- .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
  .text          0x00000000        0x0 cleaner.o
  .data          0x00000000        0x0 cleaner.o
  .bss           0x00000000        0x0 cleaner.o
+ .text.CleanerXNeutral
+                0x00000000       0x54 cleaner.o
+ .text.CleanerXLeft
+                0x00000000       0x54 cleaner.o
+ .text.CleanerXRight
+                0x00000000       0x54 cleaner.o
+ .text.CleanerXLastInput
+                0x00000000      0x18e cleaner.o
+ .text.CleanerYNeutral
+                0x00000000       0x54 cleaner.o
+ .text.CleanerYDown
+                0x00000000       0x54 cleaner.o
+ .text.CleanerYUp
+                0x00000000       0x54 cleaner.o
+ .text.CleanerYLastInput
+                0x00000000      0x18e cleaner.o
+ .text.CleanerDetectThreeReleasedButtons
+                0x00000000        0x2 cleaner.o
+ .bss.CleanerYAxisState
+                0x00000000        0x1 cleaner.o
+ .bss.CleanerXAxisState
+                0x00000000        0x1 cleaner.o
  .text          0x00000000        0x0 modeswitches.o
  .data          0x00000000        0x0 modeswitches.o
  .bss           0x00000000        0x0 modeswitches.o
+ .text.ModeSwitchesReadDip5Sw1
+                0x00000000        0x6 modeswitches.o
  .text.ModeSwitchesReadDip5Sw2
                 0x00000000        0x6 modeswitches.o
  .text.ModeSwitchesReadDip5Sw3
@@ -33,65 +59,89 @@ Discarded input sections
                 0x00000000        0x6 modeswitches.o
  .text.ModeSwitchesReadDip2Sw2
                 0x00000000        0x6 modeswitches.o
+ .text.ModeSwitchesReadRemoteButton
+                0x00000000        0x6 modeswitches.o
+ .text.ModeSwitchesX
+                0x00000000       0x2c modeswitches.o
+ .text.ModeSwitchesY
+                0x00000000       0x2c modeswitches.o
+ .text.ModeSwitchesRemote
+                0x00000000        0xe modeswitches.o
  .text          0x00000000        0x0 direction.o
  .data          0x00000000        0x0 direction.o
  .bss           0x00000000        0x0 direction.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.mul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
  .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
- .text          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .text          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
- .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
- .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
 
 Memory Configuration
 
@@ -99,7 +149,7 @@ Name             Origin             Length             Attributes
 text             0x00000000         0x00010000         xr
 data             0x00800060         0x0000ffa0         rw !x
 eeprom           0x00810000         0x00010000         rw !x
-fuse             0x00820000         0x00000003         rw !x
+fuse             0x00820000         0x00000400         rw !x
 lock             0x00830000         0x00000400         rw !x
 signature        0x00840000         0x00000400         rw !x
 user_signatures  0x00850000         0x00000400         rw !x
@@ -108,29 +158,20 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 Address of section .data set to 0x800100
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
 LOAD cleaner.o
 LOAD modeswitches.o
 LOAD direction.o
 LOAD main.o
 START GROUP
-LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libm.a
 END GROUP
 START GROUP
-LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a
-LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libm.a
-LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libc.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a
 END GROUP
-                0x00000000                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
-                0x00800060                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
-                0x00010000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x10000
-                0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
-                0x00010000                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
-                [0x00000003]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
-                0x00000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
-                0x00000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
-                0x00000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
 
 .hash
  *(.hash)
@@ -222,51 +263,51 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xbc2
+.text           0x00000000      0x9b8
  *(.vectors)
- .vectors       0x00000000       0x74 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+ .vectors       0x00000000       0x74 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
- .progmem.gcc_sw_table.main
-                0x00000074       0x20 main.o
-                0x00000094                . = ALIGN (0x2)
-                0x00000094                __trampolines_start = .
+ .progmem.gcc_sw_table.CleanerTetris
+                0x00000074       0x12 cleaner.o
+                0x00000086                . = ALIGN (0x2)
+                0x00000086                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000094        0x0 linker stubs
+ .trampolines   0x00000086        0x0 linker stubs
  *(.trampolines*)
-                0x00000094                __trampolines_end = .
- *libprintf_flt.a:*(.progmem.data)
- *libc.a:*(.progmem.data)
+                0x00000086                __trampolines_end = .
  *(.progmem*)
-                0x00000094                . = ALIGN (0x2)
+                0x00000086                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000094                __ctors_start = .
+                0x00000086                __ctors_start = .
  *(.ctors)
-                0x00000094                __ctors_end = .
-                0x00000094                __dtors_start = .
+                0x00000086                __ctors_end = .
+                0x00000086                __dtors_start = .
  *(.dtors)
-                0x00000094                __dtors_end = .
+                0x00000086                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000094        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
-                0x00000094                __init
+ .init0         0x00000086        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
+                0x00000086                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000094        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+ .init2         0x00000086        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000a0       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_clear_bss.o)
-                0x000000a0                __do_clear_bss
+ .init4         0x00000092       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_copy_data.o)
+                0x00000092                __do_copy_data
+ .init4         0x000000a8       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_clear_bss.o)
+                0x000000a8                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -277,159 +318,123 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000b0        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+ .init9         0x000000b8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
  *(.init9)
  *(.text)
- .text          0x000000b8        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
-                0x000000b8                __vector_22
-                0x000000b8                __vector_28
-                0x000000b8                __vector_1
-                0x000000b8                __vector_24
-                0x000000b8                __vector_12
-                0x000000b8                __bad_interrupt
-                0x000000b8                __vector_6
-                0x000000b8                __vector_3
-                0x000000b8                __vector_23
-                0x000000b8                __vector_25
-                0x000000b8                __vector_11
-                0x000000b8                __vector_13
-                0x000000b8                __vector_17
-                0x000000b8                __vector_19
-                0x000000b8                __vector_7
-                0x000000b8                __vector_27
-                0x000000b8                __vector_5
-                0x000000b8                __vector_4
-                0x000000b8                __vector_9
-                0x000000b8                __vector_2
-                0x000000b8                __vector_21
-                0x000000b8                __vector_15
-                0x000000b8                __vector_8
-                0x000000b8                __vector_26
-                0x000000b8                __vector_14
-                0x000000b8                __vector_10
-                0x000000b8                __vector_16
-                0x000000b8                __vector_18
-                0x000000b8                __vector_20
-                0x000000bc                . = ALIGN (0x2)
+ .text          0x000000c0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
+                0x000000c0                __vector_22
+                0x000000c0                __vector_28
+                0x000000c0                __vector_1
+                0x000000c0                __vector_24
+                0x000000c0                __vector_12
+                0x000000c0                __bad_interrupt
+                0x000000c0                __vector_6
+                0x000000c0                __vector_3
+                0x000000c0                __vector_23
+                0x000000c0                __vector_25
+                0x000000c0                __vector_11
+                0x000000c0                __vector_13
+                0x000000c0                __vector_17
+                0x000000c0                __vector_19
+                0x000000c0                __vector_7
+                0x000000c0                __vector_27
+                0x000000c0                __vector_5
+                0x000000c0                __vector_4
+                0x000000c0                __vector_9
+                0x000000c0                __vector_2
+                0x000000c0                __vector_21
+                0x000000c0                __vector_15
+                0x000000c0                __vector_8
+                0x000000c0                __vector_26
+                0x000000c0                __vector_14
+                0x000000c0                __vector_10
+                0x000000c0                __vector_16
+                0x000000c0                __vector_18
+                0x000000c0                __vector_20
+                0x000000c4                . = ALIGN (0x2)
  *(.text.*)
- .text.CleanerXNeutral
-                0x000000bc       0x54 cleaner.o
-                0x000000bc                CleanerXNeutral
- .text.CleanerXLeft
-                0x00000110       0x54 cleaner.o
-                0x00000110                CleanerXLeft
- .text.CleanerXRight
-                0x00000164       0x54 cleaner.o
-                0x00000164                CleanerXRight
- .text.CleanerXLastInput
-                0x000001b8      0x18e cleaner.o
-                0x000001b8                CleanerXLastInput
- .text.CleanerYNeutral
-                0x00000346       0x54 cleaner.o
-                0x00000346                CleanerYNeutral
- .text.CleanerYDown
-                0x0000039a       0x54 cleaner.o
-                0x0000039a                CleanerYDown
- .text.CleanerYUp
-                0x000003ee       0x54 cleaner.o
-                0x000003ee                CleanerYUp
- .text.CleanerYLastInput
-                0x00000442      0x18e cleaner.o
-                0x00000442                CleanerYLastInput
- .text.ModeSwitchesReadDip5Sw1
-                0x000005d0        0x6 modeswitches.o
-                0x000005d0                ModeSwitchesReadDip5Sw1
- .text.ModeSwitchesReadRemoteButton
-                0x000005d6        0x6 modeswitches.o
-                0x000005d6                ModeSwitchesReadRemoteButton
- .text.ModeSwitchesX
-                0x000005dc       0x2c modeswitches.o
-                0x000005dc                ModeSwitchesX
- .text.ModeSwitchesY
-                0x00000608       0x2c modeswitches.o
-                0x00000608                ModeSwitchesY
- .text.ModeSwitchesRemote
-                0x00000634        0xe modeswitches.o
-                0x00000634                ModeSwitchesRemote
+ .text.CleanerTetris
+                0x000000c4      0x4e0 cleaner.o
+                0x000000c4                CleanerTetris
  .text.ModeSwitchesOrientation
-                0x00000642       0x2c modeswitches.o
-                0x00000642                ModeSwitchesOrientation
+                0x000005a4       0x2c modeswitches.o
+                0x000005a4                ModeSwitchesOrientation
  .text.DirectionPressRightLed
-                0x0000066e        0x4 direction.o
-                0x0000066e                DirectionPressRightLed
+                0x000005d0        0x4 direction.o
+                0x000005d0                DirectionPressRightLed
  .text.DirectionPressRight
-                0x00000672       0x1c direction.o
-                0x00000672                DirectionPressRight
+                0x000005d4       0x46 direction.o
+                0x000005d4                DirectionPressRight
  .text.DirectionReleaseRightLed
-                0x0000068e        0x4 direction.o
-                0x0000068e                DirectionReleaseRightLed
+                0x0000061a        0x4 direction.o
+                0x0000061a                DirectionReleaseRightLed
  .text.DirectionReleaseRight
-                0x00000692       0x1c direction.o
-                0x00000692                DirectionReleaseRight
+                0x0000061e       0x46 direction.o
+                0x0000061e                DirectionReleaseRight
  .text.DirectionPressLeftLed
-                0x000006ae        0x4 direction.o
-                0x000006ae                DirectionPressLeftLed
+                0x00000664        0x4 direction.o
+                0x00000664                DirectionPressLeftLed
  .text.DirectionPressLeft
-                0x000006b2       0x1c direction.o
-                0x000006b2                DirectionPressLeft
+                0x00000668       0x46 direction.o
+                0x00000668                DirectionPressLeft
  .text.DirectionReleaseLeftLed
-                0x000006ce        0x4 direction.o
-                0x000006ce                DirectionReleaseLeftLed
+                0x000006ae        0x4 direction.o
+                0x000006ae                DirectionReleaseLeftLed
  .text.DirectionReleaseLeft
-                0x000006d2       0x1c direction.o
-                0x000006d2                DirectionReleaseLeft
+                0x000006b2       0x46 direction.o
+                0x000006b2                DirectionReleaseLeft
  .text.DirectionPressDownLed
-                0x000006ee        0x4 direction.o
-                0x000006ee                DirectionPressDownLed
+                0x000006f8        0x4 direction.o
+                0x000006f8                DirectionPressDownLed
  .text.DirectionPressDown
-                0x000006f2       0x1c direction.o
-                0x000006f2                DirectionPressDown
+                0x000006fc       0x46 direction.o
+                0x000006fc                DirectionPressDown
  .text.DirectionReleaseDownLed
-                0x0000070e        0x4 direction.o
-                0x0000070e                DirectionReleaseDownLed
+                0x00000742        0x4 direction.o
+                0x00000742                DirectionReleaseDownLed
  .text.DirectionReleaseDown
-                0x00000712       0x1c direction.o
-                0x00000712                DirectionReleaseDown
+                0x00000746       0x46 direction.o
+                0x00000746                DirectionReleaseDown
  .text.DirectionPressUpLed
-                0x0000072e        0x4 direction.o
-                0x0000072e                DirectionPressUpLed
+                0x0000078c        0x4 direction.o
+                0x0000078c                DirectionPressUpLed
  .text.DirectionPressUp
-                0x00000732       0x1c direction.o
-                0x00000732                DirectionPressUp
+                0x00000790       0x46 direction.o
+                0x00000790                DirectionPressUp
  .text.DirectionReleaseUpLed
-                0x0000074e        0x4 direction.o
-                0x0000074e                DirectionReleaseUpLed
+                0x000007d6        0x4 direction.o
+                0x000007d6                DirectionReleaseUpLed
  .text.DirectionReleaseUp
-                0x00000752       0x1c direction.o
-                0x00000752                DirectionReleaseUp
+                0x000007da       0x46 direction.o
+                0x000007da                DirectionReleaseUp
  .text.DirectionGetLeftState
-                0x0000076e        0x6 direction.o
-                0x0000076e                DirectionGetLeftState
+                0x00000820        0x6 direction.o
+                0x00000820                DirectionGetLeftState
  .text.DirectionGetRightState
-                0x00000774        0x6 direction.o
-                0x00000774                DirectionGetRightState
+                0x00000826        0x6 direction.o
+                0x00000826                DirectionGetRightState
  .text.DirectionGetUpState
-                0x0000077a        0x6 direction.o
-                0x0000077a                DirectionGetUpState
+                0x0000082c        0x6 direction.o
+                0x0000082c                DirectionGetUpState
  .text.DirectionGetDownState
-                0x00000780        0x6 direction.o
-                0x00000780                DirectionGetDownState
- .text.main     0x00000786      0x3f8 main.o
-                0x00000786                main
- .text.libgcc   0x00000b7e        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_tablejump2.o)
-                0x00000b7e                __tablejump2__
+                0x00000832        0x6 direction.o
+                0x00000832                DirectionGetDownState
+ .text.main     0x00000838      0x13c main.o
+                0x00000838                main
+ .text.libgcc   0x00000974        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_tablejump2.o)
+                0x00000974                __tablejump2__
  .text.avr-libc
-                0x00000b8a       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
-                0x00000b8a                eeprom_read_byte
+                0x00000980       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+                0x00000980                eeprom_read_byte
  .text.avr-libc
-                0x00000b9a       0x24 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
-                0x00000b9a                eeprom_update_byte
-                0x00000b9c                eeprom_update_r18
-                0x00000bbe                . = ALIGN (0x2)
+                0x00000990       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
+                0x00000990                eeprom_update_byte
+                0x00000992                eeprom_update_r18
+                0x000009b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000bbe        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
-                0x00000bbe                _exit
-                0x00000bbe                exit
+ .fini9         0x000009b4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+                0x000009b4                _exit
+                0x000009b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -448,45 +453,47 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000bbe        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+ .fini0         0x000009b4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000bc2                _etext = .
+                0x000009b8                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000bc2
-                [!provide]                PROVIDE (__data_start, .)
+.data           0x00800100        0x2 load address 0x000009b8
+                0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- *(.gnu.linkonce.d*)
+ .data.CleanerDirectionState
+                0x00800100        0x1 cleaner.o
  *(.rodata)
  *(.rodata*)
- *(.gnu.linkonce.r*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                [!provide]                PROVIDE (__data_end, .)
+ *(.gnu.linkonce.d*)
+                0x00800102                . = ALIGN (0x2)
+ *fill*         0x00800101        0x1 
+                0x00800102                _edata = .
+                0x00800102                PROVIDE (__data_end, .)
 
-.bss            0x00800100        0x4
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800102        0x4
+                0x00800102                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.CleanerYAxisState
-                0x00800100        0x1 cleaner.o
- .bss.CleanerXAxisState
-                0x00800101        0x1 cleaner.o
- .bss.programModeCounter
-                0x00800102        0x1 main.o
- .bss.remoteModeCode
+ .bss.invertModeCode
+                0x00800102        0x1 direction.o
+ .bss.bypassCleaner
                 0x00800103        0x1 main.o
+ .bss.programModeCounter
+                0x00800104        0x1 main.o
+ .bss.remoteModeCode
+                0x00800105        0x1 main.o
  *(COMMON)
-                0x00800104                PROVIDE (__bss_end, .)
-                0x00000bc2                __data_load_start = LOADADDR (.data)
-                0x00000bc2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800106                PROVIDE (__bss_end, .)
+                0x000009b8                __data_load_start = LOADADDR (.data)
+                0x000009ba                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800104        0x0
-                [!provide]                PROVIDE (__noinit_start, .)
+.noinit         0x00800106        0x0
+                0x00800106                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                [!provide]                PROVIDE (__noinit_end, .)
-                0x00800104                _end = .
-                [!provide]                PROVIDE (__heap_start, .)
+                0x00800106                PROVIDE (__noinit_end, .)
+                0x00800106                _end = .
+                0x00800106                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -536,7 +543,7 @@ END GROUP
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
  .note.gnu.avr.deviceinfo
-                0x00000000       0x40 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
+                0x00000000       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -553,79 +560,65 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1e8
+.debug_aranges  0x00000000      0x1b8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x58 cleaner.o
+                0x00000000       0x68 cleaner.o
  .debug_aranges
-                0x00000058       0x78 modeswitches.o
+                0x00000068       0x78 modeswitches.o
  .debug_aranges
-                0x000000d0       0xb8 direction.o
+                0x000000e0       0xb8 direction.o
  .debug_aranges
-                0x00000188       0x20 main.o
- .debug_aranges
-                0x000001a8       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .debug_aranges
-                0x000001c8       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+                0x00000198       0x20 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x22b0
+.debug_info     0x00000000     0x1ae6
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x6ba C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
- .debug_info    0x000006ba      0x9d7 cleaner.o
- .debug_info    0x00001091      0x22a modeswitches.o
- .debug_info    0x000012bb      0x318 direction.o
- .debug_info    0x000015d3      0xba6 main.o
- .debug_info    0x00002179       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .debug_info    0x00002214       0x9c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+ .debug_info    0x00000000      0xfe6 cleaner.o
+ .debug_info    0x00000fe6      0x22a modeswitches.o
+ .debug_info    0x00001210      0x421 direction.o
+ .debug_info    0x00001631      0x4b5 main.o
 
-.debug_abbrev   0x00000000      0xa3d
+.debug_abbrev   0x00000000      0x4b7
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x65d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
- .debug_abbrev  0x0000065d       0xb7 cleaner.o
- .debug_abbrev  0x00000714       0xca modeswitches.o
- .debug_abbrev  0x000007de       0xb7 direction.o
- .debug_abbrev  0x00000895      0x180 main.o
- .debug_abbrev  0x00000a15       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .debug_abbrev  0x00000a29       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+ .debug_abbrev  0x00000000      0x10f cleaner.o
+ .debug_abbrev  0x0000010f       0xca modeswitches.o
+ .debug_abbrev  0x000001d9      0x11a direction.o
+ .debug_abbrev  0x000002f3      0x1c4 main.o
 
-.debug_line     0x00000000     0x129c
+.debug_line     0x00000000      0xa38
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x145 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
- .debug_line    0x00000145      0x577 cleaner.o
- .debug_line    0x000006bc      0x26a modeswitches.o
- .debug_line    0x00000926      0x38f direction.o
- .debug_line    0x00000cb5      0x4b7 main.o
- .debug_line    0x0000116c       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
- .debug_line    0x000011e6       0xb6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+ .debug_line    0x00000000      0x3fe cleaner.o
+ .debug_line    0x000003fe      0x190 modeswitches.o
+ .debug_line    0x0000058e      0x2c9 direction.o
+ .debug_line    0x00000857      0x1e1 main.o
 
-.debug_frame    0x00000000      0x2e0
+.debug_frame    0x00000000      0x34c
  *(.debug_frame)
- .debug_frame   0x00000000       0x94 cleaner.o
- .debug_frame   0x00000094       0xd4 modeswitches.o
- .debug_frame   0x00000168      0x154 direction.o
- .debug_frame   0x000002bc       0x24 main.o
+ .debug_frame   0x00000000       0xc0 cleaner.o
+ .debug_frame   0x000000c0       0xd4 modeswitches.o
+ .debug_frame   0x00000194      0x194 direction.o
+ .debug_frame   0x00000328       0x24 main.o
 
-.debug_str      0x00000000      0x8e7
+.debug_str      0x00000000      0x670
  *(.debug_str)
- .debug_str     0x00000000      0x262 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
- .debug_str     0x00000262      0x2fe cleaner.o
-                                0x332 (size before relaxing)
- .debug_str     0x00000560      0x111 modeswitches.o
-                                0x2c4 (size before relaxing)
- .debug_str     0x00000671      0x12e direction.o
-                                0x367 (size before relaxing)
- .debug_str     0x0000079f      0x148 main.o
-                                0x4c3 (size before relaxing)
+ .debug_str     0x00000000      0x3c0 cleaner.o
+                                0x3f4 (size before relaxing)
+ .debug_str     0x000003c0      0x111 modeswitches.o
+                                0x2da (size before relaxing)
+ .debug_str     0x000004d1       0xe8 direction.o
+                                0x39d (size before relaxing)
+ .debug_str     0x000005b9       0xb7 main.o
+                                0x430 (size before relaxing)
 
-.debug_loc      0x00000000      0xfa8
+.debug_loc      0x00000000     0x1cd6
  *(.debug_loc)
- .debug_loc     0x00000000      0xb0c cleaner.o
- .debug_loc     0x00000b0c       0x84 modeswitches.o
- .debug_loc     0x00000b90      0x108 direction.o
- .debug_loc     0x00000c98      0x310 main.o
+ .debug_loc     0x00000000     0x19cf cleaner.o
+ .debug_loc     0x000019cf       0x84 modeswitches.o
+ .debug_loc     0x00001a53      0x270 direction.o
+ .debug_loc     0x00001cc3       0x13 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -645,12 +638,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x180
+.debug_ranges   0x00000000      0x178
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x48 cleaner.o
- .debug_ranges  0x00000048       0x68 modeswitches.o
- .debug_ranges  0x000000b0       0xa8 direction.o
- .debug_ranges  0x00000158       0x28 main.o
+ .debug_ranges  0x00000000       0x58 cleaner.o
+ .debug_ranges  0x00000058       0x68 modeswitches.o
+ .debug_ranges  0x000000c0       0xa8 direction.o
+ .debug_ranges  0x00000168       0x10 main.o
 
 .debug_macro
  *(.debug_macro)

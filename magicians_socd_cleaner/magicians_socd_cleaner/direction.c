@@ -6,22 +6,45 @@
 // Setting Outputs
 void DirectionPressLeft(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Press left on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
+		
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
-		
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else
 	{
@@ -32,21 +55,44 @@ void DirectionPressLeft(uint8_t tempOrientation)
 
 void DirectionReleaseLeft(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Release left on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else
 	{
@@ -57,22 +103,44 @@ void DirectionReleaseLeft(uint8_t tempOrientation)
 
 void DirectionPressRight(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Press right on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
-		
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else
 	{
@@ -83,21 +151,44 @@ void DirectionPressRight(uint8_t tempOrientation)
 
 void DirectionReleaseRight(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Release right on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+		}
 	}
 	else
 	{
@@ -108,21 +199,44 @@ void DirectionReleaseRight(uint8_t tempOrientation)
 
 void DirectionPressDown(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Press down on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else
 	{
@@ -133,21 +247,44 @@ void DirectionPressDown(uint8_t tempOrientation)
 
 void DirectionReleaseDown(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Release down on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else
 	{
@@ -158,22 +295,44 @@ void DirectionReleaseDown(uint8_t tempOrientation)
 
 void DirectionPressUp(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Press up on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
-		
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
 	}
 	else
 	{
@@ -184,22 +343,44 @@ void DirectionPressUp(uint8_t tempOrientation)
 
 void DirectionReleaseUp(uint8_t tempOrientation)
 {
+	invertModeCode = eeprom_read_byte (( uint8_t *) 56);
+	
 	// Release left on correct pin (OEM controller dependent)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
-		PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+		}
 	}
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
-		PORTD |= (1 << DIRECTION_SW4_CLEAN);
-		
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+		}
 	}
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
-		PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		if(invertModeCode == 0)
+		{
+			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+		}
+		else
+		{
+			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+		}
 	}
 	else
 	{

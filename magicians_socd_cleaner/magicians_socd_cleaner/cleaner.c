@@ -374,3 +374,310 @@ void CleanerYLastInput(uint8_t tempDownState, uint8_t tempUpState)
 			break;
 	}
 }
+
+void CleanerTetris(uint8_t tempDownState, uint8_t tempUpState, uint8_t tempLeftState, uint8_t tempRightState)
+{
+	switch (CleanerDirectionState)
+	{
+		//-----------------------------------------------------------------
+		case NEUTRAL_TETRIS:
+		if ( (tempDownState == 0) )
+		{
+			DirectionPressDown(ModeSwitchesOrientation());
+			CleanerDirectionState = DOWN_TETRIS;
+		}
+		else if ( (tempUpState == 0) )
+		{
+			DirectionPressUp(ModeSwitchesOrientation());
+			CleanerDirectionState = UP_TETRIS;
+		}
+		else if ( (tempLeftState == 0) )
+		{
+			DirectionPressLeft(ModeSwitchesOrientation());
+			CleanerDirectionState = LEFT_TETRIS;
+		}
+		else if ( (tempRightState == 0) )
+		{
+			DirectionPressRight(ModeSwitchesOrientation());
+			CleanerDirectionState = RIGHT_TETRIS;
+		}
+		else
+		{
+			// leave outputs as they were when entering state
+		}
+		break;
+		//-----------------------------------------------------------------
+		case LEFT_TETRIS:
+		//if ( (tempLeftState + tempRightState + tempDownState + tempUpState) > 2 )
+		//{
+			if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerDirectionState = NEUTRAL_TETRIS;
+			}
+			else if ( (tempRightState == 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionPressRight(ModeSwitchesOrientation());
+				CleanerDirectionState = LEFT_LOST_TETRIS;
+			}
+			else if ( (tempUpState == 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerDirectionState = LEFT_LOST_TETRIS;
+			}
+			else if ( (tempDownState == 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerDirectionState = LEFT_LOST_TETRIS;
+			}
+			else
+			{
+				// leave outputs as they were when entering state
+			}
+		//}
+		break;
+		//-----------------------------------------------------------------
+		case LEFT_LOST_TETRIS:
+		if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+		{
+			DirectionReleaseRight(ModeSwitchesOrientation());
+			DirectionReleaseDown(ModeSwitchesOrientation());
+			DirectionReleaseUp(ModeSwitchesOrientation());
+			DirectionPressLeft(ModeSwitchesOrientation());
+			CleanerDirectionState = LEFT_TETRIS;
+		}
+		else if ( (tempRightState == 0) )
+		{
+			CleanerDirectionState = RIGHT_TETRIS;
+			while( (DirectionGetLeftState() == 0) && (DirectionGetRightState() == 0) ){}
+		}
+		else if ( (tempDownState == 0) )
+		{
+			CleanerDirectionState = DOWN_TETRIS;
+			while( (DirectionGetLeftState() == 0) && (DirectionGetDownState() == 0) ){}
+		}
+		else if ( (tempUpState == 0) )
+		{
+			CleanerDirectionState = UP_TETRIS;
+			while( (DirectionGetLeftState() == 0) && (DirectionGetUpState() == 0) ){}
+		}
+		else
+		{
+			// leave outputs as they were when entering state
+		}
+		break;
+		//-----------------------------------------------------------------
+		case RIGHT_TETRIS:
+		//if ( (tempLeftState + tempRightState + tempDownState + tempUpState) > 2 )
+		//{
+			if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerDirectionState = NEUTRAL_TETRIS;
+			}
+			else if ( (tempLeftState == 0) )
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionPressLeft(ModeSwitchesOrientation());
+				CleanerDirectionState = RIGHT_LOST_TETRIS;
+			}
+			else if ( (tempUpState == 0) )
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerDirectionState = RIGHT_LOST_TETRIS;
+			}
+			else if ( (tempDownState == 0) )
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerDirectionState = RIGHT_LOST_TETRIS;
+			}
+			else
+			{
+				// leave outputs as they were when entering state
+			}
+		//}
+		break;
+		//-----------------------------------------------------------------
+		case RIGHT_LOST_TETRIS:
+		if ( (tempLeftState > 0) && (tempRightState == 0) && (tempDownState > 0) && (tempUpState > 0) )
+		{
+			DirectionReleaseLeft(ModeSwitchesOrientation());
+			DirectionReleaseDown(ModeSwitchesOrientation());
+			DirectionReleaseUp(ModeSwitchesOrientation());
+			DirectionPressRight(ModeSwitchesOrientation());
+			CleanerDirectionState = RIGHT_TETRIS;
+		}
+		else if ( (tempLeftState == 0) )
+		{
+			CleanerDirectionState = LEFT_TETRIS;
+			while( (DirectionGetRightState() == 0) && (DirectionGetLeftState() == 0) ){}
+		}
+		else if ( (tempDownState == 0) )
+		{
+			CleanerDirectionState = DOWN_TETRIS;
+			while( (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) ){}
+		}
+		else if ( (tempUpState == 0) )
+		{
+			CleanerDirectionState = UP_TETRIS;
+			while( (DirectionGetRightState() == 0) && (DirectionGetUpState() == 0) ){}
+		}
+		else
+		{
+			// leave outputs as they were when entering state
+		}
+		break;
+		//-----------------------------------------------------------------
+		case DOWN_TETRIS:
+		//if ( (tempLeftState + tempRightState + tempDownState + tempUpState) > 2 )
+		//{
+			if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerDirectionState = NEUTRAL_TETRIS;
+			}
+			else if ( (tempRightState == 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressRight(ModeSwitchesOrientation());
+				CleanerDirectionState = DOWN_LOST_TETRIS;
+			}
+			else if ( (tempUpState == 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressUp(ModeSwitchesOrientation());
+				CleanerDirectionState = DOWN_LOST_TETRIS;
+			}
+			else if ( (tempLeftState == 0) )
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionPressLeft(ModeSwitchesOrientation());
+				CleanerDirectionState = DOWN_LOST_TETRIS;
+			}
+			else
+			{
+				// leave outputs as they were when entering state
+			}
+		//}
+		break;
+		//-----------------------------------------------------------------
+		case DOWN_LOST_TETRIS:
+		if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
+		{
+			DirectionReleaseRight(ModeSwitchesOrientation());
+			DirectionReleaseLeft(ModeSwitchesOrientation());
+			DirectionReleaseUp(ModeSwitchesOrientation());
+			DirectionPressDown(ModeSwitchesOrientation());
+			CleanerDirectionState = DOWN_TETRIS;
+		}
+		else if ( (tempRightState == 0) )
+		{
+			CleanerDirectionState = RIGHT_TETRIS;
+			while( (DirectionGetDownState() == 0) && (DirectionGetRightState() == 0) ){}
+		}
+		else if ( (tempLeftState == 0) )
+		{
+			CleanerDirectionState = LEFT_TETRIS;
+			while( (DirectionGetDownState() == 0) && (DirectionGetLeftState() == 0) ){}
+		}
+		else if ( (tempUpState == 0) )
+		{
+			CleanerDirectionState = UP_TETRIS;
+			while( (DirectionGetDownState() == 0) && (DirectionGetUpState() == 0) ){}
+		}
+		else
+		{
+			// leave outputs as they were when entering state
+		}
+		break;
+		//-----------------------------------------------------------------
+		case UP_TETRIS:
+		//if ( (tempLeftState + tempRightState + tempDownState + tempUpState) > 2 )
+		//{
+			if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState > 0) )
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+				DirectionReleaseRight(ModeSwitchesOrientation());
+				DirectionReleaseDown(ModeSwitchesOrientation());
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				CleanerDirectionState = NEUTRAL_TETRIS;
+			}
+			else if ( (tempRightState == 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressRight(ModeSwitchesOrientation());
+				CleanerDirectionState = UP_LOST_TETRIS;
+			}
+			else if ( (tempLeftState == 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressLeft(ModeSwitchesOrientation());
+				CleanerDirectionState = UP_LOST_TETRIS;
+			}
+			else if ( (tempDownState == 0) )
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+				DirectionPressDown(ModeSwitchesOrientation());
+				CleanerDirectionState = UP_LOST_TETRIS;
+			}
+			else
+			{
+				// leave outputs as they were when entering state
+			}
+		//}
+		break;
+		//-----------------------------------------------------------------
+		case UP_LOST_TETRIS:
+		if ( (tempLeftState > 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
+		{
+			DirectionReleaseRight(ModeSwitchesOrientation());
+			DirectionReleaseDown(ModeSwitchesOrientation());
+			DirectionReleaseUp(ModeSwitchesOrientation());
+			DirectionPressLeft(ModeSwitchesOrientation());
+			CleanerDirectionState = UP_TETRIS;
+		}
+		else if ( (tempRightState == 0) )
+		{
+			CleanerDirectionState = RIGHT_TETRIS;
+			while( (DirectionGetUpState() == 0) && (DirectionGetRightState() == 0) ){}
+		}
+		else if ( (tempDownState == 0) )
+		{
+			CleanerDirectionState = DOWN_TETRIS;
+			while( (DirectionGetUpState() == 0) && (DirectionGetDownState() == 0) ){}
+		}
+		else if ( (tempLeftState == 0) )
+		{
+			CleanerDirectionState = LEFT_TETRIS;
+			while( (DirectionGetUpState() == 0) && (DirectionGetLeftState() == 0) ){}
+		}
+		else
+		{
+			// leave outputs as they were when entering state
+		}
+		break;
+	}
+}
+
+void CleanerDetectThreeReleasedButtons()
+{
+
+	while(1)
+	{
+
+	}
+}

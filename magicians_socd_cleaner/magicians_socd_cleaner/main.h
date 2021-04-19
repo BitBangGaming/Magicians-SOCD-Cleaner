@@ -19,6 +19,7 @@
 #define	MAIN_DIP2_SW1_PULLUP	  PD1
 #define	MAIN_DIP2_SW2_PULLUP	  PD2
 #define	MAIN_PRESET_BUTTON_PULLUP PB7
+#define MAIN_PRESET_LED			  PD7
 
 // Remote mode codes
 #define	REMOTE_MODE_0  0
@@ -38,9 +39,14 @@
 #define	REMOTE_MODE_14 14
 #define	REMOTE_MODE_15 15
 
+// Inversion mode codes
+#define	COMMON_GROUND  0
+#define	COMMON_RAIL    1
+
 /* Variables */
 static uint8_t remoteModeCode;
 static uint8_t programModeCounter;
+static uint8_t bypassCleaner;
 
 /* Function Declarations */
 // Main routine 
@@ -54,6 +60,8 @@ static void MainCleanerRemote(uint8_t, uint8_t, uint8_t, uint8_t);
 static void MainUpdateProgramModeCounter(void);
 static void MainProgramModeChecker(void);
 static void MainUpdateRemoteModeCode(uint8_t, uint8_t, uint8_t, uint8_t);
+static void MainTurnOnPresetLed();
+static void MainTurnOffPresetLed();
 
 // Initialization
 static void MainInitialize(void);

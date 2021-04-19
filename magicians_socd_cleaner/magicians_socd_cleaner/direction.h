@@ -4,6 +4,7 @@
 
 /* Includes */
 #include <avr/io.h>
+#include <avr/eeprom.h>
 
 /* Macros */
 // Output Pins
@@ -23,7 +24,7 @@
 #define DIRECTION_UP_BUTTON    PINB3
 
 /* Variables */
-// None
+static uint8_t invertModeCode;
 
 /* Function Declarations */
 // Setting Outputs

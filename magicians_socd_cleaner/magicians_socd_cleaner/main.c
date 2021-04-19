@@ -10,8 +10,6 @@
 
 int main(void)
 {	
-	// Testing out some changes in github
-	// Trying out another commit
 	// Setup I/O	
 	MainInitialize();
 	
@@ -19,13 +17,57 @@ int main(void)
     while(1) 
     {
 		// Go and clean
-		MainGoClean();		
+		//MainGoClean();	
+		CleanerTetris(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 	}
 	return(0);
 }
 
 static void MainGoClean()
 {
+	if(bypassCleaner == 1)
+	{
+		// Bypass cleaner and copy inputs to outputs
+		while(1)
+		{
+			if(DirectionGetLeftState() == 0)
+			{
+				DirectionPressLeft(ModeSwitchesOrientation());
+			}
+			else
+			{
+				DirectionReleaseLeft(ModeSwitchesOrientation());
+			}
+			
+			if(DirectionGetRightState() == 0)
+			{
+				DirectionPressRight(ModeSwitchesOrientation());
+			}
+			else
+			{
+				DirectionReleaseRight(ModeSwitchesOrientation());
+			}
+						
+			if(DirectionGetDownState() == 0)
+			{
+				DirectionPressDown(ModeSwitchesOrientation());
+			}
+			else
+			{
+				DirectionReleaseDown(ModeSwitchesOrientation());
+			}
+									
+			if(DirectionGetUpState() == 0)
+			{
+				DirectionPressUp(ModeSwitchesOrientation());
+			}
+			else
+			{
+				DirectionReleaseUp(ModeSwitchesOrientation());
+			}
+		}
+	}
+	
 	if(ModeSwitchesRemote() == 0)
 	{
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
@@ -209,7 +251,7 @@ static void MainProgramModeChecker()
 	if(programModeCounter > 100)
 	{
 		// Indicate you are in program mode
-		// future
+		MainTurnOnPresetLed();
 		
 		// Read the inputs every 50 milliseconds for the next 5 seconds to determine the new cleaning operation
 		for(uint8_t i = 0; i < 100; i++)
@@ -218,8 +260,9 @@ static void MainProgramModeChecker()
 			_delay_ms(50);
 		}
 		
-		// Task complete so reset the counter
+		// Task complete so reset the counter and turn off preset LED
 		programModeCounter = 0;
+		MainTurnOffPresetLed();
 	}
 }
 
@@ -293,6 +336,16 @@ static void MainUpdateRemoteModeCode(uint8_t tempLeftState, uint8_t tempRightSta
 	remoteModeCode = eeprom_read_byte (( uint8_t *) 46);
 }
 
+static void MainTurnOnPresetLed()
+{
+	PORTD |= (1 << MAIN_PRESET_LED);
+}
+
+static void MainTurnOffPresetLed()
+{
+	PORTD &= ~(1 << MAIN_PRESET_LED);
+}
+
 static void MainInitialize()
 {
 	// Set all ports to be configured as inputs
@@ -328,7 +381,63 @@ static void MainInitialize()
 	DDRB = DDRB | (1 << DIRECTION_LEFT_LED);
 	DDRB = DDRB | (1 << DIRECTION_DOWN_LED);
 	DDRB = DDRB | (1 << DIRECTION_UP_LED);
+	DDRD = DDRD | (1 << MAIN_PRESET_LED);
 
+	// Check to see if inversion of signals are requested
+	if ( (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) )
+	{
+		if(eeprom_read_byte (( uint8_t *) 56) == COMMON_GROUND)
+		{
+			eeprom_update_byte (( uint8_t *) 56, COMMON_RAIL);
+		}
+		else
+		{
+			eeprom_update_byte (( uint8_t *) 56, COMMON_GROUND);
+		}
+	}
+	
+	// Check to see if we need to bypass the cleaner
+	if ( (DirectionGetLeftState() == 0) && (DirectionGetUpState() == 0) )
+	{
+		bypassCleaner = 1;
+	}
+	else
+	{
+		bypassCleaner = 0;
+	}
+	
+	DirectionReleaseLeftLed();
+	DirectionReleaseRightLed();
+	DirectionReleaseDownLed();
+	DirectionReleaseUpLed();
+	
+	// Signal to show which signal inversion mode you are in
+	if(eeprom_read_byte (( uint8_t *) 56) == COMMON_GROUND)
+	{
+		DirectionPressDownLed();
+	}
+	else
+	{
+		DirectionPressUpLed();
+	}
+	
+	// Signal to show if you have bypassed the cleaner
+	if(bypassCleaner == 0)
+	{
+		DirectionPressLeftLed();
+	}
+	else
+	{
+		DirectionPressRightLed();
+	}
+	
+	// Hold all animation for two seconds then release
+	_delay_ms(2000);
+	DirectionReleaseLeftLed();
+	DirectionReleaseRightLed();
+	DirectionReleaseDownLed();
+	DirectionReleaseUpLed();
+	
 	// Default button positions
 	DirectionReleaseLeft(0);
 	DirectionReleaseRight(0);
@@ -352,4 +461,5 @@ static void MainInitialize()
 	
 	// Default program mode counter
 	programModeCounter = 0;
+
 }
