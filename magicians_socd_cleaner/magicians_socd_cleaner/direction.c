@@ -12,6 +12,7 @@ void DirectionPressLeft(uint8_t tempOrientation)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW2_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
@@ -25,6 +26,7 @@ void DirectionPressLeft(uint8_t tempOrientation)
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
+		//DDRD |= (1 << DIRECTION_SW1_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
@@ -37,6 +39,7 @@ void DirectionPressLeft(uint8_t tempOrientation)
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW3_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
@@ -64,10 +67,12 @@ void DirectionReleaseLeft(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 	}
 	else if(tempOrientation == 1)
@@ -76,10 +81,12 @@ void DirectionReleaseLeft(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 	}
 	else if(tempOrientation == 2)
@@ -88,10 +95,12 @@ void DirectionReleaseLeft(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 	}
 	else
@@ -109,6 +118,7 @@ void DirectionPressRight(uint8_t tempOrientation)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW1_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
@@ -121,6 +131,7 @@ void DirectionPressRight(uint8_t tempOrientation)
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
+		//DDRD |= (1 << DIRECTION_SW2_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
@@ -133,6 +144,7 @@ void DirectionPressRight(uint8_t tempOrientation)
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW1_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
@@ -160,10 +172,12 @@ void DirectionReleaseRight(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 	}
 	else if(tempOrientation == 1)
@@ -172,10 +186,12 @@ void DirectionReleaseRight(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 	}
 	else if(tempOrientation == 2)
@@ -184,10 +200,12 @@ void DirectionReleaseRight(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW1_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW1_CLEAN);
 		}
 	}
 	else
@@ -205,6 +223,7 @@ void DirectionPressDown(uint8_t tempOrientation)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW4_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
@@ -217,6 +236,7 @@ void DirectionPressDown(uint8_t tempOrientation)
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
+		//DDRD |= (1 << DIRECTION_SW3_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
@@ -229,6 +249,7 @@ void DirectionPressDown(uint8_t tempOrientation)
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW4_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
@@ -256,10 +277,12 @@ void DirectionReleaseDown(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 	}
 	else if(tempOrientation == 1)
@@ -268,10 +291,12 @@ void DirectionReleaseDown(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 	}
 	else if(tempOrientation == 2)
@@ -280,10 +305,12 @@ void DirectionReleaseDown(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 	}
 	else
@@ -301,6 +328,7 @@ void DirectionPressUp(uint8_t tempOrientation)
 	if(tempOrientation == 0)
 	{
 		// G  R  L  U  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW3_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
@@ -313,6 +341,7 @@ void DirectionPressUp(uint8_t tempOrientation)
 	else if(tempOrientation == 1)
 	{
 		// G  L  R  D  U on JST connector
+		//DDRD |= (1 << DIRECTION_SW4_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
@@ -325,6 +354,7 @@ void DirectionPressUp(uint8_t tempOrientation)
 	else if(tempOrientation == 2)
 	{
 		// G  R  U  L  D on JST connector
+		//DDRD |= (1 << DIRECTION_SW2_CLEAN);
 		if(invertModeCode == 0)
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
@@ -352,10 +382,12 @@ void DirectionReleaseUp(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW3_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW3_CLEAN);
 		}
 	}
 	else if(tempOrientation == 1)
@@ -364,10 +396,12 @@ void DirectionReleaseUp(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW4_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW4_CLEAN);
 		}
 	}
 	else if(tempOrientation == 2)
@@ -376,10 +410,12 @@ void DirectionReleaseUp(uint8_t tempOrientation)
 		if(invertModeCode == 0)
 		{
 			PORTD |= (1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 		else
 		{
 			PORTD &= ~(1 << DIRECTION_SW2_CLEAN);
+			//DDRD &= ~(1 << DIRECTION_SW2_CLEAN);
 		}
 	}
 	else

@@ -17,8 +17,8 @@ int main(void)
     while(1) 
     {
 		// Go and clean
-		//MainGoClean();	
-		CleanerTetris(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
+		MainGoClean();	
+		//CleanerTetris(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 	}
 	return(0);
 }
