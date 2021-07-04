@@ -615,16 +615,16 @@ END GROUP
  .debug_frame   0x00000194      0x194 direction.o
  .debug_frame   0x00000328       0x24 main.o
 
-.debug_str      0x00000000      0x727
+.debug_str      0x00000000      0x728
  *(.debug_str)
- .debug_str     0x00000000      0x3c0 cleaner.o
-                                0x3f4 (size before relaxing)
- .debug_str     0x000003c0      0x111 modeswitches.o
-                                0x2da (size before relaxing)
- .debug_str     0x000004d1       0xe8 direction.o
-                                0x39d (size before relaxing)
- .debug_str     0x000005b9      0x16e main.o
-                                0x64e (size before relaxing)
+ .debug_str     0x00000000      0x3c1 cleaner.o
+                                0x3f5 (size before relaxing)
+ .debug_str     0x000003c1      0x111 modeswitches.o
+                                0x2db (size before relaxing)
+ .debug_str     0x000004d2       0xe8 direction.o
+                                0x39e (size before relaxing)
+ .debug_str     0x000005ba      0x16e main.o
+                                0x64f (size before relaxing)
 
 .debug_loc      0x00000000     0x1f1a
  *(.debug_loc)

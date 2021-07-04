@@ -229,7 +229,7 @@ static void MainUpdateProgramModeCounter()
 		}
 		else
 		{
-			// Update program mode counter only if all inputs are pressed
+			// Update program mode counter only if remote button is pressed
 			if(ModeSwitchesReadRemoteButton() == 0)
 			{
 				programModeCounter++;
