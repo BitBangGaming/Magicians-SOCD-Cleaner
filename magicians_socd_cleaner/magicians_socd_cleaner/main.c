@@ -284,13 +284,13 @@ static void MainUpdateRemoteModeCode(uint8_t tempLeftState, uint8_t tempRightSta
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_3 );
 	}
-	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
+	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState == 0) )
 	{
 		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_4 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState == 0) && (tempUpState > 0) )
 	{
-		eeprom_update_byte (( uint8_t *) 0, REMOTE_MODE_5 );
+		eeprom_update_byte (( uint8_t *) 46, REMOTE_MODE_5 );
 	}
 	else if ( (tempLeftState == 0) && (tempRightState > 0) && (tempDownState > 0) && (tempUpState == 0) )
 	{
