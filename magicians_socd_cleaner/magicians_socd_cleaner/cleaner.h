@@ -22,7 +22,7 @@
 #define UP		   3
 #define UP_LOST	   4
 
-// Y axis states for last input cleaner
+// tetris cleaner
 #define NEUTRAL_TETRIS    10
 #define LEFT_TETRIS		  11
 #define LEFT_LOST_TETRIS  12
@@ -40,7 +40,7 @@ static uint8_t CleanerYAxisState;
 static uint8_t CleanerDirectionState = NEUTRAL_TETRIS;
 
 /* Function Declarations */
-// SOCD Cleaners
+// Cleaners
 void CleanerXNeutral(uint8_t, uint8_t);
 void CleanerXLeft(uint8_t, uint8_t);
 void CleanerXRight(uint8_t, uint8_t);
@@ -50,6 +50,7 @@ void CleanerYDown(uint8_t, uint8_t);
 void CleanerYUp(uint8_t, uint8_t);
 void CleanerYLastInput(uint8_t, uint8_t);
 void CleanerTetris(uint8_t, uint8_t, uint8_t, uint8_t);
+void CleanerCustom0(uint8_t, uint8_t, uint8_t, uint8_t);
 
 // Helper functions
 void CleanerDetectThreeReleasedButtons();

@@ -17,7 +17,8 @@ int main(void)
     while(1) 
     {
 		// Go and clean
-		MainGoClean();	
+		//MainGoClean();	
+		CleanerCustom0(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 		//CleanerTetris(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 	}
 	return(0);
@@ -70,6 +71,7 @@ static void MainGoClean()
 	
 	if(ModeSwitchesRemote() == 0)
 	{
+		
 		MainCleanerX(DirectionGetLeftState(), DirectionGetRightState());
 		MainCleanerY(DirectionGetDownState(), DirectionGetUpState());
 	}
