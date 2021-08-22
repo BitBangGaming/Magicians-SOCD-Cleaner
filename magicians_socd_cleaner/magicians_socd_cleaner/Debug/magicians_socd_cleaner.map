@@ -266,7 +266,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x948
+.text           0x00000000      0x886
  *(.vectors)
  .vectors       0x00000000       0x74 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35/crtatmega32u2.o
                 0x00000000                __vector_default
@@ -355,85 +355,85 @@ END GROUP
                 0x000000b2                . = ALIGN (0x2)
  *(.text.*)
  .text.CleanerCustom0
-                0x000000b2      0x48e cleaner.o
+                0x000000b2      0x3cc cleaner.o
                 0x000000b2                CleanerCustom0
  .text.ModeSwitchesOrientation
-                0x00000540       0x2c modeswitches.o
-                0x00000540                ModeSwitchesOrientation
+                0x0000047e       0x2c modeswitches.o
+                0x0000047e                ModeSwitchesOrientation
  .text.DirectionPressRightLed
-                0x0000056c        0x4 direction.o
-                0x0000056c                DirectionPressRightLed
+                0x000004aa        0x4 direction.o
+                0x000004aa                DirectionPressRightLed
  .text.DirectionPressRight
-                0x00000570       0x46 direction.o
-                0x00000570                DirectionPressRight
+                0x000004ae       0x46 direction.o
+                0x000004ae                DirectionPressRight
  .text.DirectionReleaseRightLed
-                0x000005b6        0x4 direction.o
-                0x000005b6                DirectionReleaseRightLed
+                0x000004f4        0x4 direction.o
+                0x000004f4                DirectionReleaseRightLed
  .text.DirectionReleaseRight
-                0x000005ba       0x46 direction.o
-                0x000005ba                DirectionReleaseRight
+                0x000004f8       0x46 direction.o
+                0x000004f8                DirectionReleaseRight
  .text.DirectionPressLeftLed
-                0x00000600        0x4 direction.o
-                0x00000600                DirectionPressLeftLed
+                0x0000053e        0x4 direction.o
+                0x0000053e                DirectionPressLeftLed
  .text.DirectionPressLeft
-                0x00000604       0x46 direction.o
-                0x00000604                DirectionPressLeft
+                0x00000542       0x46 direction.o
+                0x00000542                DirectionPressLeft
  .text.DirectionReleaseLeftLed
-                0x0000064a        0x4 direction.o
-                0x0000064a                DirectionReleaseLeftLed
+                0x00000588        0x4 direction.o
+                0x00000588                DirectionReleaseLeftLed
  .text.DirectionReleaseLeft
-                0x0000064e       0x46 direction.o
-                0x0000064e                DirectionReleaseLeft
+                0x0000058c       0x46 direction.o
+                0x0000058c                DirectionReleaseLeft
  .text.DirectionPressDownLed
-                0x00000694        0x4 direction.o
-                0x00000694                DirectionPressDownLed
+                0x000005d2        0x4 direction.o
+                0x000005d2                DirectionPressDownLed
  .text.DirectionPressDown
-                0x00000698       0x46 direction.o
-                0x00000698                DirectionPressDown
+                0x000005d6       0x46 direction.o
+                0x000005d6                DirectionPressDown
  .text.DirectionReleaseDownLed
-                0x000006de        0x4 direction.o
-                0x000006de                DirectionReleaseDownLed
+                0x0000061c        0x4 direction.o
+                0x0000061c                DirectionReleaseDownLed
  .text.DirectionReleaseDown
-                0x000006e2       0x46 direction.o
-                0x000006e2                DirectionReleaseDown
+                0x00000620       0x46 direction.o
+                0x00000620                DirectionReleaseDown
  .text.DirectionPressUpLed
-                0x00000728        0x4 direction.o
-                0x00000728                DirectionPressUpLed
+                0x00000666        0x4 direction.o
+                0x00000666                DirectionPressUpLed
  .text.DirectionPressUp
-                0x0000072c       0x46 direction.o
-                0x0000072c                DirectionPressUp
+                0x0000066a       0x46 direction.o
+                0x0000066a                DirectionPressUp
  .text.DirectionReleaseUpLed
-                0x00000772        0x4 direction.o
-                0x00000772                DirectionReleaseUpLed
+                0x000006b0        0x4 direction.o
+                0x000006b0                DirectionReleaseUpLed
  .text.DirectionReleaseUp
-                0x00000776       0x46 direction.o
-                0x00000776                DirectionReleaseUp
+                0x000006b4       0x46 direction.o
+                0x000006b4                DirectionReleaseUp
  .text.DirectionGetLeftState
-                0x000007bc        0x6 direction.o
-                0x000007bc                DirectionGetLeftState
+                0x000006fa        0x6 direction.o
+                0x000006fa                DirectionGetLeftState
  .text.DirectionGetRightState
-                0x000007c2        0x6 direction.o
-                0x000007c2                DirectionGetRightState
+                0x00000700        0x6 direction.o
+                0x00000700                DirectionGetRightState
  .text.DirectionGetUpState
-                0x000007c8        0x6 direction.o
-                0x000007c8                DirectionGetUpState
+                0x00000706        0x6 direction.o
+                0x00000706                DirectionGetUpState
  .text.DirectionGetDownState
-                0x000007ce        0x6 direction.o
-                0x000007ce                DirectionGetDownState
- .text.main     0x000007d4      0x13c main.o
-                0x000007d4                main
+                0x0000070c        0x6 direction.o
+                0x0000070c                DirectionGetDownState
+ .text.main     0x00000712      0x13c main.o
+                0x00000712                main
  .text.avr-libc
-                0x00000910       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
-                0x00000910                eeprom_read_byte
+                0x0000084e       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eerd_byte.o)
+                0x0000084e                eeprom_read_byte
  .text.avr-libc
-                0x00000920       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
-                0x00000920                eeprom_update_byte
-                0x00000922                eeprom_update_r18
-                0x00000944                . = ALIGN (0x2)
+                0x0000085e       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr35\libatmega32u2.a(eeupd_byte.o)
+                0x0000085e                eeprom_update_byte
+                0x00000860                eeprom_update_r18
+                0x00000882                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000944        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
-                0x00000944                _exit
-                0x00000944                exit
+ .fini9         0x00000882        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+                0x00000882                _exit
+                0x00000882                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -452,11 +452,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000944        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
+ .fini0         0x00000882        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr35\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000948                _etext = .
+                0x00000886                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000948
+.data           0x00800100        0x0 load address 0x00000886
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -485,8 +485,8 @@ END GROUP
                 0x00800105        0x1 main.o
  *(COMMON)
                 0x00800106                PROVIDE (__bss_end, .)
-                0x00000948                __data_load_start = LOADADDR (.data)
-                0x00000948                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000886                __data_load_start = LOADADDR (.data)
+                0x00000886                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800106        0x0
                 0x00800106                PROVIDE (__noinit_start, .)
@@ -574,12 +574,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x200c
+.debug_info     0x00000000     0x1f7c
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x150a cleaner.o
- .debug_info    0x0000150a      0x22a modeswitches.o
- .debug_info    0x00001734      0x423 direction.o
- .debug_info    0x00001b57      0x4b5 main.o
+ .debug_info    0x00000000     0x147a cleaner.o
+ .debug_info    0x0000147a      0x22a modeswitches.o
+ .debug_info    0x000016a4      0x423 direction.o
+ .debug_info    0x00001ac7      0x4b5 main.o
 
 .debug_abbrev   0x00000000      0x4b7
  *(.debug_abbrev)
@@ -588,12 +588,12 @@ END GROUP
  .debug_abbrev  0x000001d9      0x11a direction.o
  .debug_abbrev  0x000002f3      0x1c4 main.o
 
-.debug_line     0x00000000      0xb0a
+.debug_line     0x00000000      0xad3
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x4d0 cleaner.o
- .debug_line    0x000004d0      0x190 modeswitches.o
- .debug_line    0x00000660      0x2c9 direction.o
- .debug_line    0x00000929      0x1e1 main.o
+ .debug_line    0x00000000      0x499 cleaner.o
+ .debug_line    0x00000499      0x190 modeswitches.o
+ .debug_line    0x00000629      0x2c9 direction.o
+ .debug_line    0x000008f2      0x1e1 main.o
 
 .debug_frame    0x00000000      0x368
  *(.debug_frame)
@@ -613,12 +613,12 @@ END GROUP
  .debug_str     0x000005c8       0xb7 main.o
                                 0x431 (size before relaxing)
 
-.debug_loc      0x00000000     0x23a7
+.debug_loc      0x00000000     0x22bf
  *(.debug_loc)
- .debug_loc     0x00000000     0x20a0 cleaner.o
- .debug_loc     0x000020a0       0x84 modeswitches.o
- .debug_loc     0x00002124      0x270 direction.o
- .debug_loc     0x00002394       0x13 main.o
+ .debug_loc     0x00000000     0x1fb8 cleaner.o
+ .debug_loc     0x00001fb8       0x84 modeswitches.o
+ .debug_loc     0x0000203c      0x270 direction.o
+ .debug_loc     0x000022ac       0x13 main.o
 
 .debug_macinfo
  *(.debug_macinfo)

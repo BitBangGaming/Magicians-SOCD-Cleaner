@@ -677,12 +677,23 @@ void CleanerCustom0(uint8_t tempDownState, uint8_t tempUpState, uint8_t tempLeft
 {
 	if( (tempLeftState == 0) && (tempDownState == 0) && (tempRightState == 0) )
 	{
-		// SACD clean to Down
-		DirectionReleaseLeft(ModeSwitchesOrientation());
-		DirectionReleaseRight(ModeSwitchesOrientation());
-		DirectionPressDown(ModeSwitchesOrientation());
-		DirectionReleaseUp(ModeSwitchesOrientation());
-	}
+		if( (tempUpState == 0) )
+		{
+			// SACD clean to Up
+			DirectionReleaseLeft(ModeSwitchesOrientation());
+			DirectionReleaseRight(ModeSwitchesOrientation());
+			DirectionReleaseDown(ModeSwitchesOrientation());
+			DirectionPressUp(ModeSwitchesOrientation());
+		}
+		else
+		{
+			// SACD clean to Down
+			DirectionReleaseLeft(ModeSwitchesOrientation());
+			DirectionReleaseRight(ModeSwitchesOrientation());
+			DirectionPressDown(ModeSwitchesOrientation());
+			DirectionReleaseUp(ModeSwitchesOrientation());
+		}
+	}/*
 	else if( (tempDownState == 0) && (tempRightState == 0) && (tempUpState == 0) )
 	{
 		// SACD clean to Right
@@ -706,7 +717,7 @@ void CleanerCustom0(uint8_t tempDownState, uint8_t tempUpState, uint8_t tempLeft
 		DirectionReleaseRight(ModeSwitchesOrientation());
 		DirectionReleaseDown(ModeSwitchesOrientation());
 		DirectionReleaseUp(ModeSwitchesOrientation());
-	}
+	}*/
 	else
 	{	
 		// SOCD Clean Left and Right = Last Input
