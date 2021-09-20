@@ -17,8 +17,8 @@ int main(void)
     while(1) 
     {
 		// Go and clean
-		//MainGoClean();	
-		CleanerCustom0(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
+		MainGoClean();	
+		//CleanerCustom0(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 		//CleanerTetris(DirectionGetDownState(), DirectionGetUpState(), DirectionGetLeftState(), DirectionGetRightState());	
 	}
 	return(0);
@@ -385,6 +385,13 @@ static void MainInitialize()
 	DDRB = DDRB | (1 << DIRECTION_UP_LED);
 	DDRD = DDRD | (1 << MAIN_PRESET_LED);
 
+	// Default EEPROM value when programming the chip for the first time ever
+	if ( eeprom_read_byte (( uint8_t *) 56) != COMMON_GROUND ||
+	eeprom_read_byte (( uint8_t *) 56) != COMMON_RAIL		)
+	{
+		eeprom_update_byte (( uint8_t *) 56, COMMON_GROUND);
+	}
+	
 	// Check to see if inversion of signals are requested
 	if ( (DirectionGetRightState() == 0) && (DirectionGetDownState() == 0) )
 	{
